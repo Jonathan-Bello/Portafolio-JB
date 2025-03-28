@@ -16,15 +16,24 @@
   --color-primary-900: #871615;
   --color-primary-950: #4a0605;
 
-  --color-woodsmoke-50: #f6f6f6;
-  --color-woodsmoke-100: #e7e7e7;
-  --color-woodsmoke-200: #d1d1d1;
-  --color-woodsmoke-300: #b0b0b0;
-  --color-woodsmoke-400: #888888;
-  --color-woodsmoke-500: #6d6d6d;
-  --color-woodsmoke-600: #5d5d5d;
-  --color-woodsmoke-700: #4f4f4f;
-  --color-woodsmoke-800: #454545;
-  --color-woodsmoke-900: #3d3d3d;
-  --color-woodsmoke-950: #1a1a1a;
+  --color-neutral-50: #f6f6f6;
+  --color-neutral-100: #e7e7e7;
+  --color-neutral-200: #d1d1d1;
+  --color-neutral-300: #b0b0b0;
+  --color-neutral-400: #888888;
+  --color-neutral-500: #6d6d6d;
+  --color-neutral-600: #5d5d5d;
+  --color-neutral-700: #4f4f4f;
+  --color-neutral-800: #454545;
+  --color-neutral-900: #3d3d3d;
+  --color-neutral-950: #1a1a1a;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
 }
