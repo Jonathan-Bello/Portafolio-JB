@@ -30,8 +30,9 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
 
     <nav
       id="navigator-menu"
-      class="absolute top-16 left-0 right-0 lg:top-0 lg:left-auto lg:right-auto
-      flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 hidden
+      class="absolute -top-full left-0 right-0 lg:top-0 lg:left-auto lg:right-auto
+      flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8
+      transition-[top] duration-300 ease-in-out lg:transition-none
       lg:relative bg-neutral-50 lg:flex lg:items-center lg:gap-4"
       aria-label="Main navigation"
     >
@@ -82,12 +83,14 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
   barsIcon.addEventListener("click", () => {
     barsIcon.classList.toggle("hidden");
     closeIcon.classList.toggle("hidden");
-    navigatorMenu.classList.toggle("hidden");
+    // navigatorMenu.classList.toggle("hidden");
+    navigatorMenu.classList.toggle("top-16");
   });
 
   closeIcon.addEventListener("click", () => {
     closeIcon.classList.toggle("hidden");
     barsIcon.classList.toggle("hidden");
-    navigatorMenu.classList.toggle("hidden");
+    // navigatorMenu.classList.toggle("hidden");
+    navigatorMenu.classList.toggle("top-16");
   });
 </script>
