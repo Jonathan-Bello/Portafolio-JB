@@ -35,13 +35,13 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
       class="absolute -top-full left-0 right-0 lg:top-0 lg:left-auto lg:right-auto
       flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
       transition-[top] duration-300 ease-in-out lg:transition-none
-      lg:static lg:flex-1 bg-neutral-50 lg:flex lg:items-center lg:gap-4"
+      lg:static lg:flex-1 bg-neutral-50 lg:flex lg:items-center lg:gap-4 lg:pt-1"
       aria-label="Main navigation"
     >
       <ul
         class="h-full container flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-8
-      [&>li]:text-neutral-950 lg:[&>li]:w-28 lg:[&>li]:text-center
-         font-text font-medium text-xl"
+      [&>li]:text-neutral-950 lg:[&>li]:w-28 lg:[&>li]:text-center [&>li>a]:relative
+         font-text font-medium text-xl lg:text-lg"
       >
         <li>
           <a href="/">Inicio</a>
@@ -72,6 +72,21 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
   </div>
 </header>
 
+<style>
+  @reference "../styles/global.css";
+
+  /* Colocar linea color roja del link activo por debajo del link, pero en desktop colocar la linea encima del link */
+  #navigator-menu a:is(.active)::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 80%;
+    height: 2px;
+    @apply bg-primary-700 lg:w-full lg:-top-1;
+  }
+</style>
+
 <script>
   // Toggle navigation menu
   const barsIcon = document.querySelector("#menu-icon");
@@ -95,5 +110,17 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
     barsIcon.classList.toggle("hidden");
     // navigatorMenu.classList.toggle("hidden");
     navigatorMenu.classList.toggle("top-16");
+  });
+
+  // Agregar logoica  de que se muestre una linea roja debajo del link activo
+  // si el link concuerda con el path actual
+  const path = window.location.pathname;
+  const links = navigatorLinks?.querySelectorAll("a");
+
+  links?.forEach((link) => {
+    if (link.pathname === path) {
+      console.log(link.pathname);
+      link.classList.add("active");
+    }
   });
 </script>
