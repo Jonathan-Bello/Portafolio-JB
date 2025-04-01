@@ -8,24 +8,36 @@ import {
 import { Image } from "astro:assets";
 
 import imgWordmark from "../assets/brand/Wordmark.svg";
+import imgDarkWordmark from "../assets/brand/WordMarkDark.svg";
 ---
 
-<header class="bg-neutral-50 flex items-center justify-center shadow">
+<header
+  class="bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center shadow"
+>
   <div
     class="container flex items-center justify-between gap-4 p-4 lg:p-0 lg:py-4 md:px-0"
   >
     <div class="lg:hidden">
-      <Bars3Icon id="menu-icon" className="text-neutral-900 size-8 lg:hidden" />
+      <Bars3Icon
+        id="menu-icon"
+        className="text-neutral-900 dark:text-neutral-50 size-8 lg:hidden"
+      />
       <XMarkIcon
         id="close-icon"
-        className="text-neutral-900 hidden size-8 lg:hidden"
+        className="text-neutral-900 dark:text-neutral-50 hidden size-8 lg:hidden"
       />
     </div>
 
     <div class="flex w-full lg:w-auto">
       <Image
-        class="place-self-start h-8"
+        class="place-self-start h-8 dark:hidden"
         src={imgWordmark}
+        alt="Jonathan Bello"
+      />
+
+      <Image
+        class="place-self-start h-8 hidden dark:block"
+        src={imgDarkWordmark}
         alt="Jonathan Bello"
       />
     </div>
@@ -35,13 +47,12 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
       class="absolute -top-full left-0 right-0 lg:top-0 lg:left-auto lg:right-auto
       flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
       transition-[top] duration-300 ease-in-out lg:transition-none
-      lg:static lg:flex-1 bg-neutral-50 lg:flex lg:items-center lg:gap-4 lg:pt-1"
+      lg:static lg:flex-1 lg:flex lg:items-center lg:gap-4 lg:pt-1"
       aria-label="Main navigation"
     >
       <ul
         class="h-full container flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-8
-        
-      [&>li]:text-neutral-950 lg:[&>li]:w-28 lg:[&>li]:text-center [&>li>a]:relative
+      [&>li]:text-neutral-950 dark:[&>li]:text-neutral-50 lg:[&>li]:w-28 lg:[&>li]:text-center [&>li>a]:relative
          font-text font-medium text-xl lg:text-lg"
       >
         <li>
@@ -63,14 +74,20 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
     </nav>
 
     <div class="flex items-center gap-4 xl:w-32 2xl:w-36 justify-end">
-      <button class="rounded-full size-8 bg-neutral-100">
-        <span class="text-neutral-500 font-text text-base"> ES </span>
+      <button class="rounded-full size-8 bg-neutral-100 dark:bg-neutral-400">
+        <span
+          class="text-neutral-500 dark:text-neutral-50 font-text text-base font-bold"
+        >
+          ES
+        </span>
       </button>
 
       <button
-        class="rounded-full size-8 bg-neutral-100 flex items-center justify-center"
+        id="theme-toggle"
+        class="rounded-full size-8 bg-neutral-100 dark:bg-neutral-400 flex items-center justify-center"
       >
-        <MoonIcon className="text-neutral-400 size-6" />
+        <MoonIcon className="text-neutral-400 size-6 dark:hidden" />
+        <SunIcon className="text-neutral-100 hidden dark:inline-block size-6" />
       </button>
     </div>
   </div>
@@ -126,5 +143,13 @@ import imgWordmark from "../assets/brand/Wordmark.svg";
       console.log(link.pathname);
       link.classList.add("active");
     }
+  });
+
+  // Cambiar el tema de la pagina
+  const themeToggle = document.querySelector("#theme-toggle");
+  const html = document.querySelector("html");
+
+  themeToggle?.addEventListener("click", () => {
+    html?.classList.toggle("dark");
   });
 </script>
