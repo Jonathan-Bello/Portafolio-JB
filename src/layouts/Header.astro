@@ -10,11 +10,16 @@ import { Image } from "astro:assets";
 import imgWordmark from "../assets/brand/Wordmark.svg";
 import imgDarkWordmark from "../assets/brand/WordMarkDark.svg";
 
-
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
+import LanguagePicker from "./LanguagePicker.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <header
@@ -53,7 +58,8 @@ const t = useTranslations(lang);
       class="absolute -top-full left-0 right-0 lg:top-0 lg:left-auto lg:right-auto
       flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
       transition-[top] duration-300 ease-in-out lg:transition-none
-      lg:static lg:flex-1 lg:flex lg:items-center lg:gap-4 lg:pt-1"
+      lg:static lg:flex-1 lg:flex lg:items-center lg:gap-4 lg:pt-1
+      dark:bg-neutral-950"
       aria-label="Main navigation"
     >
       <ul
@@ -62,33 +68,25 @@ const t = useTranslations(lang);
          font-text font-medium text-xl lg:text-lg"
       >
         <li>
-          <a href="/">{t('nav.home')}</a>
+          <a href={translatePath("/")}>{t("nav.home")}</a>
         </li>
         <li>
-          <a href="/projects">{t('nav.projects')}</a>	
+          <a href={translatePath("/projects/")}>{t("nav.projects")}</a>
         </li>
         <li>
-          <a href="/blog">{t('nav.blog')}</a>
+          <a href={translatePath("/blog/")}>{t("nav.blog")}</a>
         </li>
         <li>
-          <a href="/about">{t('nav.about')}</a>
+          <a href={translatePath("/about/")}>{t("nav.about")}</a>
         </li>
         <li>
-          <a href="/contacto">{t('nav.contact')}</a>
+          <a href={translatePath("/contact/")}>{t("nav.contact")}</a>
         </li>
       </ul>
     </nav>
 
     <div class="flex items-center gap-4 xl:w-32 2xl:w-36 justify-end">
-      <button
-        class="rounded-full size-8 bg-neutral-100 dark:bg-neutral-400 hover:cursor-pointer"
-      >
-        <span
-          class="text-neutral-500 dark:text-neutral-50 font-text text-base font-bold"
-        >
-          ES
-        </span>
-      </button>
+      <LanguagePicker />
 
       <button
         id="theme-toggle"
