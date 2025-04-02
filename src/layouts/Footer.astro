@@ -7,6 +7,8 @@ import iconInstagram from "@assets/icons/instagram.svg";
 import iconFacebook from "@assets/icons/facebook.svg";
 
 import iconWordmark from "@assets/brand/Wordmark.svg";
+import iconDarkWordmark from "@assets/brand/WordMarkDark.svg";
+
 import { Image } from "astro:assets";
 import {
   PhoneIcon,
@@ -16,12 +18,16 @@ import {
 } from "@heroicons/react/24/outline";
 ---
 
-<footer class="bg-neutral-100 flex flex-col items-center justify-center pt-6">
+<footer
+  class="bg-neutral-100 dark:bg-neutral-950 flex flex-col items-center justify-center pt-6"
+>
   <div
     class="container grid grid-cols-1 lg:grid-cols-3 items-center lg:items-start gap-10 p-4 lg:p-0 lg:py-4 md:px-0 pb-10 lg:pb-16"
   >
     <div class="flex flex-col items-center gap-4 lg:gap-8">
-      <h4 class="text-neutral-950 font-medium text-2xl font-title">
+      <h4
+        class="text-neutral-950 dark:text-neutral-50 font-medium text-2xl font-title"
+      >
         ¿Trabajamos juntos?
       </h4>
 
@@ -62,7 +68,12 @@ import {
         />
       </div>
 
-      <Image class="h-8" src={iconWordmark} alt="Jonathan Bello" />
+      <Image class="h-8 dark:hidden" src={iconWordmark} alt="Jonathan Bello" />
+      <Image
+        class="h-8 hidden dark:block"
+        src={iconDarkWordmark}
+        alt="Jonathan Bello"
+      />
     </div>
 
     <div
@@ -71,30 +82,30 @@ import {
       <div class="flex flex-col items-start gap-2">
         <a
           href="tel:+56923456789"
-          class="text-neutral-400 font-text text-sm lg:text-lg hover:underline
+          class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
         flex items-center gap-4"
         >
-          <PhoneIcon className="h-6 w-6 text-neutral-400 inline-block" />
+          <PhoneIcon className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block" />
           231 231 231 2311
         </a>
 
         <a
           href="mailto:jonathan.bellofg@gmail.com"
-          class="text-neutral-400 font-text text-sm lg:text-lg hover:underline
+          class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
         flex items-center gap-4"
         >
-          <EnvelopeIcon className="h-6 w-6 text-neutral-400 inline-block" />
+          <EnvelopeIcon className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block" />
           jonathan.bellofg@gmail.com
         </a>
 
         <a
           href="https://appdeux.com"
           target="_blank"
-          class="text-neutral-400 font-text text-sm lg:text-lg hover:underline
+          class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
       flex items-center gap-4"
         >
           <GlobeAmericasIcon
-            className="h-6 w-6 text-neutral-400 inline-block"
+            className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
           />
           appdeux.com
         </a>
@@ -102,10 +113,10 @@ import {
         <a
           href="https://appdeux.com"
           target="_blank"
-          class="text-neutral-400 font-text text-sm lg:text-lg hover:underline
+          class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
     flex items-center gap-4"
         >
-          <InboxIcon className="h-6 w-6 text-neutral-400 inline-block" />
+          <InboxIcon className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block" />
           Mi blog
         </a>
       </div>
