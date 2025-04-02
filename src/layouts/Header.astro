@@ -9,6 +9,12 @@ import { Image } from "astro:assets";
 
 import imgWordmark from "../assets/brand/Wordmark.svg";
 import imgDarkWordmark from "../assets/brand/WordMarkDark.svg";
+
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header
@@ -56,19 +62,19 @@ import imgDarkWordmark from "../assets/brand/WordMarkDark.svg";
          font-text font-medium text-xl lg:text-lg"
       >
         <li>
-          <a href="/">Inicio</a>
+          <a href="/">{t('nav.home')}</a>
         </li>
         <li>
-          <a href="/projects">Proyectos</a>
+          <a href="/projects">{t('nav.projects')}</a>	
         </li>
         <li>
-          <a href="/blog">Blog</a>
+          <a href="/blog">{t('nav.blog')}</a>
         </li>
         <li>
-          <a href="/about">Acerca de</a>
+          <a href="/about">{t('nav.about')}</a>
         </li>
         <li>
-          <a href="/contacto">Contacto</a>
+          <a href="/contacto">{t('nav.contact')}</a>
         </li>
       </ul>
     </nav>
