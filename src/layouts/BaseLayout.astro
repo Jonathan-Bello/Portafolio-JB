@@ -2,12 +2,14 @@
 import "../styles/global.css";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
+import { getLangFromUrl } from "../i18n/utils";
 
 const { title } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang={lang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
