@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+// Obtener el último proyecto
+const projects = await getCollection("projects");
+const latestProject = projects.sort((a, b) => {
+  return (
+    new Date(b.data.publishDate).getTime() -
+    new Date(a.data.publishDate).getTime()
+  );
+})[0];
+---
+
+<section
+  class="relative grid md:grid-cols-2 gap-8 px-8 py-8 min-h-[80vh] items-center
+  bg-primary-50"
+>
+  <svg
+    class="absolute -top-1/4 -left-1/4"
+    width="200"
+    height="200"
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="100" cy="100" r="100" fill="#A31311"></circle>
+  </svg>
+
+  <div class="flex flex-col gap-6">
+    <!-- Titulo -->
+    <h1 class="text-4xl md:text-5xl font-title leading-tight">
+      <span class="inline-block font-text text-start text-lg mb-4 md:mb-4">
+        ¡Hola, soy <span class="text-[#c41e3a] font-semibold"
+          >Jonathan Bello</span
+        >!
+      </span>
+      <span
+        class="inline-block font-title font-semibold text-center text-4xl text-[40px]"
+      >
+        Desarrollador de Software
+      </span>
+    </h1>
+
+    <a
+      href="/projects"
+      class="inline-flex items-center gap-2 bg-[#c41e3a] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 hover:bg-[#a01830] mx-auto md:mx-0 w-fit"
+    >
+      Mira mis proyectos
+    </a>
+  </div>
+
+  <div class="flex items-center justify-center w-full h-full">
+    {
+      latestProject && (
+        <Image
+          src={latestProject.data.cover}
+          alt={`Banner del proyecto ${latestProject.data.title}`}
+          class="w-full max-h-[400px] object-cover rounded-2xl shadow-lg"
+        />
+      )
+    }
+  </div>
+</section>
