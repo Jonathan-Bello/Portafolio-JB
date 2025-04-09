@@ -1,4 +1,5 @@
 ---
+id: "4"
 title: "Mi Portafolio Web"
 description: "Un portafolio moderno y optimizado construido con Astro.js y Tailwind CSS, destacando mis proyectos y habilidades."
 publishDate: 2025-03-15
@@ -10,6 +11,7 @@ techs:
   - Netlify/Vercel
 category: "Desarrollo Web"
 url: "https://midominio.com/portafolio"
+author: "jonathan-bello"
 ---
 
 ## 🎨 Sobre el Proyecto

@@ -1,4 +1,5 @@
 ---
+id: "3"
 title: "Astro From Scratch Course"
 description: "A complete course to learn Astro.js from the basics to advanced projects, with Tailwind CSS integration and web deployment."
 publishDate: 2025-04-01
@@ -11,6 +12,7 @@ techs:
   - SSR/SSG
 category: "Education"
 url: "https://midominio.com/curso-astro"
+author: "jonathan-bello"
 ---
 
 ## 🚀 About the Course

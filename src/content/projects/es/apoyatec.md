@@ -1,4 +1,5 @@
 ---
+id: "1"
 title: "ApoyaTec"
 description: "Una plataforma que conecta estudiantes con oportunidades de financiamiento, becas y mentorías para potenciar su desarrollo académico."
 publishDate: 2025-02-20
@@ -10,6 +11,7 @@ techs:
   - API de becas
 category: "Educación y Comunidad"
 url: "https://midominio.com/apoyatec"
+author: "jonathan-bello"
 ---
 
 ##  ¿Qué es ApoyaTec?

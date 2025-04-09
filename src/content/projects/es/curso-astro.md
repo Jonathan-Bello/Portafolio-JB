@@ -1,4 +1,5 @@
 ---
+id: "3"
 title: "Curso Astro desde Cero"
 description: "Un curso completo para aprender Astro.js desde los fundamentos hasta proyectos avanzados, con integración de Tailwind CSS y despliegue en la web."
 publishDate: 2025-04-01
@@ -11,6 +12,7 @@ techs:
   - SSR/SSG
 category: "Educación"
 url: "https://midominio.com/curso-astro"
+author: "jonathan-bello"
 ---
 
 ## 🚀 Sobre el Curso

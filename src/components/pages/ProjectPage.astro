@@ -1,43 +1,84 @@
 ---
+import { db, Comment } from "astro:db";
 import EntryLayout from "@layouts/EntryLayout.astro";
+import { eq } from "astro:db";
 
 const { project } = Astro.props;
+// Consulta de tabla
+const comentarios = await db.select().from(Comment);
+
+console.log(comentarios);
 ---
 
 <EntryLayout entry={project.data}>
-
   <slot />
 
+  <!-- Obtener los comentarios del post de astrodb -->
+
   <!-- Formulario para comentarios -->
-  <section class="comments-section" slot="footer">
-    <h2>Deja un comentario</h2>
-    <form id="commentForm" onsubmit="handleCommentSubmit(event)">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name" required />
+  <section
+    class="comments-section w-full max-w-2xl mx-auto px-4 py-10"
+    slot="footer"
+  >
+    {
+      comentarios.map((comentario) => (
+        <div>
+          <p>{comentario.body}</p>
+        </div>
+      ))
+    }
 
-      <label for="comment">Comentario:</label>
-      <textarea id="comment" name="comment" rows="4" required></textarea>
+    <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-6">
+      Deja un comentario
+    </h2>
 
-      <button type="submit">Enviar</button>
+    <form
+      id="commentForm"
+      class="space-y-6 bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg shadow-md"
+    >
+      <div>
+        <label
+          for="name"
+          class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
+        >
+          Nombre:
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200"
+        />
+      </div>
+
+      <div>
+        <label
+          for="comment"
+          class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
+        >
+          Comentario:
+        </label>
+        <textarea
+          id="comment"
+          name="comment"
+          rows="4"
+          required
+          class="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 resize-y"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="bg-primary-800 dark:bg-neutral-200 text-white dark:text-neutral-900 font-semibold px-6 py-2 rounded-md hover:bg-primary-700 dark:hover:bg-neutral-100 transition duration-200"
+      >
+        Enviar
+      </button>
     </form>
   </section>
 </EntryLayout>
 
-<script>
-  async function handleCommentSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-
-    const commentData = {
-      name: formData.get("name"),
-      comment: formData.get("comment"),
-    };
-
-    console.log("Comentario enviado:", commentData);
-    // Aquí puedes comenzar a implementar la lógica para guardar los comentarios
-  }
-</script>
+<script></script>
 
 <style>
   .project-image {

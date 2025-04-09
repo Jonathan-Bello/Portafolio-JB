@@ -1,4 +1,5 @@
 ---
+id: "1"
 title: "ApoyaTec"
 description: "A platform that connects students with funding opportunities, scholarships, and mentorship programs to enhance their academic development."
 publishDate: 2025-02-20
@@ -10,6 +11,7 @@ techs:
   - Scholarship API
 category: "Education & Community"
 url: "https://midominio.com/apoyatec"
+author: "jonathan-bello"
 ---
 
 ## What is ApoyaTec?

@@ -26,11 +26,11 @@ const formattedDate = new Intl.DateTimeFormat(lang, {
 ---
 
 <BaseLayout title={entry.title}>
-  <section class="bg-neutral-100 rounded-2xl py-12 container mb-12">
+  <section class="bg-neutral-100 dark:bg-neutral-950 rounded-2xl py-12 container mb-12">
     <Image
       class="w-full aspect-video object-cover h-96 lg:h-[30rem] xl:h-[36rem] rounded-2xl mb-8"
       src={entry.cover}
-      alt={""}
+      alt={entry.title}
     />
     <h1 class="text-center font-title font-semibold text-4xl lg:text-5xl mb-8">
       {entry.title}

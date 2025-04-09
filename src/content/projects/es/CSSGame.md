@@ -1,4 +1,5 @@
 ---
+id: "2"
 title: "Desarrollo de un videojuego educativo para la enseñanza de CSS con IA"
 description: "Un videojuego diseñado para estudiantes de nuevo ingreso en carreras de desarrollo de software, que utiliza inteligencia artificial para evaluar código CSS y mejorar el aprendizaje."
 publishDate: 2025-03-29
@@ -10,6 +11,7 @@ techs:
   - IA para análisis de código
 category: "Educación y Tecnología"
 url: "https://midominio.com/tesis"
+author: "jonathan-bello"
 ---
 
 ## 🎯 Objetivo del Proyecto
