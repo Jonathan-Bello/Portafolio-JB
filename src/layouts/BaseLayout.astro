@@ -4,6 +4,10 @@ import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { getLangFromUrl } from "../i18n/utils";
 
+interface Props {
+  title: string;
+}
+
 const { title } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -24,7 +28,7 @@ const lang = getLangFromUrl(Astro.url);
     <title>{title + " | Jonathan Bello"}</title>
   </head>
   <body
-    class="flex flex-col min-h-screen dark:bg-neutral-800 dark:text-neutral-100"
+    class="flex flex-col min-h-screen bg-neutral-50 dark:bg-neutral-800 dark:text-neutral-100"
   >
     <Header />
     <main class="flex-1 w-full mx-auto pt-16 flex flex-col items-center">
