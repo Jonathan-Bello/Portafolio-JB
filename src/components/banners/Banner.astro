@@ -11,6 +11,11 @@ const latestProject = projects.sort((a, b) => {
     new Date(a.data.publishDate).getTime()
   );
 })[0];
+
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -42,18 +47,14 @@ const latestProject = projects.sort((a, b) => {
         <span
           class="inline-block font-text text-start text-lg sm:text-xl lg:text-2xl
           mb-4 md:mb-4 lg:mb-8 text-neutral-950 dark:text-neutral-100"
-        >
-          ¡Hola, soy <span
-            class="text-primary-700 dark:text-neutral-100 font-semibold"
-            >Jonathan Bello</span
-          >!
-        </span>
+          set:html={t("home.banner.title")}
+        />
         <span
           class="inline-block font-title font-semibold text-center lg:text-start
         text-4xl text-[40px] sm:text-5xl md:text-6xl xl:text-7xl
         w-full text-neutral-950 dark:text-neutral-100"
         >
-          Desarrollador de Software
+          {t("home.banner.title2")}
         </span>
       </h1>
 
@@ -63,7 +64,9 @@ const latestProject = projects.sort((a, b) => {
       px-5 py-2 rounded-lg font-semibold font-text text-lg lg:text-xl
       transition-colors duration-300 hover:bg-primary-900 dark:hover:bg-neutral-950 mx-auto md:mx-0 w-fit"
       >
-        <span class="h-8 grid place-items-center"> Mira mis proyectos </span>
+        <span class="h-8 grid place-items-center">
+          {t("home.banner.button")}
+        </span>
         <ArrowRightCircleIcon className="h-8 w-8" />
       </a>
     </div>
@@ -85,9 +88,9 @@ const latestProject = projects.sort((a, b) => {
 
       <h2
         class="text-neutral-100 text-right relative
-      text-xl lg:text-2xl font-title font-semibold z-10 w-3/4 justify-self-end"
+      text-xl lg:text-2xl font-title font-semibold z-10 w-9/10 justify-self-end"
       >
-        Creando soluciones tecnológicas llenas de belleza
+        {t("home.banner.subtitle")}
       </h2>
     </div>
   </div>
