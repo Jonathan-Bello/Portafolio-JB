@@ -1,11 +1,60 @@
 ---
-import { db, Comment } from "astro:db";
+import { db, Comment, Author } from "astro:db";
 import EntryLayout from "@layouts/EntryLayout.astro";
 import { eq } from "astro:db";
 
 const { project } = Astro.props;
 // Consulta de tabla
-const comentarios = await db.select().from(Comment);
+// const comentarios = await db.select().from(Comment);
+
+// Consultar solo los comentarios del post
+let comentarios = await db
+  .select()
+  .from(Comment)
+  .where(eq(Comment.postId, project.data.id));
+
+const authores = await db.select().from(Author);
+
+console.log(comentarios);
+console.log(authores);
+
+// Insertar datos apartir de un form
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const comment = formData.get("comment");
+  const name = formData.get("name");
+
+  if (!comment || !name) {
+    return Astro.redirect("/404.astro");
+  }
+
+  // TODO: Logica de creacion de id dinamico y seguro
+  const idAuthor = Math.floor(Math.random() * 1000);
+
+  const authorTemp = {
+    id: idAuthor,
+    name: name.toString(),
+  };
+
+  const response = await db.insert(Author).values(authorTemp);
+
+  if (!response) {
+    return Astro.redirect("/404.astro");
+  } else {
+    console.log(response);
+    await db.insert(Comment).values({
+      authorId: idAuthor,
+      postId: project.data.id,
+      body: comment.toString(),
+    });
+  }
+}
+
+// Volver a consultar los comentarios
+comentarios = await db
+  .select()
+  .from(Comment)
+  .where(eq(Comment.postId, project.data.id));
 
 console.log(comentarios);
 ---
@@ -33,6 +82,7 @@ console.log(comentarios);
     </h2>
 
     <form
+      method="post"
       id="commentForm"
       class="space-y-6 bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg shadow-md"
     >
