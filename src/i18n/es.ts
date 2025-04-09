@@ -9,7 +9,7 @@ const es = {
   home: {
     banner: {
       title: `¡Hola, soy
-        <span class="text-primary-700 dark:text-neutral-100 font-semibold">Jonathan Bello</span>!`,
+                <span class="text-primary-700 dark:text-neutral-100 font-semibold">Jonathan Bello</span>!`,
       title2: "Desarrollador de Software",
       subtitle: "Creando soluciones tecnológicas llenas de belleza",
       button: "Mira mis proyectos",
@@ -34,6 +34,34 @@ const es = {
     },
     experience: {
       title: "Experiencia laboral",
+      card1: {
+        title: "YGU COMUNICAXION",
+        duration: "2022 - Presente",
+        role: "Web Developer",
+        funciones: [
+          "Desarrolle varias landing page en Gatsby.js y Astro.js",
+          "Creación de Aplicaciones web robustas con Next.js",
+          "Mantenimiento de sitios hechos con Wordpress",
+          "Uso de GitHub para trabajo colaborativo.",
+          "Estandarización de proyectos antiguos.",
+          "Trabajo de diseño UI colaborativo.",
+          "Implementacion de estrategias de SEO.",
+        ],
+      },
+      card2: {
+        title: "AppDeux",
+        duration: "2025 - Presente",
+        role: "Director de Comunicación",
+        funciones: [
+          "Desarrolle varias landing page en Gatsby.js y Astro.js",
+          "Creación de Aplicaciones web robustas con Next.js",
+          "Mantenimiento de sitios hechos con Wordpress",
+          "Uso de GitHub para trabajo colaborativo.",
+          "Estandarización de proyectos antiguos.",
+          "Trabajo de diseño UI colaborativo.",
+          "Implementacion de estrategias de SEO.",
+        ],
+      },
     },
   },
 };
