@@ -22,7 +22,7 @@ const url = new URL(Astro.url);
 const actualPath = url.pathname;
 ---
 
-<BannerSmall title="Mis Proyectos" />
+<BannerSmall title={t("projects.banner.title")} />
 
 <section class="container">
   <div><h3>Categorias</h3></div>

@@ -34,6 +34,53 @@ const en = {
     },
     experience: {
       title: "Work Experience",
+      card1: {
+        title: "YGU COMUNICAXION",
+        duration: "2022 - Present",
+        role: "Web Developer",
+        funciones: [
+          "Developed several landing pages in Gatsby.js and Astro.js",
+          "Built robust web applications with Next.js",
+          "Maintained websites made with Wordpress",
+          "Used GitHub for collaborative work.",
+          "Standardized old projects.",
+          "Collaborative work on UI design.",
+          "Implemented SEO strategies.",
+        ],
+      },
+      card2: {
+        title: "AppDeux",
+        duration: "2025 - Present",
+        role: "Director of Communication",
+        funciones: [
+          "Developed several landing pages in Gatsby.js and Astro.js",
+          "Built robust web applications with Next.js",
+          "Maintained websites made with Wordpress",
+          "Used GitHub for collaborative work.",
+          "Standardized old projects.",
+          "Collaborative work on UI design.",
+          "Implemented SEO strategies.",
+        ],
+      },
+      card3: {
+        title: "AppDeux",
+        duration: "2025 - Present",
+        role: "Director of Communication",
+        funciones: [
+          "Developed several landing pages in Gatsby.js and Astro.js",
+          "Built robust web applications with Next.js",
+          "Maintained websites made with Wordpress",
+          "Used GitHub for collaborative work.",
+          "Standardized old projects.",
+          "Collaborative work on UI design.",
+          "Implemented SEO strategies.",
+        ],
+      },
+    },
+  },
+  projects: {
+    banner: {
+      title: "My Projects",
     },
   },
 };

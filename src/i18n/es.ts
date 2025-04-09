@@ -64,6 +64,11 @@ const es = {
       },
     },
   },
+  projects: {
+    banner: {
+      title: "Mis Proyectos",
+    },
+  },
 };
 
 export default es;
