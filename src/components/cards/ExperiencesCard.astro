@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  titulo: string;
+  fechaDeTrabajo: string;
+  rol: string;
+  iconoEmpresa: ImageMetadata;
+  funciones: string[];
+}
+
+const { titulo, fechaDeTrabajo, rol, iconoEmpresa, funciones } = Astro.props;
+---
+
+<div class="bg-neutral-50 shadow-md rounded-lg p-6 flex flex-col gap-4">
+  <div class="flex items-center gap-4">
+    <Image src={iconoEmpresa} alt="Icono Empresa" class="w-32 h-32 rounded" />
+    <div>
+      <h3 class="text-neutral-900 text-lg lg:text-xl font-title font-semibold">
+        {titulo}
+      </h3>
+      <p class="text-neutral-600 font-text font-semibold text-sm mb-10">
+        {fechaDeTrabajo}
+      </p>
+      <p class="text-neutral-900 font-text font-regular text-lg">{rol}</p>
+    </div>
+  </div>
+  <hr class="border-nuetral-900" />
+  <ul class="list-disc list-inside text-gray-600">
+    {funciones.map((funcion) => <li>{funcion}</li>)}
+  </ul>
+</div>

@@ -1,6 +1,7 @@
 ---
 import Banner from "@components/banners/Banner.astro";
 import HabilityCard from "@components/cards/HabilityCard.astro";
+import ExperiencesCard from "@components/cards/ExperiencesCard.astro";
 import {
   ComputerDesktopIcon,
   ServerIcon,
@@ -11,6 +12,8 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+import FrontendDeveloperIcon from "@assets/logos/IconTEC.svg";
 ---
 
 <Banner />
@@ -43,4 +46,30 @@ const t = useTranslations(lang);
     icon={SwatchIcon}
     description={t("home.hability.card3.description")}
   />
+</section>
+
+<section class="container px-4 py-16 sm:py-20 lg:py-24">
+  <h2
+    class="text-center font-title font-semibold text-3xl lg:text-4xl lg:text-[40px]"
+  >
+    {t("home.experience.title")}
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-8 md:gap-12">
+    <ExperiencesCard
+      titulo="Frontend Developer"
+      fechaDeTrabajo="2023 - Presente"
+      rol="Frontend Developer"
+      iconoEmpresa={FrontendDeveloperIcon}
+      funciones={[
+        "Desarrollo de interfaces de usuario",
+        "Diseño de interfaces de usuario",
+        "Desarrollo de aplicaciones web",
+        "Desarrollo de sitios web",
+        "Diseño de sitios web",
+        "Desarrollo de aplicaciones móviles",
+        "Desarrollo de aplicaciones de escritorio",
+      ]}
+    />
+  </div>
 </section>
