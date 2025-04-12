@@ -25,7 +25,34 @@ const authorCollection = defineCollection({
     }),
 });
 
+const categoryCollection = defineCollection({
+  type: "data",
+  schema: () =>
+    z.object({
+      id: z.string(),
+      name: z.string(),
+    }),
+});
+
+const blogCollection = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      id: z.string(),
+      title: z.string(),
+      description: z.string(),
+      publishDate: z.date(),
+      cover: image(),
+      techs: z.string().array(),
+      category: reference("categories"),
+      url: z.string().url(),
+      author: reference("authors"),
+    }),
+});
+
 export const collections = {
   projects: projectCollection,
   authors: authorCollection,
+  categories: categoryCollection,
+  blogs: blogCollection,
 };
