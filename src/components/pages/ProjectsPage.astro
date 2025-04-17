@@ -42,6 +42,7 @@ const { projects } = Astro.props;
     {
       categories.map((category) => (
         <ButtonCategory
+          id={category.data.id}
           title={category.data.name}
           link={`/projects/category/${category.data.id}`}
           color={category.data.color}
