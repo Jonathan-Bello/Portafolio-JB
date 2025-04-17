@@ -11,6 +11,7 @@ import {
 import ButtonCategory from "@components/buttons/ButtonCategory.astro";
 import type { CollectionConfig } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import ProjectCard from "@components/cards/ProjectCard.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -46,55 +47,13 @@ const { projects } = Astro.props;
           title={category.data.name}
           link={`/projects/category/${category.data.id}`}
           color={category.data.color}
-        >
-          <svg
-            slot="iconLeft"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            class="w-5 h-5"
-          >
-            <path
-              class="stroke-neutral-800"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </ButtonCategory>
+        />
       ))
     }
   </div>
 
   <div class="col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {
-      projects.map((project) => (
-        <div class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-          <a
-            href={translatePath(
-              `/projects/${project.slug.replace(`${lang}/`, "")}`
-            )}
-            class="flex flex-col"
-          >
-            <Image
-              src={project.data.cover}
-              alt={project.data.title}
-              class="w-full h-48 object-cover rounded-t-lg"
-            />
-            <div class="p-4">
-              <h2 class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100">
-                {project.data.title}
-              </h2>
-              <p class="text-gray-700 dark:text-gray-300 mt-2">
-                {project.data.description}
-              </p>
-            </div>
-          </a>
-        </div>
-      ))
-    }
+    {projects.map((project) => <ProjectCard project={project} />)}
   </div>
 </section>
 
