@@ -12,6 +12,7 @@ import svgFigmaLogo from "@assets/logos/logoFigma.svg";
 import svgTailwindLogo from "@assets/logos/logoTailwind.svg";
 import svgReactNativeLogo from "@assets/logos/logoReact.svg";
 import TechCard from "@components/cards/TechCard.astro";
+import ServerQuote from "@components/cards/ServerQuote.astro";
 ---
 
 <!-- About me -->
@@ -62,6 +63,12 @@ import TechCard from "@components/cards/TechCard.astro";
             )
           )
         }
+
+        <li>
+          <ServerQuote server:defer>
+            <p class="h-12" slot="fallback">Loading...</p>
+          </ServerQuote>
+        </li>
       </ul>
     </div>
 

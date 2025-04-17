@@ -117,7 +117,13 @@ console.log("AUTHORES", authores);
       class="space-y-6 bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg shadow-md"
     >
       <div class="flex flex-row items-center gap-4 mb-4">
-        <FlagAvatar server:defer />
+        <FlagAvatar server:defer>
+          <div
+            slot="fallback"
+            class="w-12 h-12 bg-nuetral-100 dark:bg-neutral-800 rounded-full"
+          >
+          </div>
+        </FlagAvatar>
         <label
           for="name"
           class="flex-1 block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"

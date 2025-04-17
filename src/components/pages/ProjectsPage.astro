@@ -9,13 +9,13 @@ import {
   useTranslatedPath,
 } from "@i18n/utils";
 import ButtonCategory from "@components/buttons/ButtonCategory.astro";
-import type { CollectionConfig } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import ProjectCard from "@components/cards/ProjectCard.astro";
+import { use } from "react";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
+const transalete = useTranslatedPath(lang);
 
 const categories = await getCollection("categoriesProjects");
 
@@ -45,7 +45,7 @@ const { projects } = Astro.props;
         <ButtonCategory
           id={category.data.id}
           title={category.data.name}
-          link={`/projects/category/${category.data.id}`}
+          link={transalete(`/projects/category/${category.data.id}`)}
           color={category.data.color}
         />
       ))
