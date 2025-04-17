@@ -63,6 +63,40 @@ const es = {
         ],
       },
     },
+    about : {
+      title: "Acerca de mi",
+      bio: [
+        {
+          title: "Nombre",
+          description: "Jonathan Alexis Bello López"
+        },
+        {
+          title: "Titulo",
+          description: "Ingeniero en Sistemas de Computacionales"
+        },
+        {
+          title: "Especialidad",
+          description: "Desarrollo Web & IA"
+        },
+        {
+          title: "Fortalezas",
+          description: "Capacidad para combinar el diseño y la programación, ofreciendo soluciones integrales y eficientes. "
+        },
+        {
+          title: "Debilidades",
+          description: "Perfeccionismo y sindrome del impostor."
+        },
+        {
+          title: "Pasatiempos",
+          description: "Videojuegos, lectura, animación y viajes."
+        },
+        {
+          title: "Frase",
+          description: "Creando soluciones tecnológicas llenas de belleza."
+        },
+      ],
+      titleStack: "Mi Stack principal",
+    }
   },
   projects: {
     banner: {

@@ -77,6 +77,41 @@ const en = {
         ],
       },
     },
+    about: {
+      title: "About Me",
+      bio: [
+        {
+          title: "Name",
+          description: "Jonathan Alexis Bello López",
+        },
+        {
+          title: "Title",
+          description: "Systems Engineering",
+        },
+        {
+          title: "Specialty",
+          description: "Web Development & AI",
+        },
+        {
+          title: "Strengths",
+          description:
+            "Ability to combine design and programming, offering comprehensive and efficient solutions.",
+        },
+        {
+          title: "Weaknesses",
+          description: "Perfectionism and impostor syndrome.",
+        },
+        {
+          title: "Hobbies",
+          description: "Video games, reading, animation, and travel.",
+        },
+        {
+          title: "Quote",
+          description: "Creating tech solutions full of beauty.",
+        },
+      ],
+      titleStack: "My Main Stack",
+    },
   },
   projects: {
     banner: {
