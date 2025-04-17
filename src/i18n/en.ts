@@ -124,6 +124,9 @@ const en = {
     banner: {
       title: "My Projects",
     },
+    categories : {
+      title: "Categories"
+    }
   },
 };
 

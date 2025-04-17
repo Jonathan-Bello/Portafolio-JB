@@ -110,6 +110,9 @@ const es = {
     banner: {
       title: "Mis Proyectos",
     },
+    categories: {
+      title: "Categorías",
+    },
   },
 };
 

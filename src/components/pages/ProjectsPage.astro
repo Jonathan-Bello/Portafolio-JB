@@ -8,28 +8,68 @@ import {
   useTranslations,
   useTranslatedPath,
 } from "@i18n/utils";
+import ButtonCategory from "@components/buttons/ButtonCategory.astro";
+import type { CollectionConfig } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const allProjects = await getCollection("projects");
-const currentProjects = allProjects.filter((project) =>
-  project.slug.startsWith(`${lang}/`)
-);
+const categories = await getCollection("categoriesProjects");
 
-const url = new URL(Astro.url);
-const actualPath = url.pathname;
+// Pasamos los proyectos de forma dinamica.
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
 ---
 
 <BannerSmall title={t("projects.banner.title")} />
 
-<section class="container">
-  <div><h3>Categorias</h3></div>
+<section
+  class="container px-4 lg:px-0 py-16 sm:py-20 lg:py-24
+  grid grid-cols-1 lg:grid-cols-5 gap-4"
+>
+  <div class="flex flex-col gap-2">
+    <h3
+      class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100"
+    >
+      {t("projects.categories.title")}
+    </h3>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {
-      currentProjects.map((project) => (
+      categories.map((category) => (
+        <ButtonCategory
+          title={category.data.name}
+          link={`/projects/category/${category.data.id}`}
+          color={category.data.color}
+        >
+          <svg
+            slot="iconLeft"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              class="stroke-neutral-800"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </ButtonCategory>
+      ))
+    }
+  </div>
+
+  <div class="col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {
+      projects.map((project) => (
         <div class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
           <a
             href={translatePath(

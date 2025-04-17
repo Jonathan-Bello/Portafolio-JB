@@ -10,7 +10,7 @@ const projectCollection = defineCollection({
       publishDate: z.date(),
       cover: image(),
       techs: z.string().array(),
-      category: z.array(reference("categories")),
+      category: z.array(reference("categoriesProjects")),
       url: z.string().url(),
       author: reference("authors"),
     }),
@@ -40,6 +40,7 @@ const categoryProjectCollection = defineCollection({
     z.object({
       id: z.string(),
       name: z.string(),
+      color: z.string(),
     }),
 });
 
@@ -64,5 +65,5 @@ export const collections = {
   authors: authorCollection,
   categories: categoryCollection,
   blogs: blogCollection,
-  categoryProjects: categoryProjectCollection,
+  categoriesProjects: categoryProjectCollection,
 };
