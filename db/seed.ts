@@ -2,8 +2,8 @@ import { db, Comment, Author } from "astro:db";
 
 export default async function () {
   await db.insert(Author).values([
-    { id: 1, name: "Jonathan Bello" },
-    { id: 2, name: "Monika Montolla" },
+    { id: 1, name: "Jonathan Bello", country: "MX" },
+    { id: 2, name: "Monika Montolla", country: "PE" }
   ]);
 
   await db.insert(Comment).values([

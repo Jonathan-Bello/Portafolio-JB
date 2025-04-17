@@ -114,6 +114,15 @@ const es = {
       title: "Categorías",
     },
   },
+  project: {
+    title: "Proyectos",
+    comments: {
+      title: "Deja un comentario",
+      name: "Nombre",
+      comment: "Comentario",
+      send: "Enviar",
+    },
+  },
 };
 
 export default es;

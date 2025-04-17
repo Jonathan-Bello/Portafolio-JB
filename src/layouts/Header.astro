@@ -60,7 +60,7 @@ const translatePath = useTranslatedPath(lang);
       flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
       transition-[top] duration-300 ease-in-out lg:transition-none
       lg:static lg:flex-1 lg:flex lg:items-center lg:gap-4 lg:pt-1
-      bg-neutral-50  dark:bg-neutral-950"
+      bg-neutral-50 dark:bg-neutral-950"
       aria-label="Main navigation"
     >
       <ul
@@ -116,6 +116,10 @@ const translatePath = useTranslatedPath(lang);
 </style>
 
 <script>
+  // Verificar que el DOM este completamente cargado antes de ejecutar el script con la validacion de viewtransiottions de astro
+  // con astro-load-page
+  // document.addEventListener("astro:page-load", () => {
+
   // Toggle navigation menu
   const barsIcon = document.querySelector("#menu-icon");
   const closeIcon = document.querySelector("#close-icon");
@@ -129,14 +133,12 @@ const translatePath = useTranslatedPath(lang);
   barsIcon.addEventListener("click", () => {
     barsIcon.classList.toggle("hidden");
     closeIcon.classList.toggle("hidden");
-    // navigatorMenu.classList.toggle("hidden");
     navigatorMenu.classList.toggle("top-16");
   });
 
   closeIcon.addEventListener("click", () => {
     closeIcon.classList.toggle("hidden");
     barsIcon.classList.toggle("hidden");
-    // navigatorMenu.classList.toggle("hidden");
     navigatorMenu.classList.toggle("top-16");
   });
 

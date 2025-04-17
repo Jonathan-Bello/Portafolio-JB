@@ -128,6 +128,14 @@ const en = {
       title: "Categories"
     }
   },
+  project : {
+    comments : {
+      title: "Leave a comment",
+      name: "Name",
+      comment: "Comment",
+      send: "Send",
+    }
+  },
 };
 
 export default en;

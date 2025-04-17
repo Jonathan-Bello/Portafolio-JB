@@ -4,6 +4,7 @@ const Author = defineTable({
   columns: {
     id: column.number({ primaryKey: true }),
     name: column.text(),
+    country: column.text(),
   },
 });
 

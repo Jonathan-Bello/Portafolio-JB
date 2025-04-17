@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { getLangFromUrl } from "../i18n/utils";
+import { ClientRouter, ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -26,6 +27,7 @@ const lang = getLangFromUrl(Astro.url);
       rel="stylesheet"
     />
     <title>{title + " | Jonathan Bello"}</title>
+    <!-- <ClientRouter /> -->
   </head>
   <body
     class="flex flex-col min-h-screen bg-neutral-50 dark:bg-neutral-800 dark:text-neutral-100"
@@ -46,3 +48,22 @@ const lang = getLangFromUrl(Astro.url);
     height: 100%;
   }
 </style>
+
+<script>
+  // Inyectar clase dark si se uso el modo oscuro usando ViewTransitions
+  function setDarkMode(document: Document) {
+    const html = document.querySelector("html");
+    if (!html) return;
+    html.classList.add("dark");
+  }
+  
+  document.addEventListener("astro:before-swap", (ev) => {
+    const html = document.querySelector("html");
+    // Detectar si tiene la clase dark
+    const isDark = html?.classList.contains("dark");
+
+    if (isDark) {
+      setDarkMode(ev.newDocument);
+    }
+  });
+</script>
