@@ -10,7 +10,7 @@ techs:
   - JavaScript
   - Markdown
   - SSR/SSG
-category: "Education"
+category: ["web"]
 url: "https://midominio.com/curso-astro"
 author: "jonathan-bello"
 ---

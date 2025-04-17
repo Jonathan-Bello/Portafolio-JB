@@ -9,7 +9,7 @@ techs:
   - Tailwind CSS
   - Firebase
   - API de becas
-category: "Educación y Comunidad"
+category: ["web", "backend"]
 url: "https://midominio.com/apoyatec"
 author: "jonathan-bello"
 ---

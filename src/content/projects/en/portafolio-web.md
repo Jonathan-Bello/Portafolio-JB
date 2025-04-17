@@ -9,7 +9,7 @@ techs:
   - Tailwind CSS
   - JavaScript
   - Netlify/Vercel
-category: "Web Development"
+category: ["web", "ui"]
 url: "https://midominio.com/portafolio"
 author: "jonathan-bello"
 ---

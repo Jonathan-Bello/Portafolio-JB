@@ -9,7 +9,7 @@ techs:
   - Tailwind CSS
   - Firebase
   - Scholarship API
-category: "Education & Community"
+category: ["web"]
 url: "https://midominio.com/apoyatec"
 author: "jonathan-bello"
 ---

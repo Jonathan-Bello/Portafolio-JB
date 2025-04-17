@@ -9,7 +9,7 @@ techs:
   - Astro.js
   - Tailwind CSS
   - AI for code analysis
-category: "Education and Technology"
+category: ["web", "games"]
 url: "https://midominio.com/tesis"
 author: "jonathan-bello"
 ---
