@@ -112,6 +112,13 @@ const en = {
       ],
       titleStack: "My Main Stack",
     },
+    techs: {
+      title: "Technologies I Use",
+      titleFrontend: "Frontend",
+      titleBackend: "Backend",
+      titleUi: "UI Design",
+      titleDevelopmentTools: "Development Tools",
+    },
   },
   projects: {
     banner: {

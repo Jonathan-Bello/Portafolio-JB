@@ -1,26 +1,16 @@
 ---
-import { Image } from "astro:assets";
-import {
-  ComputerDesktopIcon,
-  ServerIcon,
-  SwatchIcon,
-} from "@heroicons/react/24/outline";
 
 import Banner from "@components/banners/Banner.astro";
-import HabilityCard from "@components/cards/HabilityCard.astro";
-import ExperiencesCard from "@components/cards/ExperiencesCard.astro";
 
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-import FrontendDeveloperIcon from "@assets/logos/IconTEC.svg";
-import YGULogo from "@assets/logos/yguLogo.svg";
-import imgMe from "@assets/brand/me.svg";
 import HabilitySection from "./home/HabilitySection.astro";
 import ExperiencesSection from "./home/ExperiencesSection.astro";
 import AboutSection from "./home/AboutSection.astro";
+import TechsSkillsSections from "./home/TechsSkillsSections.astro";
 ---
 
 <Banner />
@@ -31,5 +21,4 @@ import AboutSection from "./home/AboutSection.astro";
 
 <AboutSection />
 
-
-
+<TechsSkillsSections />
