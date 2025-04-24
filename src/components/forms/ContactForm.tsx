@@ -1,6 +1,7 @@
+import Button from "@components/buttons/Button.astro";
 import { type FormEvent, useState } from "react";
 
-export default function Form() {
+export default function Form({ children }) {
   const [responseMessage, setResponseMessage] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
@@ -67,12 +68,8 @@ export default function Form() {
           ></textarea>
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-primary-800 dark:bg-primary-400 text-white dark:text-neutral-900 font-semibold px-6 py-2 rounded-md hover:bg-primary-700 dark:hover:bg-primary-300 transition duration-200"
-        >
-          Enviar Mensaje
-        </button>
+        {/* Botón de enviar formulario */}
+        <div className="flex items-center justify-center">{children}</div>
       </form>
 
       <p>{responseMessage}</p>

@@ -194,6 +194,29 @@ const es = {
         "Mi meta es fusionar tecnología, narrativa y pedagogía para que programar sea tan épico como vencer al jefe final de tu videojuego favorito. Estoy comprometido con la creación de entornos donde aprender se sienta como jugar, y busco la forma de mejorar mis habilidades y aprender nuevas tecnologías para lograr este objetivo.",
     },
   },
+  contact: {
+    title: "Contáctame",
+    description:
+      "¿Tienes alguna pregunta o proyecto en mente? No dudes en contactarme. Estoy aquí para ayudarte.",
+    form: {
+      name: "Nombre",
+      email: "Correo electrónico",
+      message: "Mensaje",
+      send: "Enviar",
+    },
+    infoContact: {
+      title: "Información de Contacto",
+      emailTitle: "Email",
+      emailValue: "jonathanbello@gmail.com",
+      locationTitle: "Ubicación",
+      locationValue: "Puebla, México",
+      phoneTitle: "Teléfono",
+      phoneValue: "+52 231 325 3031",
+    },
+    social: {
+      title: "Redes Sociales",
+    },
+  },
 };
 
 export default es;

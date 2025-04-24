@@ -12,7 +12,7 @@ const { title, percentage } = Astro.props;
     <span class="text-neutral-800 dark:text-neutral-100 font-medium"
       >{title}</span
     >
-    <span class="text-sm text-primary-600 dark:text-primary-400"
+    <span class="text-sm text-primary-600 dark:text-primary-300"
       >{percentage}%</span
     >
   </div>
@@ -21,7 +21,7 @@ const { title, percentage } = Astro.props;
   >
     <!-- Barra base con fill y bounce -->
     <div
-      class="h-full bg-primary-600 animate-fill-bounce"
+      class="h-full bg-primary-600 dark:bg-primary-400 animate-fill-bounce"
       style={`--bar-width: ${percentage}%;`}
     >
     </div>

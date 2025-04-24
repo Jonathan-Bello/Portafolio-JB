@@ -43,9 +43,9 @@ const Icon = categoriesIcons[iconKey];
 <a
   href={translatePath(link)}
   class={`flex items-center justify-center gap-3 px-4 py-2 rounded-full max-w-40
-  font-text font-medium text-neutral-600 transition-transform transform hover:scale-105`}
+  font-text font-medium text-neutral-600 dark:text-neutral-950 transition-transform transform hover:scale-105`}
   style={`background-color: ${color};`}
 >
-  {Icon && <Icon className="w-5 h-5 text-neutral-600" />}
+  {Icon && <Icon className="w-5 h-5 text-neutral-600 dark:text-neutral-950" />}
   <span>{title}</span>
 </a>

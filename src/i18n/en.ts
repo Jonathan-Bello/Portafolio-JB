@@ -191,6 +191,29 @@ const en = {
         "My goal is to merge technology, storytelling, and education to make programming as epic as winning the favorite video game final. I am committed to creating environments where learning feels like playing, and I seek to improve my skills and learn new technologies to achieve this goal.",
     },
   },
+  contact: {
+    title: "Contact me",
+    description:
+      "Have a question or project in mind? Don't hesitate to contact me. I'm here to help you.",
+    form: {
+      name: "Name",
+      email: "Email",
+      message: "Message",
+      send: "Send",
+    },
+    infoContact: {
+      title: "Contact Information",
+      emailTitle: "Email",
+      emailValue: "jonathanbello@gmail.com",
+      locationTitle: "Location",
+      locationValue: "Puebla, Mexico",
+      phoneTitle: "Phone",
+      phoneValue: "+52 231 325 3031",
+    },
+    social: {
+      title: "Social Networks",
+    },
+  },
 };
 
 export default en;
