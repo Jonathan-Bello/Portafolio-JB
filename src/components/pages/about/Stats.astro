@@ -1,15 +1,19 @@
 ---
 import SkillBar from "./SkillBar.astro";
+
+import { useTranslations, getLangFromUrl } from "@i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!-- Sección de habilidades estilo RPG -->
 <section class="">
   <div class="max-w-3xl mx-auto space-y-6">
     <!-- Skill Bar -->
-    <SkillBar title="Dev Web" percentage={85} />
-    <SkillBar title="Carisma" percentage={65} />
-    <SkillBar title="Lógica" percentage={90} />
-    <SkillBar title="Ingles" percentage={70} />
-    <SkillBar title="Suerte" percentage={95} />
+    <SkillBar title={t("about.stats.dev")} percentage={85} />
+    <SkillBar title={t("about.stats.charisma")} percentage={65} />
+    <SkillBar title={t("about.stats.logic")} percentage={75} />
+    <SkillBar title={t("about.stats.english")} percentage={90} />
+    <SkillBar title={t("about.stats.luck")} percentage={95} />
   </div>
 </section>

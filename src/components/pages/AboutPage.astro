@@ -7,10 +7,11 @@ import { Image } from "astro:assets";
 import MyImage from "@assets/brand/me.svg";
 import CharacterCard from "./about/CharacterCard.astro";
 import Stats from "./about/Stats.astro";
+import AboutCard from "@components/cards/AboutCard.astro";
 ---
 
 <section
-  class={`container px-4 lg:px-0 py-16 bg-neutral-50 dark:bg-neutral-900`}
+  class={`container px-4 lg:px-0 py-16 `}
 >
   <div class={`max-w-5xl mx-auto`}>
     <!-- Hero estilo menú de videojuego -->
@@ -18,11 +19,10 @@ import Stats from "./about/Stats.astro";
       <h1
         class={`text-4xl md:text-5xl xl:text-6xl font-title font-bold text-neutral-900 dark:text-neutral-100 mb-4`}
       >
-        ⚔️ Sobre mí
+        {t("about.title")}
       </h1>
       <p class={`text-lg text-neutral-800 dark:text-neutral-300`}>
-        Desarrollador, Profe, Jugador y Explorador del aprendizaje a través del
-        código.
+        {t("about.description")}
       </p>
     </header>
 
@@ -37,68 +37,22 @@ import Stats from "./about/Stats.astro";
         class={`grid grid-cols-1 md:grid-cols-3 md:col-span-2 lg:col-span-3 gap-8`}
       >
         <!-- Historia -->
-        <section
-          class={`group relative bg-neutral-100 dark:bg-neutral-800 border-2 border-primary-600 dark:border-neutral-100 rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden`}
-        >
-          <h2
-            class={`text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3`}
-          >
-            🗺️ Mi historia
-          </h2>
-          <p class={`text-neutral-800 dark:text-neutral-100 leading-relaxed`}>
-            Empecé este viaje digital como quien comienza un nuevo juego sin
-            tutorial. Desde líneas de HTML hasta sistemas con IA, cada paso ha
-            sido una misión completada. Hoy combino desarrollo web, docencia y
-            diseño de experiencias educativas interactivas.
-          </p>
-          <div
-            class={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white/50 to-white/0 skew-x-[-20deg] animate-shine`}
-          >
-          </div>
-        </section>
+        <AboutCard
+          title={t("about.myHistory.title")}
+          description={t("about.myHistory.description")}
+        />
 
         <!-- Experiencia -->
-        <section
-          class={`group relative bg-neutral-100 dark:bg-neutral-800 border-2 border-primary-600 dark:border-neutral-100 rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden`}
-        >
-          <h2
-            class={`text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3`}
-          >
-            💼 Experiencia
-          </h2>
-          <ul
-            class={`list-disc list-inside text-neutral-800 dark:text-neutral-100 space-y-2`}
-          >
-            <li>Desarrollador fullstack y docente</li>
-            <li>Proyectos con Childfund, FLP y Tycoon</li>
-            <li>Investigación: videojuegos educativos con IA</li>
-            <li>Contenido en YouTube y covers musicales 🎙️</li>
-          </ul>
-          <div
-            class={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white/50 to-white/0 skew-x-[-20deg] animate-shine`}
-          >
-          </div>
-        </section>
+        <AboutCard
+          title={t("about.myExperience.title")}
+          description={t("about.myExperience.description")}
+        />
 
         <!-- Visión -->
-        <section
-          class={`group relative bg-neutral-100 dark:bg-neutral-800 border-2 border-primary-600 dark:border-neutral-100 rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden`}
-        >
-          <h2
-            class={`text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3`}
-          >
-            🌌 Visión
-          </h2>
-          <p class={`text-neutral-800 dark:text-neutral-100 leading-relaxed`}>
-            Crear entornos donde aprender se sienta como jugar. Mi meta es
-            fusionar tecnología, narrativa y pedagogía para que programar sea
-            tan épico como vencer al jefe final de tu videojuego favorito.
-          </p>
-          <div
-            class={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white/50 to-white/0 skew-x-[-20deg] animate-shine`}
-          >
-          </div>
-        </section>
+        <AboutCard
+          title={t("about.myVision.title")}
+          description={t("about.myVision.description")}
+        />
       </div>
     </div>
   </div>

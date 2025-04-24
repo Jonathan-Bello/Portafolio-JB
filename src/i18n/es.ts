@@ -142,13 +142,56 @@ const es = {
     },
   },
   about: {
-    title: "Sobre Mi",
+    title: " ⚔️ Sobre Mi",
     description:
       "Un explorador digital que mezcla código, videojuegos y educación para crear experiencias que enseñan y emocionan",
-    Info: {
-      title: "Información",
+    cardCharacter: {
+      header: {
+        name: "Jonathan Bello",
+        class: "Clase: Dev del Astronómico",
+        level: "Nivel 25 | Región: Internet",
+        description: `"Jonathan Bello es un dev-artesano con pasión por el conocimiento, capaz
+      de transformar aulas en arenas interactivas. Cree que aprender debe
+      sentirse como desbloquear logros secretos."`,
+      },
+      mainStats: {
+        language: "Lenguaje Principal",
+        framework: "Framework Favorito",
+        skill: "Habilidad Única",
+        arm: "Arma especial",
+
+        languageValue: "JavaScript",
+        frameworkValue: "Astro.js",
+        skillValue: "Gamificación educativa",
+        armValue: "Micrófono Blue Yeti 🎤",
+      },
+    },
+    stats: {
+      dev: "Desarrollo Web",
+      charisma: "Carisma",
+      logic: "Lógica",
+      english: "Inglés",
+      luck: "Suerte",
+    },
+    myHistory: {
+      title: "🗺️ Mi historia",
       description:
-        "Soy un apasionado del desarrollo web y la inteligencia artificial, con un enfoque en crear soluciones tecnológicas que no solo sean funcionales, sino también estéticamente agradables. Mi experiencia abarca desde el diseño de interfaces hasta la implementación de sistemas complejos, siempre buscando la excelencia en cada proyecto.",
+        "Desde mis inicios en la programación, he estado inmerso en el mundo del desarrollo web. He trabajado en proyectos que van desde aplicaciones simples hasta plataformas complejas, siempre buscando la forma de mejorar mis habilidades y aprender nuevas tecnologías. Mi pasión por el aprendizaje continuo me ha llevado a explorar diversas áreas dentro del desarrollo, incluyendo el diseño UI y la inteligencia artificial.",
+    },
+    myExperience: {
+      title: "💼 Experiencia",
+      description: `<ul>
+          <li>Desarrollador Web fullstack</li>
+          <li>Docencia</li>
+          <li>Investigación: videojuegos educativos con IA</li>
+          <li>Contenido en YouTube y covers musicales 🎙️</li>
+        </ul>
+        `,
+    },
+    myVision: {
+      title: "🌌 Visión",
+      description:
+        "Mi meta es fusionar tecnología, narrativa y pedagogía para que programar sea tan épico como vencer al jefe final de tu videojuego favorito. Estoy comprometido con la creación de entornos donde aprender se sienta como jugar, y busco la forma de mejorar mis habilidades y aprender nuevas tecnologías para lograr este objetivo.",
     },
   },
 };

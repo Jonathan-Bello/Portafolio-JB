@@ -140,6 +140,57 @@ const en = {
       send: "Send",
     },
   },
+  about: {
+    title: "About Me",
+    description:
+      "A digital browser that blends code, videogames, and education to create experiences that teach and entertain",
+    cardCharacter: {
+      header: {
+        name: "Jonathan Bello",
+        class: "Class: Astronaut Developer",
+        level: "Level 25 | Region: Internet",
+        description: `"Jonathan Bello is an artist with passion for knowledge, capable of transforming learning into interactive environments. He believes that learning should feel like unlocking secret achievements."`,
+      },
+      mainStats: {
+        language: "Main Language",
+        framework: "Favorite Framework",
+        skill: "Unique Skill",
+        arm: "Special Arm",
+
+        languageValue: "JavaScript",
+        frameworkValue: "Astro.js",
+        skillValue: "Gamification educational",
+        armValue: "Blue Yeti Microphone 🎤",
+      },
+    },
+    stats: {
+      dev: "Dev Web",
+      charisma: "Charisma",
+      logic: "Logic",
+      english: "English",
+      luck: "Luck",
+    },
+    myHistory: {
+      title: "🗺️ My History",
+      description: `I started this digital journey as someone who starts a new game without a tutorial. From HTML lines to systems with AI, each step was a completed mission. Today, I combine web development, teaching, and educational experiences that are interactive.`,
+    },
+    myExperience: {
+      title: "💼 My Experience",
+      description: `
+        <ul>
+          <li>Fullstack Web Developer</li>
+          <li>Teacher</li>
+          <li>Research: educational video games with AI</li>
+          <li>YouTube content and music covers 🎙️</li>
+        </ul>
+      `,
+    },
+    myVision: {
+      title: "🌌 My Vision",
+      description:
+        "My goal is to merge technology, storytelling, and education to make programming as epic as winning the favorite video game final. I am committed to creating environments where learning feels like playing, and I seek to improve my skills and learn new technologies to achieve this goal.",
+    },
+  },
 };
 
 export default en;
