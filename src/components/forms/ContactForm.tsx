@@ -70,6 +70,7 @@ export default function Form({ children }) {
 
         {/* Botón de enviar formulario */}
         <div className="flex items-center justify-center">{children}</div>
+
       </form>
 
       <p>{responseMessage}</p>

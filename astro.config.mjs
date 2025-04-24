@@ -9,14 +9,15 @@ import db from "@astrojs/db";
 
 import vercel from "@astrojs/vercel";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-
   vite: {
     plugins: [tailwindcss()],
   },
-
-  integrations: [react(), db()],
+  integrations: [react(), db(), sitemap()],
   adapter: vercel(),
+  site: "https://jonathanbello.com",
 });

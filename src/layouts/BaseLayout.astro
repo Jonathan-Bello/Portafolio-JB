@@ -3,7 +3,8 @@ import "../styles/global.css";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { getLangFromUrl } from "../i18n/utils";
-import { ClientRouter, ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
+import { SEO } from "astro-seo";
 
 interface Props {
   title: string;
@@ -27,7 +28,32 @@ const lang = getLangFromUrl(Astro.url);
       rel="stylesheet"
     />
     <title>{title + " | Jonathan Bello"}</title>
+
+    <SEO
+      title={title}
+      description="Jonathan Bello - Desarrollador Frontend"
+      openGraph={{
+        basic: {
+          title: "Jonathan Bello - Desarrollador Frontend",
+          type: "website",
+          image: "/assets/brand/me.png",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        site: "@JonathanBello",
+        creator: "@JonathanBello",
+        title: "Jonathan Bello - Desarrollador Frontend",
+        description: "Jonathan Bello - Desarrollador Frontend",
+        image: "/assets/brand/me.png",
+      }}
+    />
+
     <ClientRouter />
+    <script is:inline src="https://www.google.com/recaptcha/api.js"></script>
+
+    <!-- Pixel -->
+    <!-- GTM -->
   </head>
   <body
     class="flex flex-col min-h-screen bg-neutral-50 dark:bg-neutral-800 dark:text-neutral-100"
