@@ -7,6 +7,15 @@ import {
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 const categoriesIcons = {
   web: ComputerDesktopIcon,
   mobile: DevicePhoneMobileIcon,
@@ -32,7 +41,7 @@ const Icon = categoriesIcons[iconKey];
 ---
 
 <a
-  href={link}
+  href={translatePath(link)}
   class={`flex items-center justify-center gap-3 px-4 py-2 rounded-full max-w-40
   font-text font-medium text-neutral-600 transition-transform transform hover:scale-105`}
   style={`background-color: ${color};`}

@@ -18,7 +18,7 @@ if (!categories.find((cat) => cat.data.id === category)) {
   return Astro.redirect("/404");
 }
 
-// Forma obtima de obtener los proyectos de un idioma mediante su ruta
+// Forma optima de obtener los proyectos de un idioma mediante su ruta
 const allProjects = await getCollection("projects", ({ id }) => {
   return id.startsWith(lang);
 });

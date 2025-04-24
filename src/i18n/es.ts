@@ -6,6 +6,10 @@ const es = {
     about: "Acerca de",
     contact: "Contacto",
   },
+  footer : {
+    title: "¿Trabajamos juntos?",
+    btn: "Contáctame",
+  },
   home: {
     banner: {
       title: `¡Hola, soy
@@ -33,7 +37,19 @@ const es = {
       },
     },
     experience: {
-      title: "Experiencia laboral",
+      title: "Experiencia",
+      card0: {
+        title: "Instituto Tecnológico Superior de Teziutlán",
+        duration: "2018 - Presente",
+        role: "Estudiante & Asesor",
+        funciones: [
+          "Diseño y creación de una plataforma educativa de cursos",
+          "Maestro de ceremonias",
+          "Líder y expositor de proyectos",
+          "Asesoría en proyectos",
+          "Dictado de cursos",
+        ],
+      },
       card1: {
         title: "YGU COMUNICAXION",
         duration: "2022 - Presente",
@@ -45,23 +61,25 @@ const es = {
           "Uso de GitHub para trabajo colaborativo.",
           "Estandarización de proyectos antiguos.",
           "Trabajo de diseño UI colaborativo.",
-          "Implementacion de estrategias de SEO.",
+          "Implementación de estrategias de SEO.",
         ],
       },
       card2: {
         title: "AppDeux",
         duration: "2025 - Presente",
-        role: "Director de Comunicación",
+        role: "Director Técnico",
         funciones: [
-          "Desarrolle varias landing page en Gatsby.js y Astro.js",
-          "Creación de Aplicaciones web robustas con Next.js",
-          "Mantenimiento de sitios hechos con Wordpress",
-          "Uso de GitHub para trabajo colaborativo.",
-          "Estandarización de proyectos antiguos.",
-          "Trabajo de diseño UI colaborativo.",
-          "Implementacion de estrategias de SEO.",
+          "Administración de proyectos",
+          "Gestión de equipos",
+          "Levantamiento de requisitos",
+          "Desarrollo de herramientas web",
+          "Análisis de datos",
         ],
       },
+    },
+    projects: {
+      title: "Proyectos relevantes",
+      btn: "Ver todos",
     },
     about: {
       title: "Acerca de mi",
@@ -85,7 +103,7 @@ const es = {
         },
         {
           title: "Debilidades",
-          description: "Perfeccionismo y sindrome del impostor.",
+          description: "Perfeccionismo y síndrome del impostor.",
         },
         {
           title: "Pasatiempos",
@@ -99,7 +117,7 @@ const es = {
       titleStack: "Mi Stack principal",
     },
     techs: {
-      title: "Tecnologias y Habilidades",
+      title: "Tecnologías y Habilidades",
       titleFrontend: "Frontend",
       titleBackend: "Backend",
       titleUi: "Diseño UI",

@@ -1,16 +1,11 @@
 ---
-
 import Banner from "@components/banners/Banner.astro";
-
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 
 import HabilitySection from "./home/HabilitySection.astro";
 import ExperiencesSection from "./home/ExperiencesSection.astro";
 import AboutSection from "./home/AboutSection.astro";
 import TechsSkillsSections from "./home/TechsSkillsSections.astro";
+import ProjectsSection from "./home/ProjectsSection.astro";
 ---
 
 <Banner />
@@ -19,8 +14,8 @@ import TechsSkillsSections from "./home/TechsSkillsSections.astro";
 
 <ExperiencesSection />
 
+<ProjectsSection />
+
 <AboutSection />
 
 <TechsSkillsSections />
-
-

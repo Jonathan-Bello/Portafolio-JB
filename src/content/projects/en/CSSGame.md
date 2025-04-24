@@ -12,6 +12,7 @@ techs:
 category: ["web", "games"]
 url: "https://midominio.com/tesis"
 author: "jonathan-bello"
+isRelevant: true
 ---
 
 ## 🎯 Project Objective

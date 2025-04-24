@@ -6,8 +6,10 @@ const t = useTranslations(lang);
 
 import ExperiencesCard from "@components/cards/ExperiencesCard.astro";
 
-import YGULogo from "@assets/logos/yguLogo.svg";
-import FrontendDeveloperIcon from "@assets/logos/IconTEC.svg";
+import logoYGU from "@assets/logos/logoYGU.svg";
+import logoTec from "@assets/logos/IconTEC.svg";
+import logoEDteam from "@assets/logos/logoEDteam.svg";
+import logoAppDeux from "@assets/logos/logoAppDeux.svg";
 ---
 
 <!-- Experiences -->
@@ -23,24 +25,24 @@ import FrontendDeveloperIcon from "@assets/logos/IconTEC.svg";
       gap-8 sm:gap-8 md:gap-12"
   >
     <ExperiencesCard
+      titulo={t("home.experience.card0.title")}
+      fechaDeTrabajo={t("home.experience.card0.duration")}
+      rol={t("home.experience.card0.role")}
+      iconoEmpresa={logoTec}
+      funciones={t("home.experience.card0.funciones")}
+    />
+    <ExperiencesCard
       titulo={t("home.experience.card1.title")}
       fechaDeTrabajo={t("home.experience.card1.duration")}
       rol={t("home.experience.card1.role")}
-      iconoEmpresa={YGULogo}
+      iconoEmpresa={logoYGU}
       funciones={t("home.experience.card1.funciones")}
     />
     <ExperiencesCard
       titulo={t("home.experience.card2.title")}
       fechaDeTrabajo={t("home.experience.card2.duration")}
       rol={t("home.experience.card2.role")}
-      iconoEmpresa={FrontendDeveloperIcon}
-      funciones={t("home.experience.card2.funciones")}
-    />
-    <ExperiencesCard
-      titulo={t("home.experience.card2.title")}
-      fechaDeTrabajo={t("home.experience.card2.duration")}
-      rol={t("home.experience.card2.role")}
-      iconoEmpresa={FrontendDeveloperIcon}
+      iconoEmpresa={logoAppDeux}
       funciones={t("home.experience.card2.funciones")}
     />
   </div>

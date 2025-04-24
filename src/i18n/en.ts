@@ -6,6 +6,10 @@ const en = {
     about: "About",
     contact: "Contact",
   },
+  footer: {
+    title: "Let's work together?",
+    btn: "Contact me",
+  },
   home: {
     banner: {
       title: `Hello, I'm
@@ -34,48 +38,48 @@ const en = {
     },
     experience: {
       title: "Work Experience",
+      card0: {
+        title: "Instituto Tecnológico Superior de Teziutlán",
+        duration: "2018 - Present",
+        role: "Student & Advisor",
+        funciones: [
+          "Design and creation of an educational course platform",
+          "Master of ceremonies",
+          "Leader and presenter of projects",
+          "Project advising",
+          "Course teaching",
+        ],
+      },
       card1: {
         title: "YGU COMUNICAXION",
         duration: "2022 - Present",
         role: "Web Developer",
         funciones: [
           "Developed several landing pages in Gatsby.js and Astro.js",
-          "Built robust web applications with Next.js",
-          "Maintained websites made with Wordpress",
-          "Used GitHub for collaborative work.",
-          "Standardized old projects.",
-          "Collaborative work on UI design.",
-          "Implemented SEO strategies.",
+          "Web applications built with Next.js",
+          "Wordpress website maintenance",
+          "Collaborative GitHub use",
+          "Standardization of old projects",
+          "Collaborative UI design",
+          "Implementation of SEO strategies",
         ],
       },
       card2: {
         title: "AppDeux",
         duration: "2025 - Present",
-        role: "Director of Communication",
+        role: "Technical Director",
         funciones: [
-          "Developed several landing pages in Gatsby.js and Astro.js",
-          "Built robust web applications with Next.js",
-          "Maintained websites made with Wordpress",
-          "Used GitHub for collaborative work.",
-          "Standardized old projects.",
-          "Collaborative work on UI design.",
-          "Implemented SEO strategies.",
+          "Administration of projects",
+          "Team management",
+          "Requirement raising",
+          "Web development tools",
+          "Data analysis",
         ],
       },
-      card3: {
-        title: "AppDeux",
-        duration: "2025 - Present",
-        role: "Director of Communication",
-        funciones: [
-          "Developed several landing pages in Gatsby.js and Astro.js",
-          "Built robust web applications with Next.js",
-          "Maintained websites made with Wordpress",
-          "Used GitHub for collaborative work.",
-          "Standardized old projects.",
-          "Collaborative work on UI design.",
-          "Implemented SEO strategies.",
-        ],
-      },
+    },
+    projects: {
+      title: "Relevant Projects",
+      btn: "See all",
     },
     about: {
       title: "About Me",
@@ -124,17 +128,17 @@ const en = {
     banner: {
       title: "My Projects",
     },
-    categories : {
-      title: "Categories"
-    }
+    categories: {
+      title: "Categories",
+    },
   },
-  project : {
-    comments : {
+  project: {
+    comments: {
       title: "Leave a comment",
       name: "Name",
       comment: "Comment",
       send: "Send",
-    }
+    },
   },
 };
 

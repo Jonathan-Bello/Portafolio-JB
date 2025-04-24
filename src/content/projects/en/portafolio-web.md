@@ -12,6 +12,7 @@ techs:
 category: ["web", "ui"]
 url: "https://midominio.com/portafolio"
 author: "jonathan-bello"
+isRelevant: false
 ---
 
 ## 🎨 About the Project

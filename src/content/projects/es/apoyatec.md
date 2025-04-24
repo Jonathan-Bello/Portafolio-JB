@@ -12,6 +12,7 @@ techs:
 category: ["web", "backend"]
 url: "https://midominio.com/apoyatec"
 author: "jonathan-bello"
+isRelevant: true
 ---
 
 ##  ¿Qué es ApoyaTec?

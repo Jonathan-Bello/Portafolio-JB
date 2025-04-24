@@ -11,12 +11,17 @@ import {
 } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 
-const allProjects = await getCollection("projects");
-const currentProjects = allProjects.filter((project) =>
-  project.slug.startsWith(`${lang}/`)
-);
+//  Obtener proyectos
+// const allProjects = await getCollection("projects");
+// const currentProjects = allProjects.filter((project) =>
+//   project.slug.startsWith(`${lang}/`)
+// );
+
+// Obtener proyectos de un idioma directamente
+const currentProjects = await getCollection("projects", ({ id }) => {
+  return id.startsWith(lang);
+});
 ---
 
 <BaseLayout title="Proyectos">

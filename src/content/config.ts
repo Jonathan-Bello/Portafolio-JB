@@ -13,6 +13,7 @@ const projectCollection = defineCollection({
       category: z.array(reference("categoriesProjects")),
       url: z.string().url(),
       author: reference("authors"),
+      isRelevant: z.boolean(),
     }),
 });
 

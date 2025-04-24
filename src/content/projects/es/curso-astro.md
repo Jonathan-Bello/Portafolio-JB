@@ -13,6 +13,7 @@ techs:
 category: ["web"]
 url: "https://midominio.com/curso-astro"
 author: "jonathan-bello"
+isRelevant: true
 ---
 
 ## 🚀 Sobre el Curso

@@ -16,6 +16,16 @@ import {
   GlobeAmericasIcon,
   InboxIcon,
 } from "@heroicons/react/24/outline";
+import Button from "@components/buttons/Button.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <footer
@@ -28,16 +38,15 @@ import {
       <h4
         class="text-neutral-950 dark:text-neutral-50 font-medium text-2xl font-title"
       >
-        ¿Trabajamos juntos?
+        {t("footer.title")}
       </h4>
 
-      <a
-        href="/"
-        class="font-semibold font-text bg-primary-700 text-neutral-100
-        py-2 px-4 rounded text-center inline-block
-        hover:bg-primary-800 transition duration-200 ease-in-out"
-        >Contáctame</a
-      >
+      <Button
+        text={t("footer.btn")}
+        size="md"
+        variant="primary"
+        href={translatePath("/contact")}
+      />
     </div>
 
     <div
@@ -85,7 +94,9 @@ import {
           class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
         flex items-center gap-4"
         >
-          <PhoneIcon className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block" />
+          <PhoneIcon
+            className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
+          />
           231 231 231 2311
         </a>
 
@@ -94,7 +105,9 @@ import {
           class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
         flex items-center gap-4"
         >
-          <EnvelopeIcon className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block" />
+          <EnvelopeIcon
+            className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
+          />
           jonathan.bellofg@gmail.com
         </a>
 
@@ -116,7 +129,9 @@ import {
           class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
     flex items-center gap-4"
         >
-          <InboxIcon className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block" />
+          <InboxIcon
+            className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
+          />
           Mi blog
         </a>
       </div>
@@ -127,7 +142,7 @@ import {
     <p
       class="text-neutral-50 font-title font-medium text-center text-base py-1"
     >
-      Jonathan Bello - 2024
+      Jonathan Bello - 2025
     </p>
   </div>
 </footer>

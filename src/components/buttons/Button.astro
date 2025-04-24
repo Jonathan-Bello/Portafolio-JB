@@ -2,7 +2,7 @@
 interface Props {
   text: string;
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary" | "danger";
+  variant?: "primary" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string; // Si existe, el botón se convierte en un enlace
   onClick?: () => void;
@@ -17,18 +17,18 @@ const {
   onClick,
 } = Astro.props;
 
-const baseClass =
-  "rounded-lg font-medium transition duration-200 inline-flex items-center justify-center";
+const baseClass = `font-semibold font-text bg-primary-700 text-neutral-100
+        rounded text-center inline-block
+        hover:bg-primary-800 transition-transform transform hover:scale-105 duration-200 ease-in-out"`;
 const variantClass = {
-  primary: "bg-blue-500 text-white hover:bg-blue-600",
-  secondary: "bg-gray-500 text-white hover:bg-gray-600",
-  danger: "bg-red-500 text-white hover:bg-red-600",
+  primary: "bg-primary-700 text-neutral-100 hover:bg-primary-800",
+  ghost: "bg-gray-500 text-white hover:bg-gray-600",
 }[variant];
 
 const sizeClass = {
-  sm: "px-3 py-1 text-sm",
-  md: "px-4 py-2 text-base",
-  lg: "px-5 py-3 text-lg",
+  sm: "py-2 px-4 text-sm",
+  md: "py-3 px-5 text-base",
+  lg: "py-4 px-6 text-lg",
 }[size];
 ---
 
@@ -41,7 +41,7 @@ const sizeClass = {
     ) : (
       <button
         type={type}
-        class={`${baseClass} ${variantClass} ${sizeClass} bg-amber-400`}
+        class={`${baseClass} ${variantClass} ${sizeClass} bg-primary-700 transition-all`}
         data-click={onClick}
       >
         {text}

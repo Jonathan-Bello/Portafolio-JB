@@ -40,3 +40,53 @@
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
+
+@layer utilities {
+  @keyframes ping-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.6;
+    }
+    80% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .animate-ping-ring {
+    position: absolute;
+    bottom: -1rem;
+    @apply left-2/5 xl:left-[45%];
+    /* transform: translateX(-50%); */
+    width: 6rem;
+    height: 0.25rem;
+    background-color: var(--color-primary-100);
+    border-radius: 9999px;
+    transform-origin: center;
+    animation: ping-ring 1.5s ease-out infinite;
+    pointer-events: none;
+  }
+
+  /* 3. Keyframes para oscilar en 3D sobre el eje Y */
+  @keyframes float-swing-3d {
+    0%,
+    100% {
+      transform: translateY(0) rotateY(-15deg);
+    }
+    50% {
+      transform: translateY(-10px) rotateY(15deg);
+    }
+  }
+  .animate-float-swing-3d {
+    animation: float-swing-3d 3s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  /* 4. Glow y sombra para dar “presencia” */
+  .drop-glow {
+    filter: drop-shadow(0 0 6px var(--color-primary-100))
+      drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+}

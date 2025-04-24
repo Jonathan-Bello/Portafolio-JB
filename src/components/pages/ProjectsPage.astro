@@ -1,7 +1,6 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BannerSmall from "@components/banners/BannerSmall.astro";
-import { Image } from "astro:assets";
 
 import {
   getLangFromUrl,
@@ -11,7 +10,6 @@ import {
 import ButtonCategory from "@components/buttons/ButtonCategory.astro";
 import type { CollectionEntry } from "astro:content";
 import ProjectCard from "@components/cards/ProjectCard.astro";
-import { use } from "react";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
