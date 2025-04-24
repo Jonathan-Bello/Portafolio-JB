@@ -6,7 +6,7 @@ const es = {
     about: "Acerca de",
     contact: "Contacto",
   },
-  footer : {
+  footer: {
     title: "¿Trabajamos juntos?",
     btn: "Contáctame",
   },
@@ -139,6 +139,16 @@ const es = {
       name: "Nombre",
       comment: "Comentario",
       send: "Enviar",
+    },
+  },
+  about: {
+    title: "Sobre Mi",
+    description:
+      "Un explorador digital que mezcla código, videojuegos y educación para crear experiencias que enseñan y emocionan",
+    Info: {
+      title: "Información",
+      description:
+        "Soy un apasionado del desarrollo web y la inteligencia artificial, con un enfoque en crear soluciones tecnológicas que no solo sean funcionales, sino también estéticamente agradables. Mi experiencia abarca desde el diseño de interfaces hasta la implementación de sistemas complejos, siempre buscando la excelencia en cada proyecto.",
     },
   },
 };

@@ -1,126 +1,105 @@
 ---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 import { Image } from "astro:assets";
 import MyImage from "@assets/brand/me.svg";
+import CharacterCard from "./about/CharacterCard.astro";
+import Stats from "./about/Stats.astro";
 ---
 
-<div class="py-12">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-primary-600 mb-6">Sobre Mí</h1>
-      <div class="relative inline-block">
-        <Image
-          src={MyImage}
-          alt="Mi foto"
-          class="w-48 h-48 rounded-full border-4 border-primary-100 shadow-lg transform hover:scale-105 transition-transform duration-300"
-        />
-        <div
-          class="absolute -bottom-2 -right-2 bg-primary-500 text-white rounded-full p-2 shadow-lg"
+<section
+  class={`container px-4 lg:px-0 py-16 bg-neutral-50 dark:bg-neutral-900`}
+>
+  <div class={`max-w-5xl mx-auto`}>
+    <!-- Hero estilo menú de videojuego -->
+    <header class={`text-center mb-8`}>
+      <h1
+        class={`text-4xl md:text-5xl xl:text-6xl font-title font-bold text-neutral-900 dark:text-neutral-100 mb-4`}
+      >
+        ⚔️ Sobre mí
+      </h1>
+      <p class={`text-lg text-neutral-800 dark:text-neutral-300`}>
+        Desarrollador, Profe, Jugador y Explorador del aprendizaje a través del
+        código.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Avatar flotante 3D -->
+      <CharacterCard />
+
+      <Stats />
+
+      <!-- Tarjetas estilo stats de personaje -->
+      <div
+        class={`grid grid-cols-1 md:grid-cols-3 md:col-span-2 lg:col-span-3 gap-8`}
+      >
+        <!-- Historia -->
+        <section
+          class={`group relative bg-neutral-100 dark:bg-neutral-800 border-2 border-primary-600 dark:border-neutral-100 rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden`}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+          <h2
+            class={`text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3`}
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
+            🗺️ Mi historia
+          </h2>
+          <p class={`text-neutral-800 dark:text-neutral-100 leading-relaxed`}>
+            Empecé este viaje digital como quien comienza un nuevo juego sin
+            tutorial. Desde líneas de HTML hasta sistemas con IA, cada paso ha
+            sido una misión completada. Hoy combino desarrollo web, docencia y
+            diseño de experiencias educativas interactivas.
+          </p>
+          <div
+            class={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white/50 to-white/0 skew-x-[-20deg] animate-shine`}
+          >
+          </div>
+        </section>
+
+        <!-- Experiencia -->
+        <section
+          class={`group relative bg-neutral-100 dark:bg-neutral-800 border-2 border-primary-600 dark:border-neutral-100 rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden`}
+        >
+          <h2
+            class={`text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3`}
+          >
+            💼 Experiencia
+          </h2>
+          <ul
+            class={`list-disc list-inside text-neutral-800 dark:text-neutral-100 space-y-2`}
+          >
+            <li>Desarrollador fullstack y docente</li>
+            <li>Proyectos con Childfund, FLP y Tycoon</li>
+            <li>Investigación: videojuegos educativos con IA</li>
+            <li>Contenido en YouTube y covers musicales 🎙️</li>
+          </ul>
+          <div
+            class={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white/50 to-white/0 skew-x-[-20deg] animate-shine`}
+          >
+          </div>
+        </section>
+
+        <!-- Visión -->
+        <section
+          class={`group relative bg-neutral-100 dark:bg-neutral-800 border-2 border-primary-600 dark:border-neutral-100 rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden`}
+        >
+          <h2
+            class={`text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3`}
+          >
+            🌌 Visión
+          </h2>
+          <p class={`text-neutral-800 dark:text-neutral-100 leading-relaxed`}>
+            Crear entornos donde aprender se sienta como jugar. Mi meta es
+            fusionar tecnología, narrativa y pedagogía para que programar sea
+            tan épico como vencer al jefe final de tu videojuego favorito.
+          </p>
+          <div
+            class={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white/50 to-white/0 skew-x-[-20deg] animate-shine`}
+          >
+          </div>
+        </section>
       </div>
     </div>
-
-    <div class="space-y-12">
-      <section
-        class="bg-white rounded-xl shadow-md p-8 transform hover:scale-[1.02] transition-transform duration-300"
-      >
-        <h2
-          class="text-2xl font-semibold text-primary-500 mb-4 flex items-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          Mi Historia
-        </h2>
-        <p class="text-neutral-600 leading-relaxed">
-          Desde pequeño, siempre he tenido una pasión por la tecnología y la
-          creatividad. Mi camino en el desarrollo web comenzó cuando descubrí
-          cómo podía combinar ambas pasiones para crear experiencias digitales
-          únicas.
-        </p>
-      </section>
-
-      <section
-        class="bg-white rounded-xl shadow-md p-8 transform hover:scale-[1.02] transition-transform duration-300"
-      >
-        <h2
-          class="text-2xl font-semibold text-primary-500 mb-4 flex items-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            ></path>
-          </svg>
-          Mi Experiencia
-        </h2>
-        <p class="text-neutral-600 leading-relaxed">
-          A lo largo de los años, he trabajado en diversos proyectos que abarcan
-          desde sitios web personales hasta aplicaciones empresariales. Mi
-          enfoque siempre ha sido escribir código limpio y crear interfaces
-          intuitivas.
-        </p>
-      </section>
-
-      <section
-        class="bg-white rounded-xl shadow-md p-8 transform hover:scale-[1.02] transition-transform duration-300"
-      >
-        <h2
-          class="text-2xl font-semibold text-primary-500 mb-4 flex items-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-            ></path>
-          </svg>
-          Mi Visión
-        </h2>
-        <p class="text-neutral-600 leading-relaxed">
-          Mi objetivo es seguir aprendiendo y creciendo como desarrollador,
-          mientras contribuyo a proyectos que marquen una diferencia. Creo
-          firmemente en el poder de la tecnología para mejorar nuestras vidas.
-        </p>
-      </section>
-    </div>
   </div>
-</div>
+</section>
