@@ -22,6 +22,8 @@ const { project } = Astro.props;
 
 // Obtener categorías del proyecto
 const categories = await getEntries(project.data.category);
+
+const projectIdCleaned = project.slug.replace(`${lang}/`, "");
 ---
 
 <article
@@ -29,7 +31,7 @@ const categories = await getEntries(project.data.category);
 >
   <div class="flex flex-col">
     <a
-      href={translatePath(`/project/${project.id}`)}
+      href={translatePath(`/projects/${projectIdCleaned}`)}
       class="hover:cursor-pointer"
     >
       <Image

@@ -5,7 +5,6 @@ import BannerSmall from "@components/banners/BannerSmall.astro";
 import {
   getLangFromUrl,
   useTranslations,
-  useTranslatedPath,
 } from "@i18n/utils";
 import ButtonCategory from "@components/buttons/ButtonCategory.astro";
 import type { CollectionEntry } from "astro:content";
@@ -13,7 +12,6 @@ import ProjectCard from "@components/cards/ProjectCard.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const transalete = useTranslatedPath(lang);
 
 const categories = await getCollection("categoriesProjects");
 
@@ -43,7 +41,7 @@ const { projects } = Astro.props;
         <ButtonCategory
           id={category.data.id}
           title={category.data.name}
-          link={transalete(`/projects/category/${category.data.id}`)}
+          link={`/projects/category/${category.data.id}`}
           color={category.data.color}
         />
       ))

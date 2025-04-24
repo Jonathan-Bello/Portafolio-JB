@@ -53,7 +53,7 @@ if (Astro.request.method === "POST") {
     });
   }
 
-  // Redireccionar a la misma pagina para evitar el reenvio del formulario
+  // Redireccionar a la misma pagina para evitar el reenvío del formulario
   Astro.redirect("/project/" + project.data.id);
 }
 
@@ -64,9 +64,6 @@ comentarios = await db
   .where(eq(Comment.postId, project.data.id));
 
 authores = await db.select().from(Author);
-
-console.log("COMENTARIOS", comentarios);
-console.log("AUTHORES", authores);
 ---
 
 <EntryLayout entry={project.data}>

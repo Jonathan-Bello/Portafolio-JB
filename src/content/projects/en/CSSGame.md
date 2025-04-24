@@ -2,7 +2,7 @@
 id: "2"
 title: "Development of an Educational Video Game for Learning CSS with AI"
 description: "A video game designed for first-year software development students, using artificial intelligence to evaluate CSS code and enhance learning."
-publishDate: 2025-03-29
+publishDate: 2025-04-29
 cover: "@assets/coversProjects/Chooseway.jpg"
 techs:
   - JavaScript

@@ -42,6 +42,7 @@
 }
 
 @layer utilities {
+  /* Aro de la imagen flotante */
   @keyframes ping-ring {
     0% {
       transform: scale(0.6);
@@ -88,5 +89,44 @@
   .drop-glow {
     filter: drop-shadow(0 0 6px var(--color-primary-100))
       drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+
+  /* Animación para brillo  */
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) skewX(-20deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-20deg);
+    }
+  }
+
+  /* 2. Contenedor que permitirá el overflow del brillo */
+  .shine-container {
+    @apply relative overflow-hidden;
+  }
+
+  /* 3. Pseudo-elemento que será el brillo */
+  .shine-container::before {
+    content: "";
+    @apply absolute top-0 left-0 w-1/2 h-full bg-neutral-50 opacity-0;
+    transform: skewX(-20deg) translateX(-100%);
+  }
+
+  /* 4. Al hacer hover, volvemos visible el brillo y lo animamos */
+  .shine-container:hover::before {
+    @apply opacity-20;
+    animation: shine 0.8s ease-in-out;
+  }
+
+  &:where(.dark, .dark *) {
+    /* 1. Cambiamos el color del brillo en modo oscuro */
+    .shine-container::before {
+      @apply bg-neutral-900;
+    }
+
+    .shine-container:hover::before {
+      @apply opacity-10;
+    }
   }
 }

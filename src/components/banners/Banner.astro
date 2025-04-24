@@ -1,10 +1,23 @@
 ---
-import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { Image } from "astro:assets";
+import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { getCollection } from "astro:content";
 
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 // Obtener el último proyecto
-const projects = await getCollection("projects");
+const projects = await getCollection("projects", ({ id }) => {
+  return id.startsWith(lang);
+});
+
 const latestProject = projects.sort((a, b) => {
   return (
     new Date(b.data.publishDate).getTime() -
@@ -12,10 +25,7 @@ const latestProject = projects.sort((a, b) => {
   );
 })[0];
 
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const projectIdCleaned = latestProject.slug.replace(`${lang}/`, "");
 ---
 
 <section
@@ -81,19 +91,23 @@ const t = useTranslations(lang);
             <div class="relative inline-block perspective-distant z-10">
               {/* Anillo del suelo */}
               <span class="animate-ping-ring" />
+              <a
+                href={translatePath(`/projects/${projectIdCleaned}`)}
+                class={`inline-block
 
-              <Image
-                src={latestProject.data.cover}
-                alt={`Banner del proyecto ${latestProject.data.title}`}
-                class={`
+                  transform transform-3d backface-hidden perspective-distant
+                  animate-float-swing-3d drop-glow`}
+              >
+                {/* Imagen del proyecto */}
+                <Image
+                  src={latestProject.data.cover}
+                  alt={`Banner del proyecto ${latestProject.data.title}`}
+                  class={`
                   w-full max-w-2xl max-h-[400px] aspect-video
                   object-cover rounded-2xl shadow-lg
-
-                  /* 3D swing + glow */
-                  transform transform-3d backface-hidden perspective-distant
-                  animate-float-swing-3d drop-glow
                 `}
-              />
+                />
+              </a>
             </div>
           )
         }
