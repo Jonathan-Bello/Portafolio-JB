@@ -91,7 +91,8 @@ const translatePath = useTranslatedPath(lang);
 
       <button
         id="theme-toggle"
-        class="rounded-full size-8 bg-neutral-100 dark:bg-neutral-400 hover:cursor-pointer flex items-center justify-center"
+        class="theme-toggle
+        rounded-full size-8 bg-neutral-100 dark:bg-neutral-400 hover:cursor-pointer flex items-center justify-center"
       >
         <MoonIcon className="text-neutral-400 size-6 dark:hidden" />
         <SunIcon className="text-neutral-100 hidden dark:inline-block size-6" />
@@ -118,47 +119,48 @@ const translatePath = useTranslatedPath(lang);
 <script>
   // Verificar que el DOM este completamente cargado antes de ejecutar el script con la validacion de viewtransiottions de astro
   // con astro-load-page
-  // document.addEventListener("astro:page-load", () => {
 
-  // Toggle navigation menu
-  const barsIcon = document.querySelector("#menu-icon");
-  const closeIcon = document.querySelector("#close-icon");
-  const navigatorMenu = document.querySelector("#navigator-menu");
-  const navigatorLinks = document.querySelector("#navigator-menu ul");
+  document.addEventListener("astro:page-load", () => {
+    // Toggle navigation menu
+    const barsIcon = document.querySelector("#menu-icon");
+    const closeIcon = document.querySelector("#close-icon");
+    const navigatorMenu = document.querySelector("#navigator-menu");
+    const navigatorLinks = document.querySelector("#navigator-menu ul");
 
-  if (navigatorMenu === null || barsIcon === null || closeIcon === null) {
-    throw new Error("Element not found");
-  }
-
-  barsIcon.addEventListener("click", () => {
-    barsIcon.classList.toggle("hidden");
-    closeIcon.classList.toggle("hidden");
-    navigatorMenu.classList.toggle("top-16");
-  });
-
-  closeIcon.addEventListener("click", () => {
-    closeIcon.classList.toggle("hidden");
-    barsIcon.classList.toggle("hidden");
-    navigatorMenu.classList.toggle("top-16");
-  });
-
-  // Agregar logoica  de que se muestre una linea roja debajo del link activo
-  // si el link concuerda con el path actual
-  const path = window.location.pathname;
-  const links = navigatorLinks?.querySelectorAll("a");
-
-  links?.forEach((link) => {
-    if (link.pathname === path) {
-      console.log(link.pathname);
-      link.classList.add("active");
+    if (navigatorMenu === null || barsIcon === null || closeIcon === null) {
+      throw new Error("Element not found");
     }
-  });
 
-  // Cambiar el tema de la pagina
-  const themeToggle = document.querySelector("#theme-toggle");
-  const html = document.querySelector("html");
+    barsIcon.addEventListener("click", () => {
+      barsIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+      navigatorMenu.classList.toggle("top-16");
+    });
 
-  themeToggle?.addEventListener("click", () => {
-    html?.classList.toggle("dark");
+    closeIcon.addEventListener("click", () => {
+      closeIcon.classList.toggle("hidden");
+      barsIcon.classList.toggle("hidden");
+      navigatorMenu.classList.toggle("top-16");
+    });
+
+    // Agregar logoica  de que se muestre una linea roja debajo del link activo
+    // si el link concuerda con el path actual
+    const path = window.location.pathname;
+    const links = navigatorLinks?.querySelectorAll("a");
+
+    links?.forEach((link) => {
+      if (link.pathname === path) {
+        console.log(link.pathname);
+        link.classList.add("active");
+      }
+    });
+
+    // Cambiar el tema de la pagina
+    const themeToggle = document.querySelector("#theme-toggle");
+    const html = document.querySelector("html");
+
+    themeToggle?.addEventListener("click", () => {
+      html?.classList.toggle("dark");
+    });
   });
 </script>

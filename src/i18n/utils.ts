@@ -5,6 +5,7 @@ export function getLangFromUrl(url: URL) {
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
 }
+
 function getNestedValue(obj: any, key: string): any {
   return key.split(".").reduce((acc, part) => acc?.[part], obj);
 }
