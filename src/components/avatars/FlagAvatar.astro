@@ -9,6 +9,8 @@ console.log(ip);
 const res = await fetch("https://ipinfo.io/json");
 const geo = await res.json();
 
+console.log(geo);
+
 const countryCode = geo.country || "US";
 ---
 
@@ -27,4 +29,3 @@ const countryCode = geo.country || "US";
     display: inline-block;
   }
 </style>
-
