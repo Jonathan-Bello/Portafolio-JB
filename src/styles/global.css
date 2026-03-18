@@ -1,4 +1,5 @@
 @import "tailwindcss";
+/* Plugin para estilizar los md y mdx con tailwind */
 @plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));

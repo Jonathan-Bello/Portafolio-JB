@@ -5,14 +5,14 @@ const ip = forwarded.split(",")[0].trim() || "8.8.8.8";
 console.log(ip);
 
 // Obtener la geolocalizacion de la IP del usuario localhost
-// const res = await fetch("https://ipinfo.io/json");
-// const geo = await res.json();
-// console.log(geo);
-
-// Obtener la geolocalizacion de la IP del usuario en produccion
-const res = await fetch(`https://ipinfo.io/${ip}/json`);
+const res = await fetch("https://ipinfo.io/json");
 const geo = await res.json();
 console.log(geo);
+
+// Obtener la geolocalizacion de la IP del usuario en produccion
+// const res = await fetch(`https://ipinfo.io/${ip}/json`);
+// const geo = await res.json();
+// console.log(geo);
 
 const countryCode = geo.country || "PE";
 ---
