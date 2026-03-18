@@ -25,7 +25,7 @@ const latestProject = projects.sort((a, b) => {
   );
 })[0];
 
-const projectIdCleaned = latestProject.slug.replace(`${lang}/`, "");
+const projectIdCleaned = latestProject.id.replace(`${lang}/`, "");
 ---
 
 <section
