@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 
 import {
   getLangFromUrl,
-  useTranslations,
   useTranslatedPath,
 } from "@i18n/utils";
 import type { CollectionEntry } from "astro:content";
@@ -11,7 +10,6 @@ import ButtonCategory from "@components/buttons/ButtonCategory.astro";
 import { getEntries } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 interface Props {
@@ -23,7 +21,7 @@ const { project } = Astro.props;
 // Obtener categorías del proyecto
 const categories = await getEntries(project.data.category);
 
-const projectIdCleaned = project.slug.replace(`${lang}/`, "");
+const projectIdCleaned = project.id.replace(`${lang}/`, "");
 ---
 
 <article

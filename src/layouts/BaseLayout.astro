@@ -15,11 +15,24 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={lang} class="">
+<html lang={lang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Favicon - Modo claro -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/lettermark.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Favicon - Modo oscuro -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/lettermark-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -75,7 +88,7 @@ const lang = getLangFromUrl(Astro.url);
   }
 </style>
 
-<script>
+<script is:inline>
   // Inyectar clase dark si se uso el modo oscuro usando ViewTransitions
   function setDarkMode(document: Document) {
     const html = document.querySelector("html");
@@ -93,4 +106,28 @@ const lang = getLangFromUrl(Astro.url);
       setDarkMode(ev.newDocument);
     }
   });
+
+  // Sistema de favicon dinámico para cambios de tema
+  function updateFavicon() {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const faviconLink = document.querySelector('link[rel="icon"]');
+
+    if (faviconLink) {
+      if (prefersDark) {
+        faviconLink.href = "/lettermark-dark.svg";
+      } else {
+        faviconLink.href = "/lettermark.svg";
+      }
+    }
+  }
+
+  // Actualizar favicon al cargar
+  updateFavicon();
+
+  // Escuchar cambios en la preferencia de tema del navegador
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", updateFavicon);
 </script>

@@ -1,12 +1,15 @@
-import Button from "@components/buttons/Button.astro";
-import { type FormEvent, useState } from "react";
+import { type ReactNode, type SyntheticEvent, useState } from "react";
 
-export default function Form({ children }) {
+type Props = {
+  children?: ReactNode;
+};
+
+export default function Form({ children }: Props) {
   const [responseMessage, setResponseMessage] = useState("");
 
-  async function submit(e: FormEvent<HTMLFormElement>) {
+  async function submit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
+    const formData = new FormData(e.currentTarget);
     const response = await fetch("/api/feedback", {
       method: "POST",
       body: formData,

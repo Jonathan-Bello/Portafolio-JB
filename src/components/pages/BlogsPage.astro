@@ -15,7 +15,7 @@ const translatePath = useTranslatedPath(lang);
 
 const allPblogs = await getCollection("blogs");
 const currentBlogs = allPblogs.filter((blog) =>
-  blog.slug.startsWith(`${lang}/`)
+  blog.id.startsWith(`${lang}/`)
 );
 
 const categories = await getCollection("categories");
@@ -61,7 +61,7 @@ const actualPath = url.pathname;
           <div class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
             <a
               href={translatePath(
-                `/blogs/${blog.slug.replace(`${lang}/`, "")}`
+                `/blogs/${blog.id.replace(`${lang}/`, "")}`
               )}
               class="flex flex-col"
             >
