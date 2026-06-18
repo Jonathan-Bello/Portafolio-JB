@@ -1,16 +1,17 @@
 ---
 import {
+  AcademicCapIcon,
+  CodeBracketIcon,
   ComputerDesktopIcon,
   DevicePhoneMobileIcon,
-  ServerIcon,
   PuzzlePieceIcon,
+  ServerIcon,
+  SparklesIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 
-import {
-  getLangFromUrl,
-  useTranslatedPath,
-} from "@i18n/utils";
+import { getLangFromUrl, useTranslatedPath } from "@i18n/utils";
+
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 
@@ -20,30 +21,29 @@ const categoriesIcons = {
   backend: ServerIcon,
   games: PuzzlePieceIcon,
   ui: SwatchIcon,
+  education: AcademicCapIcon,
+  ai: SparklesIcon,
 };
 
 type Props = {
   id: string;
   title: string;
   link: string;
-  color: string;
 };
 
-const { id, title, link, color } = Astro.props;
-
-// Normalizamos el título (opcional: todo minúsculas, sin espacios, etc.)
-const iconKey = id
-  .toLowerCase()
-  .replace(/\s+/g, "") as keyof typeof categoriesIcons;
-const Icon = categoriesIcons[iconKey];
+const { id, title, link } = Astro.props;
+const iconKey = id.toLowerCase().replace(/\s+/g, "") as keyof typeof categoriesIcons;
+const Icon = categoriesIcons[iconKey] ?? CodeBracketIcon;
 ---
 
 <a
   href={translatePath(link)}
-  class={`flex items-center justify-center gap-3 px-4 py-2 rounded-full max-w-40
-  font-text font-medium text-neutral-600 dark:text-neutral-950 transition-transform transform hover:scale-105`}
-  style={`background-color: ${color};`}
+  class="inline-flex w-fit max-w-56 items-center gap-3 rounded-lg border border-neutral-200
+  bg-neutral-50 px-4 py-2 font-text font-medium text-neutral-800 transition-colors
+  hover:border-neutral-400 hover:bg-neutral-100 dark:border-neutral-800
+  dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600
+  dark:hover:bg-neutral-800"
 >
-  {Icon && <Icon className="w-5 h-5 text-neutral-600 dark:text-neutral-950" />}
+  <Icon className="size-5 shrink-0 text-neutral-500 dark:text-neutral-400" />
   <span>{title}</span>
 </a>

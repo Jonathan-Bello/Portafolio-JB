@@ -45,8 +45,8 @@ const categoryProjectCollection = defineCollection({
   schema: () =>
     z.object({
       id: z.string(),
-      name: z.string(),
-      color: z.string(),
+      nameEs: z.string(),
+      nameEn: z.string(),
     }),
 });
 

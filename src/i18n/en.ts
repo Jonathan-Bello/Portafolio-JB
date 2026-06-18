@@ -7,126 +7,110 @@ const en = {
     contact: "Contact",
   },
   footer: {
-    title: "Let's work together?",
-    btn: "Contact me",
+    title: "Want to build something clear, useful, and well made?",
+    btn: "Let's talk",
   },
   home: {
     banner: {
       title: `Hello, I'm
-        <span class="text-primary-700 dark:text-neutral-100 font-semibold">Jonathan Bello</span>!`,
-      title2: "Software Developer",
-      subtitle: "Creating beautiful tech solutions",
-      button: "See my projects",
+        <span class="text-primary-700 dark:text-neutral-100 font-semibold">Jonathan Bello</span>`,
+      title2: "Fullstack Developer",
+      subtitle:
+        "I build modern web experiences combining frontend, education, technical leadership, and applied AI.",
+      button: "View projects",
     },
     hability: {
-      title: "What I can do",
+      title: "What I bring",
       card1: {
-        title: "Web Development",
+        title: "Professional Frontend",
         description:
-          "I am a specialist in web development, dedicating myself to creating innovative and responsive digital experiences. I work with the latest technologies to design engaging, fast, secure, and optimized websites. My personalized approach ensures an effective online presence and professional appearance, tailored to the specific needs of each client.",
+          "I build fast, responsive, maintainable interfaces with Astro, Tailwind CSS, React, and technical SEO practices.",
       },
       card2: {
-        title: "Backend Development",
+        title: "Fullstack and integrations",
         description:
-          "With a solid experience in backend development, I dedicate myself to building the infrastructure that allows web applications to operate optimally. Developing secure, scalable, and high-performance solutions ensures that systems are efficient and ready for future growth. My priority is to ensure that the backend architecture provides a robust and reliable foundation for all operations.",
+          "I develop complete web solutions when needed: APIs, forms, payments, automation, and connections between frontend, backend, and external services.",
       },
       card3: {
-        title: "UI Design",
+        title: "Education, AI and leadership",
         description:
-          "In UI design, I create visually appealing and functional interfaces, leveraging my experience in programming. This combination allows me to integrate design and development in a coherent manner, offering solutions that balance style and functionality for an exceptional user experience.",
+          "I combine teaching, scientific thinking, and technical leadership to create educational products and apply AI as a learning support tool.",
       },
     },
     experience: {
-      title: "Work Experience",
+      title: "Experience",
       card0: {
         title: "Instituto Tecnológico Superior de Teziutlán",
         duration: "2018 - Present",
-        role: "Student & Advisor",
+        role: "Master's degree, research and outreach",
         funciones: [
-          "Design and creation of an educational course platform",
-          "Master of ceremonies",
-          "Leader and presenter of projects",
-          "Project advising",
-          "Course teaching",
+          "Master's degree in Computer Systems with a specialization in Artificial Intelligence",
+          "Thesis about an educational CSS video game with AI-assisted code evaluation",
+          "Participation in academic events, conferences, and scientific colloquia",
+          "Online and in-person course development",
         ],
       },
       card1: {
         title: "YGU COMUNICAXION",
-        duration: "2022 - Present",
-        role: "Web Developer",
+        duration: "September 2022 - Present",
+        role: "Software Development Area Director",
         funciones: [
-          "Developed several landing pages in Gatsby.js and Astro.js",
-          "Web applications built with Next.js",
-          "Wordpress website maintenance",
-          "Collaborative GitHub use",
-          "Standardization of old projects",
-          "Collaborative UI design",
-          "Implementation of SEO strategies",
+          "Direction, creation, maintenance, and delivery of client websites",
+          "More than 25 websites built or maintained for startups, tourism, and NGOs",
+          "Technical SEO, performance, and web structure implementation",
+          "Coordination of people, delivery timelines, and technical decisions",
         ],
       },
       card2: {
         title: "AppDeux",
         duration: "2025 - Present",
-        role: "Technical Director",
+        role: "Founder and technical lead",
         funciones: [
-          "Administration of projects",
-          "Team management",
-          "Requirement raising",
-          "Web development tools",
-          "Data analysis",
+          "Small venture focused on websites for local microbusinesses",
+          "Project management, collaborators, and client communication",
+          "Frontend development, interface design, and web delivery",
+        ],
+      },
+      card3: {
+        title: "EDteam",
+        duration: "2024 - Present",
+        role: "Lead Astro instructor",
+        funciones: [
+          "Lead instructor of Astro desde cero",
+          "Lead instructor of Tu primer portafolio web profesional con Astro",
+          "Educational content design for practical frontend learning",
         ],
       },
     },
     projects: {
-      title: "Relevant Projects",
+      title: "Featured projects",
       btn: "See all",
     },
     about: {
-      title: "About Me",
+      title: "About me",
       bio: [
-        {
-          title: "Name",
-          description: "Jonathan Alexis Bello López",
-        },
-        {
-          title: "Title",
-          description: "Systems Engineering",
-        },
-        {
-          title: "Specialty",
-          description: "Web Development & AI",
-        },
-        {
-          title: "Strengths",
-          description:
-            "Ability to combine design and programming, offering comprehensive and efficient solutions.",
-        },
-        {
-          title: "Weaknesses",
-          description: "Perfectionism and impostor syndrome.",
-        },
-        {
-          title: "Hobbies",
-          description: "Video games, reading, animation, and travel.",
-        },
-        {
-          title: "Quote",
-          description: "Creating tech solutions full of beauty.",
-        },
+        { title: "Name", description: "Jonathan Alexis Bello López" },
+        { title: "Profile", description: "Fullstack Developer focused on Frontend" },
+        { title: "Experience", description: "4 years building websites, web products, and educational experiences" },
+        { title: "Education", description: "Master's degree in Computer Systems with an AI specialization" },
+        { title: "Focus", description: "Web development, education, technical SEO, project management, and applied AI" },
+        { title: "Values", description: "Clarity, commitment, leadership, continuous learning, scientific thinking, and creativity" },
       ],
-      titleStack: "My Main Stack",
+      titleStack: "Main stack",
     },
     techs: {
-      title: "Technologies I Use",
-      titleFrontend: "Frontend",
-      titleBackend: "Backend",
-      titleUi: "UI Design",
-      titleDevelopmentTools: "Development Tools",
+      title: "Technologies",
+      titleFrontend: "Core",
+      titleBackend: "Complementary",
+      titleUi: "Design and product",
+      titleDevelopmentTools: "AI, education and tools",
     },
   },
   projects: {
     banner: {
-      title: "My Projects",
+      title: "Projects",
+      description:
+        "A curated collection of websites, educational products, integrations, and AI experiments.",
     },
     categories: {
       title: "Categories",
@@ -140,61 +124,72 @@ const en = {
       send: "Send",
     },
   },
+  blog: {
+    banner: {
+      title: "Blog",
+      description:
+        "Personal notes about web development, education, artificial intelligence, video games, and ideas worth saving.",
+    },
+    categories: {
+      title: "Categories",
+    },
+  },
   about: {
-    title: "About Me",
+    title: "About me",
     description:
-      "A digital browser that blends code, videogames, and education to create experiences that teach and entertain",
+      "I am a Fullstack Developer focused on Frontend. I work across web development, education, technical leadership, and applied AI, with a logical way of understanding systems and a gamer identity that also shapes how I design experiences.",
     cardCharacter: {
       header: {
         name: "Jonathan Bello",
-        class: "Class: Astronaut Developer",
-        level: "Level 25 | Region: Internet",
-        description: `"Jonathan Bello is an artist with passion for knowledge, capable of transforming learning into interactive environments. He believes that learning should feel like unlocking secret achievements."`,
+        class: "Class: Fullstack Frontend",
+        level: "Level 4 years | Region: Mexico",
+        description: `"I combine web development, teaching, technical leadership, and applied AI to build clear, useful experiences."`,
       },
       mainStats: {
-        language: "Main Language",
-        framework: "Favorite Framework",
-        skill: "Unique Skill",
-        arm: "Special Arm",
+        language: "Main language",
+        framework: "Favorite framework",
+        skill: "Unique skill",
+        arm: "Specialty",
 
-        languageValue: "JavaScript",
+        languageValue: "JavaScript / Go",
         frameworkValue: "Astro.js",
-        skillValue: "Gamification educational",
-        armValue: "Blue Yeti Microphone 🎤",
+        skillValue: "Education + AI",
+        armValue: "Scientific thinking",
       },
     },
     stats: {
-      dev: "Dev Web",
-      charisma: "Charisma",
+      dev: "Web Development",
+      charisma: "Communication",
       logic: "Logic",
-      english: "English",
-      luck: "Luck",
+      english: "Learning",
+      luck: "Creativity",
     },
     myHistory: {
-      title: "🗺️ My History",
-      description: `I started this digital journey as someone who starts a new game without a tutorial. From HTML lines to systems with AI, each step was a completed mission. Today, I combine web development, teaching, and educational experiences that are interactive.`,
+      title: "My story",
+      description:
+        "I started building interfaces and websites for real clients. Over time, I moved from execution to leading deliveries, coordinating people, and making technical decisions.",
     },
     myExperience: {
-      title: "💼 My Experience",
-      description: `
-        <ul>
-          <li>Fullstack Web Developer</li>
-          <li>Teacher</li>
-          <li>Research: educational video games with AI</li>
-          <li>YouTube content and music covers 🎙️</li>
+      title: "Current experience",
+      description: `<ul>
+          <li>4 years of professional web development experience.</li>
+          <li>Software Development Area Director at YGU COMUNICAXION since September 2022.</li>
+          <li>Lead instructor of two Astro courses at EDteam.</li>
+          <li>Founder and technical lead of AppDeux.</li>
+          <li>Author of a thesis about educational games, CSS, and artificial intelligence.</li>
         </ul>
-      `,
+        `,
     },
     myVision: {
-      title: "🌌 My Vision",
+      title: "Vision",
       description:
-        "My goal is to merge technology, storytelling, and education to make programming as epic as winning the favorite video game final. I am committed to creating environments where learning feels like playing, and I seek to improve my skills and learn new technologies to achieve this goal.",
+        "I want to build technology that is useful, understandable, and well designed. I am especially interested in the intersection between web development, education, and artificial intelligence.",
     },
   },
   contact: {
-    title: "Contact me",
+    title: "Contact",
     description:
-      "Have a question or project in mind? Don't hesitate to contact me. I'm here to help you.",
+      "I am available for professional opportunities, collaborations, and freelance projects where I can contribute frontend, web development, technical SEO, education, or applied AI.",
     form: {
       name: "Name",
       email: "Email",
@@ -202,16 +197,18 @@ const en = {
       send: "Send",
     },
     infoContact: {
-      title: "Contact Information",
+      title: "Contact information",
       emailTitle: "Email",
-      emailValue: "jonathanbello@gmail.com",
+      emailValue: "contacto@jonathanbello.com",
       locationTitle: "Location",
-      locationValue: "Puebla, Mexico",
-      phoneTitle: "Phone",
-      phoneValue: "+52 231 325 3031",
+      locationValue: "Mexico",
     },
     social: {
-      title: "Social Networks",
+      title: "Official networks",
+    },
+    cv: {
+      title: "Professional CV",
+      status: "CV coming soon",
     },
   },
 };

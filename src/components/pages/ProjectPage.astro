@@ -17,10 +17,7 @@ let comentarios = await db
 
 let authores = await db.select().from(Author);
 
-// console.log(comentarios);
-// console.log(authores);
-
-// Insertar datos apartir de un form
+// Insertar datos a partir de un form
 if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
   const comment = formData.get("comment");
@@ -31,7 +28,7 @@ if (Astro.request.method === "POST") {
     return Astro.redirect("/404.astro");
   }
 
-  // TODO: Logica de creacion de id dinamico y seguro
+  // TODO: lógica de creación de id dinámico y seguro
   const idAuthor = Math.floor(Math.random() * 1000);
 
   const authorTemp = {
@@ -45,7 +42,6 @@ if (Astro.request.method === "POST") {
   if (!response) {
     return Astro.redirect("/404.astro");
   } else {
-    console.log(response);
     await db.insert(Comment).values({
       authorId: idAuthor,
       postId: project.data.id,

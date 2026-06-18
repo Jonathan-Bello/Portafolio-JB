@@ -76,7 +76,9 @@ export default function Form({ children }: Props) {
 
       </form>
 
-      <p>{responseMessage}</p>
+      <p className="mt-4 text-center text-sm text-neutral-700 dark:text-neutral-200">
+        {responseMessage}
+      </p>
     </>
   );
 }

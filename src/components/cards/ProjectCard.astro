@@ -20,6 +20,8 @@ const { project } = Astro.props;
 
 // Obtener categorías del proyecto
 const categories = await getEntries(project.data.category);
+const getCategoryName = (category: (typeof categories)[number]) =>
+  lang === "es" ? category.data.nameEs : category.data.nameEn;
 
 const projectIdCleaned = project.id.replace(`${lang}/`, "");
 ---
@@ -57,9 +59,8 @@ const projectIdCleaned = project.id.replace(`${lang}/`, "");
         categories.map((category) => (
           <ButtonCategory
             id={category.data.id}
-            title={category.data.name}
+            title={getCategoryName(category)}
             link={`/projects/category/${category.data.id}`}
-            color={category.data.color}
           />
         ))
       }

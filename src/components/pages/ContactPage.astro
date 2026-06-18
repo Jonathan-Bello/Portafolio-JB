@@ -1,13 +1,12 @@
 ---
 import {
-  PhoneIcon,
   EnvelopeIcon,
   MapPinIcon,
+  DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 
 import ContactForm from "@components/forms/ContactForm";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import ButtonSocial from "@components/buttons/ButtonSocial.astro";
 import Button from "@components/buttons/Button.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -72,20 +71,17 @@ const t = useTranslations(lang);
 
             <div class="flex items-center">
               <div class="bg-primary-100 p-3 rounded-full mr-4">
-                <PhoneIcon
+                <DocumentTextIcon
                   className="h-6 w-6 text-primary-600 dark:text-primary-400"
                 />
               </div>
               <div>
                 <h3 class="text-neutral-900 dark:text-neutral-100 font-medium">
-                  {t("contact.infoContact.phoneTitle")}
+                  {t("contact.cv.title")}
                 </h3>
-                <a
-                  href=`tel:${t("contact.infoContact.phoneValue")}`
-                  class="text-neutral-600 dark:text-neutral-300 hover:underline"
-                >
-                  {t("contact.infoContact.phoneValue")}
-                </a>
+                <p class="text-neutral-600 dark:text-neutral-300">
+                  {t("contact.cv.status")}
+                </p>
               </div>
             </div>
           </div>
@@ -101,7 +97,7 @@ const t = useTranslations(lang);
           Envíame un mensaje
         </h2>
         <ContactForm client:load>
-          <Button type="submit" text="Enviar" size="md" variant="primary" />
+          <Button type="submit" text={t("contact.form.send")} size="md" variant="primary" />
         </ContactForm>
       </div>
     </div>

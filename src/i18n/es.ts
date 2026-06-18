@@ -3,37 +3,38 @@ const es = {
     home: "Inicio",
     projects: "Proyectos",
     blog: "Blog",
-    about: "Acerca de",
+    about: "Sobre mi",
     contact: "Contacto",
   },
   footer: {
-    title: "¿Trabajamos juntos?",
-    btn: "Contáctame",
+    title: "¿Construimos algo claro, útil y bien hecho?",
+    btn: "Hablemos",
   },
   home: {
     banner: {
-      title: `¡Hola, soy
-                <span class="text-primary-700 dark:text-neutral-100 font-semibold">Jonathan Bello</span>!`,
-      title2: "Desarrollador de Software",
-      subtitle: "Creando soluciones tecnológicas llenas de belleza",
-      button: "Mira mis proyectos",
+      title: `Hola, soy
+                <span class="text-primary-700 dark:text-neutral-100 font-semibold">Jonathan Bello</span>`,
+      title2: "Fullstack Developer",
+      subtitle:
+        "Desarrollo experiencias web modernas combinando frontend, educación, gestión técnica e inteligencia artificial aplicada.",
+      button: "Ver proyectos",
     },
     hability: {
-      title: "¿Qué puedo hacer?",
+      title: "Lo que aporto",
       card1: {
-        title: "Desarrollo Web",
+        title: "Frontend profesional",
         description:
-          "Especializado en desarrollo web, me dedico a crear experiencias digitales innovadoras y responsivas. Empleo las últimas tecnologías para diseñar sitios web atractivos, rápidos, seguros y optimizados para SEO. Mi enfoque personalizado garantiza una presencia en línea efectiva y profesional, ajustada a las necesidades específicas de cada cliente.",
+          "Construyo interfaces rápidas, responsivas y mantenibles con Astro, Tailwind CSS, React y buenas prácticas de SEO técnico. Mi enfoque principal está en crear experiencias web claras, accesibles y alineadas con objetivos reales.",
       },
       card2: {
-        title: "Desarrollo Backend",
+        title: "Fullstack e integraciones",
         description:
-          "Con una sólida experiencia en desarrollo backend, me dedico a construir la infraestructura que permite a las aplicaciones web funcionar de manera óptima. Desarrollando soluciones seguras, escalables y de alto rendimiento, garantizo que los sistemas sean eficientes y estén preparados para el crecimiento futuro. Mi prioridad es asegurar que la arquitectura backend proporcione una base robusta y confiable para todas las operaciones.",
+          "Desarrollo soluciones completas cuando el proyecto lo requiere: APIs, formularios, pagos, automatizaciones, despliegues y comunicación entre frontend, backend y servicios externos.",
       },
       card3: {
-        title: "Desarrollo UI",
+        title: "Educación, IA y gestión",
         description:
-          "En diseño UI, creo interfaces visualmente atractivas y funcionales, aprovechando mi experiencia en programación. Esta combinación me permite integrar diseño y desarrollo de manera coherente, ofreciendo soluciones que equilibran estética y funcionalidad para una experiencia de usuario superior.",
+          "Combino docencia, pensamiento científico y liderazgo técnico para diseñar productos educativos, coordinar entregas y aplicar inteligencia artificial como apoyo al aprendizaje y la retroalimentación.",
       },
     },
     experience: {
@@ -41,92 +42,105 @@ const es = {
       card0: {
         title: "Instituto Tecnológico Superior de Teziutlán",
         duration: "2018 - Presente",
-        role: "Estudiante & Asesor",
+        role: "Maestría, investigación y divulgación",
         funciones: [
-          "Diseño y creación de una plataforma educativa de cursos",
-          "Maestro de ceremonias",
-          "Líder y expositor de proyectos",
-          "Asesoría en proyectos",
-          "Dictado de cursos",
+          "Maestría en Sistemas Computacionales con especialidad en Inteligencia Artificial",
+          "Tesis sobre un videojuego educativo de CSS con evaluación mediante IA",
+          "Participación en congresos, eventos académicos y coloquios científicos",
+          "Propuestas de registro ante Indautor y desarrollo de cursos en línea y presenciales",
+          "Liderazgo de proyectos académicos vinculados con educación, videojuegos y tecnología",
         ],
       },
       card1: {
         title: "YGU COMUNICAXION",
-        duration: "2022 - Presente",
-        role: "Web Developer",
+        duration: "Septiembre 2022 - Presente",
+        role: "Director del área de desarrollo de software",
         funciones: [
-          "Desarrolle varias landing page en Gatsby.js y Astro.js",
-          "Creación de Aplicaciones web robustas con Next.js",
-          "Mantenimiento de sitios hechos con Wordpress",
-          "Uso de GitHub para trabajo colaborativo.",
-          "Estandarización de proyectos antiguos.",
-          "Trabajo de diseño UI colaborativo.",
-          "Implementación de estrategias de SEO.",
+          "Dirección, creación, mantenimiento y entrega de sitios web para clientes",
+          "Más de 25 sitios desarrollados o mantenidos para emprendimientos, turismo y ONGs",
+          "Implementación de SEO técnico, performance y estructura web",
+          "Coordinación de personas, tiempos de entrega y decisiones técnicas",
+          "Estandarización de proyectos web con Astro, Gatsby, Next.js y WordPress",
         ],
       },
       card2: {
         title: "AppDeux",
         duration: "2025 - Presente",
-        role: "Director Técnico",
+        role: "Fundador y líder técnico",
         funciones: [
-          "Administración de proyectos",
-          "Gestión de equipos",
-          "Levantamiento de requisitos",
-          "Desarrollo de herramientas web",
-          "Análisis de datos",
+          "Emprendimiento enfocado en páginas web para microempresas locales",
+          "Gestión de proyectos, colaboradores y comunicación con clientes",
+          "Diseño de interfaces, desarrollo frontend y entregas web",
+          "Levantamiento de requisitos y definición de soluciones digitales accesibles",
+        ],
+      },
+      card3: {
+        title: "EDteam",
+        duration: "2024 - Presente",
+        role: "Docente principal de Astro",
+        funciones: [
+          "Docente principal del curso Astro desde cero",
+          "Docente principal del taller Tu primer portafolio web profesional con Astro",
+          "Diseño de contenido educativo para explicar conceptos web de forma práctica",
+          "Experiencia creando rutas de aprendizaje para estudiantes de desarrollo frontend",
         ],
       },
     },
     projects: {
-      title: "Proyectos relevantes",
+      title: "Proyectos destacados",
       btn: "Ver todos",
     },
     about: {
-      title: "Acerca de mi",
+      title: "Sobre mi",
       bio: [
         {
           title: "Nombre",
           description: "Jonathan Alexis Bello López",
         },
         {
-          title: "Titulo",
-          description: "Ingeniero en Sistemas de Computacionales",
+          title: "Perfil",
+          description: "Fullstack Developer con preferencia Frontend",
+        },
+        {
+          title: "Experiencia",
+          description: "4 años creando sitios, productos web y experiencias educativas",
+        },
+        {
+          title: "Formación",
+          description:
+            "Maestría en Sistemas Computacionales con especialidad en Inteligencia Artificial",
         },
         {
           title: "Especialidad",
-          description: "Desarrollo Web & IA",
-        },
-        {
-          title: "Fortalezas",
           description:
-            "Capacidad para combinar el diseño y la programación, ofreciendo soluciones integrales y eficientes. ",
+            "Desarrollo web, educación, SEO técnico, gestión de proyectos e IA aplicada",
         },
         {
-          title: "Debilidades",
-          description: "Perfeccionismo y síndrome del impostor.",
+          title: "Valores",
+          description:
+            "Claridad, compromiso, liderazgo, aprendizaje continuo, pensamiento científico y creatividad",
         },
         {
-          title: "Pasatiempos",
-          description: "Videojuegos, lectura, animación y viajes.",
-        },
-        {
-          title: "Frase",
-          description: "Creando soluciones tecnológicas llenas de belleza.",
+          title: "Identidad",
+          description:
+            "Me gusta pensar los proyectos como sistemas: reglas, estadísticas, retos y decisiones claras.",
         },
       ],
-      titleStack: "Mi Stack principal",
+      titleStack: "Stack principal",
     },
     techs: {
-      title: "Tecnologías y Habilidades",
-      titleFrontend: "Frontend",
-      titleBackend: "Backend",
-      titleUi: "Diseño UI",
-      titleDevelopmentTools: "Herramientas de Desarrollo",
+      title: "Tecnologías",
+      titleFrontend: "Principales",
+      titleBackend: "Complementarias",
+      titleUi: "Diseño y producto",
+      titleDevelopmentTools: "IA, educación y herramientas",
     },
   },
   projects: {
     banner: {
-      title: "Mis Proyectos",
+      title: "Proyectos",
+      description:
+        "Una curaduría de sitios web, productos educativos, integraciones y experimentos con IA.",
     },
     categories: {
       title: "Categorías",
@@ -141,63 +155,72 @@ const es = {
       send: "Enviar",
     },
   },
+  blog: {
+    banner: {
+      title: "Blog",
+      description:
+        "Notas personales sobre desarrollo web, educación, inteligencia artificial, videojuegos y las ideas que se quedan dando vueltas.",
+    },
+    categories: {
+      title: "Categorías",
+    },
+  },
   about: {
-    title: " ⚔️ Sobre Mi",
+    title: "Sobre mi",
     description:
-      "Un explorador digital que mezcla código, videojuegos y educación para crear experiencias que enseñan y emocionan",
+      "Soy desarrollador Fullstack con preferencia Frontend. Trabajo entre desarrollo web, educación, gestión técnica e inteligencia artificial aplicada, con una forma muy lógica de entender los sistemas y una identidad gamer que también forma parte de cómo diseño experiencias.",
     cardCharacter: {
       header: {
         name: "Jonathan Bello",
-        class: "Clase: Dev del Astronómico",
-        level: "Nivel 25 | Región: Internet",
-        description: `"Jonathan Bello es un dev-artesano con pasión por el conocimiento, capaz
-      de transformar aulas en arenas interactivas. Cree que aprender debe
-      sentirse como desbloquear logros secretos."`,
+        class: "Clase: Fullstack Frontend",
+        level: "Nivel 4 años | Región: México",
+        description: `"Combino desarrollo web, docencia, liderazgo técnico e IA aplicada para construir experiencias claras, útiles y con propósito."`,
       },
       mainStats: {
-        language: "Lenguaje Principal",
-        framework: "Framework Favorito",
-        skill: "Habilidad Única",
-        arm: "Arma especial",
+        language: "Lenguaje principal",
+        framework: "Framework favorito",
+        skill: "Habilidad única",
+        arm: "Especialidad",
 
-        languageValue: "JavaScript",
+        languageValue: "JavaScript / Go",
         frameworkValue: "Astro.js",
-        skillValue: "Gamificación educativa",
-        armValue: "Micrófono Blue Yeti 🎤",
+        skillValue: "Educación + IA",
+        armValue: "Pensamiento científico",
       },
     },
     stats: {
       dev: "Desarrollo Web",
-      charisma: "Carisma",
+      charisma: "Comunicación",
       logic: "Lógica",
-      english: "Inglés",
-      luck: "Suerte",
+      english: "Aprendizaje",
+      luck: "Creatividad",
     },
     myHistory: {
-      title: "🗺️ Mi historia",
+      title: "Mi historia",
       description:
-        "Desde mis inicios en la programación, he estado inmerso en el mundo del desarrollo web. He trabajado en proyectos que van desde aplicaciones simples hasta plataformas complejas, siempre buscando la forma de mejorar mis habilidades y aprender nuevas tecnologías. Mi pasión por el aprendizaje continuo me ha llevado a explorar diversas áreas dentro del desarrollo, incluyendo el diseño UI y la inteligencia artificial.",
+        "Empecé en el desarrollo web construyendo interfaces y sitios para clientes reales. Con el tiempo pasé de ejecutar tareas a liderar entregas, coordinar personas y tomar decisiones técnicas. Hoy mi trabajo se mueve entre frontend, SEO técnico, educación, videojuegos e inteligencia artificial aplicada.",
     },
     myExperience: {
-      title: "💼 Experiencia",
+      title: "Experiencia actual",
       description: `<ul>
-          <li>Desarrollador Web fullstack</li>
-          <li>Docencia</li>
-          <li>Investigación: videojuegos educativos con IA</li>
-          <li>Contenido en YouTube y covers musicales 🎙️</li>
+          <li>4 años de experiencia profesional en desarrollo web.</li>
+          <li>Director del área de desarrollo de software en YGU COMUNICAXION desde septiembre de 2022.</li>
+          <li>Docente principal de dos cursos de Astro en EDteam.</li>
+          <li>Líder de AppDeux, emprendimiento web para microempresas locales.</li>
+          <li>Autor de una tesis sobre videojuegos educativos, CSS e inteligencia artificial.</li>
         </ul>
         `,
     },
     myVision: {
-      title: "🌌 Visión",
+      title: "Visión",
       description:
-        "Mi meta es fusionar tecnología, narrativa y pedagogía para que programar sea tan épico como vencer al jefe final de tu videojuego favorito. Estoy comprometido con la creación de entornos donde aprender se sienta como jugar, y busco la forma de mejorar mis habilidades y aprender nuevas tecnologías para lograr este objetivo.",
+        "Quiero construir tecnología que sea útil, entendible y bien diseñada. Me interesa especialmente la unión entre desarrollo web, educación e inteligencia artificial: herramientas que no sustituyan el razonamiento, sino que ayuden a aprender mejor.",
     },
   },
   contact: {
-    title: "Contáctame",
+    title: "Contacto",
     description:
-      "¿Tienes alguna pregunta o proyecto en mente? No dudes en contactarme. Estoy aquí para ayudarte.",
+      "Estoy disponible para oportunidades profesionales, colaboraciones y proyectos freelance donde pueda aportar frontend, desarrollo web, SEO técnico, educación o IA aplicada.",
     form: {
       name: "Nombre",
       email: "Correo electrónico",
@@ -205,16 +228,18 @@ const es = {
       send: "Enviar",
     },
     infoContact: {
-      title: "Información de Contacto",
+      title: "Información de contacto",
       emailTitle: "Email",
-      emailValue: "jonathanbello@gmail.com",
+      emailValue: "contacto@jonathanbello.com",
       locationTitle: "Ubicación",
-      locationValue: "Puebla, México",
-      phoneTitle: "Teléfono",
-      phoneValue: "+52 231 325 3031",
+      locationValue: "México",
     },
     social: {
-      title: "Redes Sociales",
+      title: "Redes oficiales",
+    },
+    cv: {
+      title: "CV profesional",
+      status: "CV próximamente",
     },
   },
 };

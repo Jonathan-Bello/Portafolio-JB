@@ -24,6 +24,9 @@ const currentProjects = await getCollection("projects", ({ id }) => {
 });
 ---
 
-<BaseLayout title="Proyectos">
+<BaseLayout
+  title="Proyectos"
+  description="Proyectos de Jonathan Bello en desarrollo web, frontend, SEO técnico, educación, videojuegos e inteligencia artificial aplicada."
+>
   <ProjectsPage projects={currentProjects} />
 </BaseLayout>

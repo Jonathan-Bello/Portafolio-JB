@@ -2,17 +2,14 @@
 // Obtener la IP del usuario desde los headers del request
 const forwarded = Astro.request.headers.get("x-forwarded-for") || "";
 const ip = forwarded.split(",")[0].trim() || "8.8.8.8";
-console.log(ip);
 
-// Obtener la geolocalizacion de la IP del usuario localhost
+// Obtener la geolocalización de la IP del usuario localhost
 const res = await fetch("https://ipinfo.io/json");
 const geo = await res.json();
-console.log(geo);
 
-// Obtener la geolocalizacion de la IP del usuario en produccion
+// Obtener la geolocalización de la IP del usuario en producción
 // const res = await fetch(`https://ipinfo.io/${ip}/json`);
 // const geo = await res.json();
-// console.log(geo);
 
 const countryCode = geo.country || "PE";
 ---

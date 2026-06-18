@@ -11,7 +11,6 @@ import iconDarkWordmark from "@assets/brand/WordMarkDark.svg";
 
 import { Image } from "astro:assets";
 import {
-  PhoneIcon,
   EnvelopeIcon,
   GlobeAmericasIcon,
   InboxIcon,
@@ -36,7 +35,7 @@ const translatePath = useTranslatedPath(lang);
   >
     <div class="flex flex-col items-center gap-4 lg:gap-8">
       <h4
-        class="text-neutral-950 dark:text-neutral-50 font-medium text-2xl font-title"
+        class="text-neutral-950 dark:text-neutral-50 font-medium text-2xl font-title text-center"
       >
         {t("footer.title")}
       </h4>
@@ -64,15 +63,15 @@ const translatePath = useTranslatedPath(lang);
           icon={iconLinkedin}
         />
         <ButtonSocial
-          href="https://www.instagram.com/jonathan_bello/"
+          href="https://www.instagram.com/jonathanbe110/"
           icon={iconInstagram}
         />
         <ButtonSocial
-          href="https://www.facebook.com/jonathan.bello"
+          href="https://www.facebook.com/JonathanBe110"
           icon={iconFacebook}
         />
         <ButtonSocial
-          href="https://twitter.com/JonathanBello"
+          href="https://x.com/Jonathan_Be110"
           icon={iconTwitter}
         />
       </div>
@@ -90,42 +89,29 @@ const translatePath = useTranslatedPath(lang);
     >
       <div class="flex flex-col items-start gap-2">
         <a
-          href="tel:+56923456789"
-          class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
-        flex items-center gap-4"
-        >
-          <PhoneIcon
-            className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
-          />
-          231 231 231 2311
-        </a>
-
-        <a
-          href="mailto:jonathan.bellofg@gmail.com"
+          href="mailto:contacto@jonathanbello.com"
           class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
         flex items-center gap-4"
         >
           <EnvelopeIcon
             className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
           />
-          jonathan.bellofg@gmail.com
+          contacto@jonathanbello.com
         </a>
 
         <a
-          href="https://appdeux.com"
-          target="_blank"
+          href={translatePath("/projects/")}
           class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
       flex items-center gap-4"
         >
           <GlobeAmericasIcon
             className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
           />
-          appdeux.com
+          Proyectos
         </a>
 
         <a
-          href="https://appdeux.com"
-          target="_blank"
+          href={translatePath("/blog/")}
           class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
     flex items-center gap-4"
         >
@@ -142,7 +128,7 @@ const translatePath = useTranslatedPath(lang);
     <p
       class="text-neutral-50 font-title font-medium text-center text-base py-1"
     >
-      Jonathan Bello - 2025
+      Jonathan Bello - 2026
     </p>
   </div>
 </footer>

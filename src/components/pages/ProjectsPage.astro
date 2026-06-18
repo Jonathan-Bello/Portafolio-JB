@@ -14,6 +14,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const categories = await getCollection("categoriesProjects");
+const getCategoryName = (category: (typeof categories)[number]) =>
+  lang === "es" ? category.data.nameEs : category.data.nameEn;
 
 // Pasamos los proyectos de forma dinamica.
 interface Props {
@@ -29,6 +31,10 @@ const { projects } = Astro.props;
   class="container px-4 lg:px-0 py-16 sm:py-20 lg:py-24
   grid grid-cols-1 lg:grid-cols-5 gap-4"
 >
+  <p class="lg:col-span-5 max-w-3xl mx-auto -mt-8 mb-8 text-center text-neutral-700 dark:text-neutral-300">
+    {t("projects.banner.description")}
+  </p>
+
   <div class="flex flex-col gap-2">
     <h3
       class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100"
@@ -40,9 +46,8 @@ const { projects } = Astro.props;
       categories.map((category) => (
         <ButtonCategory
           id={category.data.id}
-          title={category.data.name}
+          title={getCategoryName(category)}
           link={`/projects/category/${category.data.id}`}
-          color={category.data.color}
         />
       ))
     }

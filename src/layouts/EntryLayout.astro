@@ -9,7 +9,7 @@ interface entry {
   title: string;
   description: string;
   cover: ImageMetadata;
-  date: Date;
+  publishDate: Date;
 }
 
 interface Props {
@@ -22,10 +22,10 @@ const lang = getLangFromUrl(Astro.url);
 
 const formattedDate = new Intl.DateTimeFormat(lang, {
   dateStyle: "long",
-}).format(entry.date);
+}).format(entry.publishDate);
 ---
 
-<BaseLayout title={entry.title}>
+<BaseLayout title={entry.title} description={entry.description} type="article">
   <section class="bg-neutral-100 dark:bg-neutral-950 rounded-2xl py-12 container mb-12">
     <Image
       class="w-full aspect-video object-cover h-96 lg:h-[30rem] xl:h-[36rem] rounded-2xl mb-8"
@@ -37,6 +37,9 @@ const formattedDate = new Intl.DateTimeFormat(lang, {
     </h1>
 
     <p class="text-center font-title text-xl">{formattedDate}</p>
+    <p class="max-w-3xl mx-auto mt-4 text-center text-neutral-700 dark:text-neutral-300">
+      {entry.description}
+    </p>
   </section>
   <hr />
 

@@ -1,33 +1,28 @@
 ---
-id: "4"
-title: "Mi Portafolio Web"
-description: "Un portafolio moderno y optimizado construido con Astro.js y Tailwind CSS, destacando mis proyectos y habilidades."
-publishDate: 2025-03-15
+id: "portafolio-web"
+title: "Portafolio profesional Jonathan Bello"
+description: "Sitio personal construido con Astro y Tailwind para presentar experiencia profesional, proyectos, blog, SEO y marca personal."
+publishDate: 2026-06-15
 cover: "@assets/coversProjects/JBello.jpg"
 techs:
   - Astro.js
   - Tailwind CSS
-  - JavaScript
-  - Netlify/Vercel
+  - SEO
+  - Content Collections
 category: ["web", "ui"]
-url: "https://midominio.com/portafolio"
+url: "https://jonathanbello.com"
 author: "jonathan-bello"
 isRelevant: false
 ---
 
-## 🎨 Sobre el Proyecto
+## Contexto
 
-Este portafolio es una carta de presentación digital donde muestro mis proyectos, habilidades y experiencia. Diseñado con **Astro.js** y **Tailwind CSS**, logra una velocidad excepcional y un diseño adaptable.
+Este portafolio funciona como mi carta de presentación profesional. Su objetivo es mostrar mi experiencia como Fullstack Developer con preferencia Frontend, mi trabajo docente, proyectos web, blog y línea de investigación con IA aplicada.
 
-## 📌 Características Clave
+## Enfoque
 
-- **Diseño Minimalista y Responsivo**: Adaptado a todos los dispositivos.
-- **Proyectos Destacados**: Sección interactiva con detalles de cada trabajo.
-- **Blog Integrado**: Publicaciones sobre tecnología y desarrollo web.
-- **Modo Oscuro/Claro**: Personalización de la experiencia del usuario.
+El sitio prioriza la versión en español, contenido estructurado, SEO técnico, proyectos curados y una identidad visual profesional con detalles de mi estilo personal.
 
-## 🚀 Tecnologías Usadas
+## Tecnologías
 
-- **Astro.js** para el desarrollo del sitio.
-- **Tailwind CSS** para la estilización.
-- **Vercel y Netlify** para despliegue rápido y gratuito.
+Está construido con Astro, Tailwind CSS, colecciones de contenido Markdown y rutas bilingües.

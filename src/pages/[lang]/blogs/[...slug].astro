@@ -1,0 +1,18 @@
+---
+import EntryLayout from "@layouts/EntryLayout.astro";
+import { getEntry, render } from "astro:content";
+
+const { lang, slug } = Astro.params;
+
+const blog = await getEntry("blogs", `${lang}/${slug}`);
+
+if (!blog) {
+  return Astro.redirect(lang === "en" ? "/en/blog" : "/blog");
+}
+
+const { Content } = await render(blog);
+---
+
+<EntryLayout entry={blog.data}>
+  <Content />
+</EntryLayout>
