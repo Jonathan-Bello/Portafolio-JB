@@ -1,48 +1,31 @@
-# Astro Starter Kit: Basics
+# Portafolio Jonathan Bello
 
-```sh
-yarn create astro@latest -- --template basics
-```
+## Link del proyecto publicado
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+https://jonathanbello.com
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Descripcion
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Portafolio personal de Jonathan Alexis Bello Lopez. Reune proyectos, experiencia, informacion profesional y enlaces de contacto en un sitio web publico.
 
-## 🚀 Project Structure
+## Tecnologias usadas
 
-Inside of your Astro project, you'll see the following folders and files:
+- Astro
+- React
+- Tailwind CSS
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Requisitos
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Node.js 18+
+- npm
 
-## 🧞 Commands
+## Retos tecnicos
 
-All commands are run from the root of the project, from a terminal:
+- Presentar proyectos de forma clara y navegable.
+- Mantener una estructura escalable para agregar nuevos trabajos.
+- Configurar metadata y despliegue en dominio personalizado.
+- Optimizar la experiencia para reclutadores, clientes y visitantes moviles.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `yarn install`             | Installs dependencies                            |
-| `yarn dev`             | Starts local dev server at `localhost:4321`      |
-| `yarn build`           | Build your production site to `./dist/`          |
-| `yarn preview`         | Preview your build locally, before deploying     |
-| `yarn astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `yarn astro -- --help` | Get help using the Astro CLI                     |
+## Creditos
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Desarrollado por Jonathan Alexis Bello Lopez.
