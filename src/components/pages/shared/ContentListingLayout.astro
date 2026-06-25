@@ -1,0 +1,55 @@
+---
+import BannerSmall from "@components/banners/BannerSmall.astro";
+import CategoryNav from "./CategoryNav.astro";
+
+type CategoryItem = {
+  id: string;
+  name: string;
+  href: string;
+};
+
+type Props = {
+  title: string;
+  description: string;
+  categoryTitle: string;
+  categoryAllLabel: string;
+  categoryAllHref: string;
+  categories: CategoryItem[];
+  activeCategory?: string;
+};
+
+const {
+  title,
+  description,
+  categoryTitle,
+  categoryAllLabel,
+  categoryAllHref,
+  categories,
+  activeCategory,
+} = Astro.props;
+---
+
+<BannerSmall title={title} />
+
+<section
+  class="container px-4 lg:px-0 py-16 sm:py-20 lg:py-24
+  grid grid-cols-1 lg:grid-cols-5 gap-4"
+>
+  <p
+    class="lg:col-span-5 max-w-3xl mx-auto -mt-8 mb-8 text-center text-neutral-700 dark:text-neutral-300"
+  >
+    {description}
+  </p>
+
+  <CategoryNav
+    title={categoryTitle}
+    allLabel={categoryAllLabel}
+    allHref={categoryAllHref}
+    categories={categories}
+    activeCategory={activeCategory}
+  />
+
+  <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <slot />
+  </div>
+</section>

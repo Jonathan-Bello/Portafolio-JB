@@ -1,103 +1,106 @@
 ---
-// src/pages/blog/categoria/[categoria].astro
-
-import BannerSmall from "@components/banners/BannerSmall.astro";
+import ContentListingLayout from "@components/pages/shared/ContentListingLayout.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-const { category } = Astro.params;
-
+import {
+  AcademicCapIcon,
+  BookOpenIcon,
+  CodeBracketIcon,
+  HeartIcon,
+  PuzzlePieceIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 import {
   getLangFromUrl,
   useTranslations,
   useTranslatedPath,
 } from "@i18n/utils";
 
+const { category } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
+const categories = await getCollection("categories");
+const currentCategory = categories.find((item) => item.data.id === category);
+const navCategories = categories.map((category) => ({
+  id: category.data.id,
+  name: category.data.name,
+  href: translatePath(`/blogs/categories/${category.data.id}`),
+}));
+
+if (!currentCategory || !category) {
+  return Astro.redirect("/404");
+}
+
 const filterPosts = await getCollection(
   "blogs",
-  ({ id, data }) => id.startsWith(lang) && data.category.id === category
+  ({ id, data }) => id.startsWith(lang) && data.category.id === category,
 );
 
-const categories = await getCollection("categories");
-
+const categoryIcons = {
+  educacion: AcademicCapIcon,
+  ia: SparklesIcon,
+  salud: HeartIcon,
+  tech: CodeBracketIcon,
+  videojuegos: PuzzlePieceIcon,
+  vida: BookOpenIcon,
+};
 ---
 
 <BaseLayout
-  title={"Blog - " + category}
+  title={`Blog - ${currentCategory.data.name}`}
   description="Artículos de Jonathan Bello sobre desarrollo web, educación, inteligencia artificial, videojuegos y marca personal."
 >
-  <BannerSmall title={t("blog.banner.title")} />
+  <ContentListingLayout
+    title={t("blog.banner.title")}
+    description={currentCategory.data.name}
+    categoryTitle={t("blog.categories.title")}
+    categoryAllLabel={t("blog.categories.all")}
+    categoryAllHref={translatePath("/blog")}
+    categories={navCategories}
+    activeCategory={category}
+  >
+    {
+      filterPosts.map((blog) => {
+        const category = categories.find(
+          (category) => category.data.id === blog.data.category.id,
+        );
+        const Icon =
+          categoryIcons[blog.data.category.id as keyof typeof categoryIcons] ??
+          BookOpenIcon;
 
-  <section class="container">
-    <div class="flex flex-col mb-8">
-      <h3
-        class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100"
-      >
-        {t("blog.categories.title")}
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {
-          categories.map((category) => (
-            <div class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-              <a
-                href={translatePath(`/blogs/categories/${category.data.id}`)}
-                class="flex flex-col"
-              >
-                <div class="p-4">
-                  <h2 class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    {category.data.name}
-                  </h2>
-                </div>
-              </a>
-            </div>
-          ))
-        }
-      </div>
-    </div>
+        return (
+          <article class="flex flex-col bg-neutral-50 dark:bg-neutral-900 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+            <a
+              href={translatePath(`/blogs/${blog.id.replace(`${lang}/`, "")}`)}
+              class="flex flex-col h-full"
+            >
+              <Image
+                src={blog.data.cover}
+                alt={blog.data.title}
+                class="w-full h-48 object-cover rounded-t-lg"
+              />
+              <div class="p-4 flex-1">
+                <h2 class="font-title text-lg font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-2">
+                  {blog.data.title}
+                </h2>
+                <p class="text-neutral-700 dark:text-neutral-300 mt-2 line-clamp-3">
+                  {blog.data.description}
+                </p>
+              </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {
-        filterPosts.map((blog) => {
-          const category = categories.find(
-            (category) => category.data.id === blog.data.category.id
-          );
-
-          return (
-            <div class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-              <a
-                href={translatePath(
-                  `/blogs/${blog.id.replace(`${lang}/`, "")}`
-                )}
-                class="flex flex-col"
-              >
-                <Image
-                  src={blog.data.cover}
-                  alt={blog.data.title}
-                  class="w-full h-48 object-cover rounded-t-lg"
-                />
-                <div class="p-4">
-                  <h2 class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    {blog.data.title}
-                  </h2>
-                  <p class="text-gray-700 dark:text-gray-300 mt-2">
-                    {blog.data.description}
-                  </p>
-                </div>
-
-                <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-b-lg">
-                  <h3 class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    {category?.data.name}
-                  </h3>
-                </div>
-              </a>
-            </div>
-          );
-        })
-      }
-    </div>
-  </section>
+              <div class="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-b-lg">
+                <h3 class="inline-flex items-center gap-2 font-title text-sm font-semibold text-neutral-800 dark:text-neutral-100">
+                  <Icon className="size-4 text-neutral-500 dark:text-neutral-400" />
+                  {category?.data.name}
+                </h3>
+              </div>
+            </a>
+          </article>
+        );
+      })
+    }
+  </ContentListingLayout>
 </BaseLayout>

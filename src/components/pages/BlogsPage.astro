@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import BannerSmall from "@components/banners/BannerSmall.astro";
 import { Image } from "astro:assets";
+import ContentListingLayout from "@components/pages/shared/ContentListingLayout.astro";
 import {
   AcademicCapIcon,
   BookOpenIcon,
@@ -31,6 +31,11 @@ const currentBlogs = allBlogs
   );
 
 const categories = await getCollection("categories");
+const navCategories = categories.map((category) => ({
+  id: category.data.id,
+  name: category.data.name,
+  href: translatePath(`/blogs/categories/${category.data.id}`),
+}));
 
 const categoryIcons = {
   educacion: AcademicCapIcon,
@@ -42,86 +47,50 @@ const categoryIcons = {
 };
 ---
 
-<BannerSmall title={t("blog.banner.title")} />
-
-<section
-  class="container px-4 lg:px-0 py-16 sm:py-20 lg:py-24
-  grid grid-cols-1 lg:grid-cols-5 gap-4"
+<ContentListingLayout
+  title={t("blog.banner.title")}
+  description={t("blog.banner.description")}
+  categoryTitle={t("blog.categories.title")}
+  categoryAllLabel={t("blog.categories.all")}
+  categoryAllHref={translatePath("/blog")}
+  categories={navCategories}
 >
-  <p
-    class="lg:col-span-5 max-w-3xl mx-auto -mt-8 mb-8 text-center text-neutral-700 dark:text-neutral-300"
-  >
-    {t("blog.banner.description")}
-  </p>
+  {
+    currentBlogs.map((blog) => {
+      const category = categories.find(
+        (category) => category.data.id === blog.data.category.id,
+      );
+      const Icon =
+        categoryIcons[blog.data.category.id as keyof typeof categoryIcons] ??
+        BookOpenIcon;
+      const blogSlug = blog.id.replace(`${lang}/`, "");
 
-  <aside class="flex flex-col gap-2">
-    <h3
-      class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100"
-    >
-      {t("blog.categories.title")}
-    </h3>
+      return (
+        <article class="flex flex-col bg-neutral-50 dark:bg-neutral-900 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+          <a href={translatePath(`/blogs/${blogSlug}`)} class="flex flex-col h-full">
+            <Image
+              src={blog.data.cover}
+              alt={blog.data.title}
+              class="w-full h-48 object-cover rounded-t-lg"
+            />
+            <div class="p-4 flex-1">
+              <h2 class="font-title text-lg font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-2">
+                {blog.data.title}
+              </h2>
+              <p class="text-neutral-700 dark:text-neutral-300 mt-2 line-clamp-3">
+                {blog.data.description}
+              </p>
+            </div>
 
-    {
-      categories.map((category) => {
-        const Icon =
-          categoryIcons[category.data.id as keyof typeof categoryIcons] ??
-          BookOpenIcon;
-
-        return (
-          <a
-            href={translatePath(`/blogs/categories/${category.data.id}`)}
-            class="flex max-w-56 items-center gap-3 rounded-lg border border-neutral-200
-            bg-neutral-50 px-4 py-2 font-text font-medium text-neutral-800
-            transition-colors hover:border-neutral-400 hover:bg-neutral-100
-            dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200
-            dark:hover:border-neutral-600 dark:hover:bg-neutral-800"
-          >
-            <Icon className="size-5 shrink-0 text-neutral-500 dark:text-neutral-400" />
-            <span>{category.data.name}</span>
+            <div class="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-b-lg">
+              <h3 class="inline-flex items-center gap-2 font-title text-sm font-semibold text-neutral-800 dark:text-neutral-100">
+                <Icon className="size-4 text-neutral-500 dark:text-neutral-400" />
+                {category?.data.name}
+              </h3>
+            </div>
           </a>
-        );
-      })
-    }
-  </aside>
-
-  <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {
-      currentBlogs.map((blog) => {
-        const category = categories.find(
-          (category) => category.data.id === blog.data.category.id,
-        );
-        const Icon =
-          categoryIcons[blog.data.category.id as keyof typeof categoryIcons] ??
-          BookOpenIcon;
-        const blogSlug = blog.id.replace(`${lang}/`, "");
-
-        return (
-          <article class="flex flex-col bg-neutral-50 dark:bg-neutral-900 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-            <a href={translatePath(`/blogs/${blogSlug}`)} class="flex flex-col h-full">
-              <Image
-                src={blog.data.cover}
-                alt={blog.data.title}
-                class="w-full h-48 object-cover rounded-t-lg"
-              />
-              <div class="p-4 flex-1">
-                <h2 class="font-title text-lg font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-2">
-                  {blog.data.title}
-                </h2>
-                <p class="text-neutral-700 dark:text-neutral-300 mt-2 line-clamp-3">
-                  {blog.data.description}
-                </p>
-              </div>
-
-              <div class="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-b-lg">
-                <h3 class="inline-flex items-center gap-2 font-title text-sm font-semibold text-neutral-800 dark:text-neutral-100">
-                  <Icon className="size-4 text-neutral-500 dark:text-neutral-400" />
-                  {category?.data.name}
-                </h3>
-              </div>
-            </a>
-          </article>
-        );
-      })
-    }
-  </div>
-</section>
+        </article>
+      );
+    })
+  }
+</ContentListingLayout>

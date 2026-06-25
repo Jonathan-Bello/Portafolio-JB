@@ -114,6 +114,7 @@ const en = {
     },
     categories: {
       title: "Categories",
+      all: "All",
     },
   },
   project: {
@@ -132,6 +133,7 @@ const en = {
     },
     categories: {
       title: "Categories",
+      all: "All",
     },
   },
   about: {

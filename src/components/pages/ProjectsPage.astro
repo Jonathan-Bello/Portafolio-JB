@@ -1,61 +1,45 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import BannerSmall from "@components/banners/BannerSmall.astro";
+import { getCollection } from "astro:content";
+import ContentListingLayout from "@components/pages/shared/ContentListingLayout.astro";
 
 import {
   getLangFromUrl,
   useTranslations,
+  useTranslatedPath,
 } from "@i18n/utils";
-import ButtonCategory from "@components/buttons/ButtonCategory.astro";
 import type { CollectionEntry } from "astro:content";
 import ProjectCard from "@components/cards/ProjectCard.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const categories = await getCollection("categoriesProjects");
 const getCategoryName = (category: (typeof categories)[number]) =>
   lang === "es" ? category.data.nameEs : category.data.nameEn;
+const navCategories = categories.map((category) => ({
+  id: category.data.id,
+  name: getCategoryName(category),
+  href: translatePath(`/projects/category/${category.data.id}`),
+}));
 
 // Pasamos los proyectos de forma dinamica.
 interface Props {
   projects: CollectionEntry<"projects">[];
+  activeCategory?: string;
 }
 
-const { projects } = Astro.props;
+const { projects, activeCategory } = Astro.props;
 ---
 
-<BannerSmall title={t("projects.banner.title")} />
-
-<section
-  class="container px-4 lg:px-0 py-16 sm:py-20 lg:py-24
-  grid grid-cols-1 lg:grid-cols-5 gap-4"
+<ContentListingLayout
+  title={t("projects.banner.title")}
+  description={t("projects.banner.description")}
+  categoryTitle={t("projects.categories.title")}
+  categoryAllLabel={t("projects.categories.all")}
+  categoryAllHref={translatePath("/projects")}
+  categories={navCategories}
+  activeCategory={activeCategory}
 >
-  <p class="lg:col-span-5 max-w-3xl mx-auto -mt-8 mb-8 text-center text-neutral-700 dark:text-neutral-300">
-    {t("projects.banner.description")}
-  </p>
-
-  <div class="flex flex-col gap-2">
-    <h3
-      class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100"
-    >
-      {t("projects.categories.title")}
-    </h3>
-
-    {
-      categories.map((category) => (
-        <ButtonCategory
-          id={category.data.id}
-          title={getCategoryName(category)}
-          link={`/projects/category/${category.data.id}`}
-        />
-      ))
-    }
-  </div>
-
-  <div class="col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {projects.map((project) => <ProjectCard project={project} />)}
-  </div>
-</section>
-
-<style></style>
+  {projects.map((project) => <ProjectCard project={project} />)}
+</ContentListingLayout>

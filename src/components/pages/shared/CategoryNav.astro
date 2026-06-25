@@ -1,0 +1,125 @@
+---
+import {
+  AcademicCapIcon,
+  BookOpenIcon,
+  CodeBracketIcon,
+  ComputerDesktopIcon,
+  DevicePhoneMobileIcon,
+  HeartIcon,
+  PuzzlePieceIcon,
+  ServerIcon,
+  SparklesIcon,
+  SwatchIcon,
+} from "@heroicons/react/24/outline";
+
+type CategoryItem = {
+  id: string;
+  name: string;
+  href: string;
+};
+
+type Props = {
+  title: string;
+  allLabel: string;
+  allHref: string;
+  categories: CategoryItem[];
+  activeCategory?: string;
+};
+
+const { title, allLabel, allHref, categories, activeCategory } = Astro.props;
+
+const categoryIcons = {
+  ai: SparklesIcon,
+  backend: ServerIcon,
+  education: AcademicCapIcon,
+  educacion: AcademicCapIcon,
+  games: PuzzlePieceIcon,
+  ia: SparklesIcon,
+  mobile: DevicePhoneMobileIcon,
+  salud: HeartIcon,
+  tech: CodeBracketIcon,
+  ui: SwatchIcon,
+  videojuegos: PuzzlePieceIcon,
+  vida: BookOpenIcon,
+  web: ComputerDesktopIcon,
+};
+
+const getCategoryIcon = (id: string) =>
+  categoryIcons[id as keyof typeof categoryIcons] ?? BookOpenIcon;
+
+const chipBaseClasses =
+  "inline-flex shrink-0 items-center gap-2 rounded-lg border px-4 py-2 font-text text-sm font-medium transition-colors";
+
+const getChipClasses = (isActive: boolean) =>
+  `${chipBaseClasses} ${
+    isActive
+      ? "border-neutral-900 bg-neutral-900 text-neutral-50 dark:border-neutral-100 dark:bg-neutral-100 dark:text-neutral-950"
+      : "border-neutral-200 bg-neutral-50 text-neutral-800 hover:border-neutral-400 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600 dark:hover:bg-neutral-800"
+  }`;
+
+const iconClasses = "size-5 shrink-0";
+---
+
+<nav class="lg:hidden lg:col-span-5 -mx-4 mb-8" aria-label={title}>
+  <div class="flex gap-2 overflow-x-auto px-4 pb-2">
+    <a
+      href={allHref}
+      class={getChipClasses(!activeCategory)}
+      aria-current={!activeCategory ? "page" : undefined}
+    >
+      <BookOpenIcon className={iconClasses} />
+      <span>{allLabel}</span>
+    </a>
+
+    {
+      categories.map((category) => {
+        const Icon = getCategoryIcon(category.id);
+        const isActive = activeCategory === category.id;
+
+        return (
+          <a
+            href={category.href}
+            class={getChipClasses(isActive)}
+            aria-current={isActive ? "page" : undefined}
+          >
+            <Icon className={iconClasses} />
+            <span>{category.name}</span>
+          </a>
+        );
+      })
+    }
+  </div>
+</nav>
+
+<aside class="hidden lg:flex flex-col gap-2">
+  <h3 class="font-title text-lg font-semibold text-gray-900 dark:text-gray-100">
+    {title}
+  </h3>
+
+  <a
+    href={allHref}
+    class={getChipClasses(!activeCategory)}
+    aria-current={!activeCategory ? "page" : undefined}
+  >
+    <BookOpenIcon className={iconClasses} />
+    <span>{allLabel}</span>
+  </a>
+
+  {
+    categories.map((category) => {
+      const Icon = getCategoryIcon(category.id);
+      const isActive = activeCategory === category.id;
+
+      return (
+        <a
+          href={category.href}
+          class={getChipClasses(isActive)}
+          aria-current={isActive ? "page" : undefined}
+        >
+          <Icon className={iconClasses} />
+          <span>{category.name}</span>
+        </a>
+      );
+    })
+  }
+</aside>

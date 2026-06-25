@@ -6,8 +6,6 @@ import { getCollection } from "astro:content";
 
 import {
   getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
 } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -19,7 +17,6 @@ if (!categories.find((cat) => cat.data.id === category)) {
   return Astro.redirect("/404");
 }
 
-// Forma obtima de obtener los proyectos de un idioma mediante su ruta
 const allProjects = await getCollection("projects", ({ id }) => {
   return id.startsWith(lang);
 });
@@ -30,5 +27,5 @@ const projects = allProjects.filter((project) =>
 ---
 
 <BaseLayout title="Proyectos">
-  <ProjectsPage projects={projects} />
+  <ProjectsPage projects={projects} activeCategory={category} />
 </BaseLayout>

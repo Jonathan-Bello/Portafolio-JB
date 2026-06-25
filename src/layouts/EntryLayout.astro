@@ -9,6 +9,7 @@ interface entry {
   title: string;
   description: string;
   cover: ImageMetadata;
+  screenshots?: ImageMetadata[];
   publishDate: Date;
 }
 
@@ -45,6 +46,23 @@ const formattedDate = new Intl.DateTimeFormat(lang, {
 
   <Prose>
     <slot />
+
+    {
+      entry.screenshots && entry.screenshots.length > 0 && (
+        <section>
+          <h2>Capturas del proyecto</h2>
+          <div class="grid gap-6">
+            {entry.screenshots.map((screenshot) => (
+              <Image
+                src={screenshot}
+                alt={`Captura de ${entry.title}`}
+                class="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800"
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
   </Prose>
 
   <slot name="footer" />

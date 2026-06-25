@@ -144,6 +144,7 @@ const es = {
     },
     categories: {
       title: "Categorías",
+      all: "Todas",
     },
   },
   project: {
@@ -163,6 +164,7 @@ const es = {
     },
     categories: {
       title: "Categorías",
+      all: "Todas",
     },
   },
   about: {
