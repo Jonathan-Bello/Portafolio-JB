@@ -14,7 +14,7 @@ techs:
   - Swiper
   - Formspree
   - Astro Sitemap
-category: ["web", "backend", "ui"]
+category: ["web"]
 url: "https://tradeco506.com/"
 author: "jonathan-bello"
 isRelevant: false
@@ -35,4 +35,3 @@ El reto fue construir catálogos con rutas individuales, modales y carruseles, a
 ## Resultado
 
 El sitio funciona como catálogo comercial con múltiples puntos de conversión: formulario, WhatsApp, correo y mapa.
-

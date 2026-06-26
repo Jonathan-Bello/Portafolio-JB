@@ -10,7 +10,7 @@ techs:
   - Astro.js
   - React
   - Tailwind CSS
-category: ["web", "ui"]
+category: ["web"]
 url: "https://gynobs.org/"
 author: "jonathan-bello"
 isRelevant: false
@@ -31,4 +31,3 @@ El reto fue diseñar una estructura sobria para un tema médico, con llamados a 
 ## Resultado
 
 El sitio ofrece una presencia profesional enfocada en información, confianza y contacto.
-

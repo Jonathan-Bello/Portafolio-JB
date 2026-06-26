@@ -13,7 +13,7 @@ techs:
   - TypeScript
   - i18n
   - Heroicons
-category: ["web", "ui"]
+category: ["web"]
 url: "https://volta.capital/"
 author: "jonathan-bello"
 isRelevant: false
@@ -34,4 +34,3 @@ El reto fue estructurar contenido corporativo en español e inglés sin duplicar
 ## Resultado
 
 El sitio presenta una marca corporativa con contenido institucional bilingüe y secciones orientadas a inversionistas y empresas.
-

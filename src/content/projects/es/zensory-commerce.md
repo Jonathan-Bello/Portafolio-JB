@@ -13,7 +13,7 @@ techs:
   - Stripe
   - Nodemailer
   - Netlify
-category: ["web", "backend"]
+category: ["web"]
 url: "https://zensory.galimarli.com/"
 author: "jonathan-bello"
 isRelevant: false

@@ -9,7 +9,7 @@ screenshots:
 techs:
   - Astro.js
   - Tailwind CSS
-category: ["web", "education"]
+category: ["web"]
 url: "https://eco-ygu.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -30,4 +30,3 @@ El reto fue convertir una propuesta educativa en una narrativa clara, con compon
 ## Resultado
 
 El sitio comunica el proyecto, sus beneficios y llamados a la acción en una landing estática fácil de mantener.
-

@@ -11,7 +11,7 @@ techs:
   - Tailwind CSS
   - Swiper
   - Netlify
-category: ["web", "ui"]
+category: ["web"]
 url: "https://surima.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -32,4 +32,3 @@ El reto fue usar carruseles y contenido visual sin sacrificar rendimiento ni cla
 ## Resultado
 
 El sitio presenta la propuesta comercial de forma visual, responsive y fácil de recorrer.
-

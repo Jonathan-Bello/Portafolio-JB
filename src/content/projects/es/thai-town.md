@@ -10,7 +10,7 @@ techs:
   - Astro.js
   - React
   - Tailwind CSS
-category: ["web", "ui"]
+category: ["web"]
 url: "https://snazzy-monstera-784ccf.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -31,4 +31,3 @@ El reto fue construir una experiencia visual alineada con el restaurante y que f
 ## Resultado
 
 El sitio facilita consultar información del restaurante y contactar directamente, con una experiencia visual orientada a comida y marca.
-

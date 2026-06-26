@@ -12,7 +12,7 @@ techs:
   - Tailwind CSS
   - Formspree
   - Heroicons
-category: ["web", "ui"]
+category: ["web"]
 url: "https://aesthetic-concept.com/"
 author: "jonathan-bello"
 isRelevant: false
@@ -33,4 +33,3 @@ El reto fue convertir un catálogo visual en una experiencia ordenada: fichas re
 ## Resultado
 
 El sitio permite explorar productos, revisar galerías y contactar a la marca sin fricción, manteniendo una presencia visual elegante.
-

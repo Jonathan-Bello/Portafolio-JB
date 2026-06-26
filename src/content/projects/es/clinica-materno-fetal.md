@@ -11,7 +11,7 @@ techs:
   - React
   - Tailwind CSS
   - Heroicons
-category: ["web", "ui"]
+category: ["web"]
 url: "https://clinicademedicinamaternofetal.com/clinicademedicinamaternofetal"
 author: "jonathan-bello"
 isRelevant: false
@@ -32,4 +32,3 @@ El proyecto debía publicarse dentro de una ruta base del dominio, por lo que fu
 ## Resultado
 
 El sitio ofrece una presencia profesional para una clínica especializada, priorizando claridad, confianza y contacto.
-

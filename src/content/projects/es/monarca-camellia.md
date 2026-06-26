@@ -10,7 +10,7 @@ techs:
   - Astro.js
   - Tailwind CSS
   - Netlify
-category: ["web", "ui"]
+category: ["web"]
 url: "https://tranquil-moxie-80135b.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -31,4 +31,3 @@ El reto fue construir una identidad visual coherente en un sitio estático, cuid
 ## Resultado
 
 La landing comunica la propuesta de marca con una navegación sencilla y una presentación visual consistente.
-

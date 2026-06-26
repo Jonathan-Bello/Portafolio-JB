@@ -10,7 +10,7 @@ techs:
   - Astro.js
   - Tailwind CSS
   - Netlify
-category: ["web", "ui"]
+category: ["web"]
 url: "https://re-conecta.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -31,4 +31,3 @@ El reto fue ordenar contenido visual y textual para que la propuesta se entendie
 ## Resultado
 
 La página comunica la marca con una landing ligera, clara y preparada para campañas o difusión directa.
-

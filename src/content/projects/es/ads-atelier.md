@@ -13,7 +13,7 @@ techs:
   - TypeScript
   - Swiper
   - API de Instagram
-category: ["web", "ui"]
+category: ["web"]
 url: "https://adsatelier.mx/"
 author: "jonathan-bello"
 isRelevant: false
@@ -34,4 +34,3 @@ El reto principal fue integrar una experiencia visual de alto impacto sin hacer 
 ## Resultado
 
 El sitio presenta colecciones, piezas personalizadas, contacto por WhatsApp e Instagram y una experiencia clara para explorar la propuesta de Ads Atelier.
-

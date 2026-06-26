@@ -11,7 +11,7 @@ techs:
   - Tailwind CSS
   - "@astrojs/netlify"
   - Nodemailer
-category: ["web", "backend"]
+category: ["web"]
 url: "https://chilfund.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -32,4 +32,3 @@ El reto fue usar Astro no solo como sitio estático, sino como proyecto con sali
 ## Resultado
 
 La landing presenta la campaña, guía al usuario hacia el registro y automatiza la comunicación interna cuando llega un nuevo lead.
-

@@ -13,7 +13,7 @@ techs:
   - JavaScript
   - Godot
   - Render
-category: ["web", "education", "games"]
+category: ["web"]
 url: "https://css.jonathanbello.com/"
 author: "jonathan-bello"
 isRelevant: true
@@ -34,4 +34,3 @@ El reto fue presentar documentación técnica de juego de forma navegable y úti
 ## Resultado
 
 El sitio funciona como hub documental del proyecto, con acceso a materiales clave y una presentación web clara para explicar el sistema.
-

@@ -13,7 +13,7 @@ techs:
   - TypeScript
   - i18n
   - Heroicons
-category: ["web", "ui"]
+category: ["web"]
 url: "https://arcticroots.is/"
 author: "jonathan-bello"
 isRelevant: false
@@ -34,4 +34,3 @@ El reto principal fue mantener una estructura de traducciones sencilla de extend
 ## Resultado
 
 El sitio ofrece navegación localizada, secciones institucionales y contacto adaptado al idioma activo.
-

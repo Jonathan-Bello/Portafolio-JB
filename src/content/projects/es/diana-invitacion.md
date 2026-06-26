@@ -10,7 +10,7 @@ techs:
   - Astro.js
   - Tailwind CSS
   - AOS
-category: ["web", "ui"]
+category: ["web"]
 url: "https://diana-invitacion.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -31,4 +31,3 @@ El reto fue crear una experiencia visual personalizada, ligera y usable principa
 ## Resultado
 
 La invitación reúne fecha, detalles del evento y contenido visual en una experiencia responsive fácil de distribuir.
-

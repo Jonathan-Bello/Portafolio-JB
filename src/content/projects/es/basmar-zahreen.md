@@ -10,7 +10,7 @@ techs:
   - Astro.js
   - React
   - Tailwind CSS
-category: ["web", "ui"]
+category: ["web"]
 url: "https://basmarbeauty.com/zahreen/"
 author: "jonathan-bello"
 isRelevant: false
@@ -31,4 +31,3 @@ El reto fue trabajar con una base de URL controlada, manteniendo assets, enlaces
 ## Resultado
 
 La página funciona como experiencia comercial enfocada en lectura rápida, marca y conversión desde dispositivos móviles.
-

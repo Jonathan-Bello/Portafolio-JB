@@ -117,11 +117,7 @@ const translatePath = useTranslatedPath(lang);
 </style>
 
 <script>
-  // Verificar que el DOM este completamente cargado antes de ejecutar el script con la validacion de viewtransiottions de astro
-  // con astro-load-page
-
-  document.addEventListener("astro:page-load", () => {
-    // Toggle navigation menu
+  function initHeader() {
     const barsIcon = document.querySelector("#menu-icon");
     const closeIcon = document.querySelector("#close-icon");
     const navigatorMenu = document.querySelector("#navigator-menu");
@@ -131,35 +127,53 @@ const translatePath = useTranslatedPath(lang);
       throw new Error("Element not found");
     }
 
-    barsIcon.addEventListener("click", () => {
-      barsIcon.classList.toggle("hidden");
-      closeIcon.classList.toggle("hidden");
-      navigatorMenu.classList.toggle("top-16");
-    });
+    if (barsIcon instanceof HTMLElement && !barsIcon.dataset.bound) {
+      barsIcon.dataset.bound = "true";
+      barsIcon.addEventListener("click", () => {
+        barsIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+        navigatorMenu.classList.toggle("top-16");
+      });
+    }
 
-    closeIcon.addEventListener("click", () => {
-      closeIcon.classList.toggle("hidden");
-      barsIcon.classList.toggle("hidden");
-      navigatorMenu.classList.toggle("top-16");
-    });
+    if (closeIcon instanceof HTMLElement && !closeIcon.dataset.bound) {
+      closeIcon.dataset.bound = "true";
+      closeIcon.addEventListener("click", () => {
+        closeIcon.classList.toggle("hidden");
+        barsIcon.classList.toggle("hidden");
+        navigatorMenu.classList.toggle("top-16");
+      });
+    }
 
-    // Agregar logoica  de que se muestre una linea roja debajo del link activo
-    // si el link concuerda con el path actual
     const path = window.location.pathname;
     const links = navigatorLinks?.querySelectorAll("a");
 
     links?.forEach((link) => {
+      link.classList.remove("active");
       if (link.pathname === path) {
         link.classList.add("active");
       }
     });
 
-    // Cambiar el tema de la pagina
     const themeToggle = document.querySelector("#theme-toggle");
-    const html = document.querySelector("html");
+    const html = document.documentElement;
 
-    themeToggle?.addEventListener("click", () => {
-      html?.classList.toggle("dark");
-    });
-  });
+    if (themeToggle instanceof HTMLElement && !themeToggle.dataset.bound) {
+      themeToggle.dataset.bound = "true";
+      themeToggle.addEventListener("click", () => {
+        const shouldUseDark = !html.classList.contains("dark");
+        html.classList.toggle("dark", shouldUseDark);
+        localStorage.setItem("theme", shouldUseDark ? "dark" : "light");
+        window.dispatchEvent(new CustomEvent("theme-change"));
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeader);
+  } else {
+    initHeader();
+  }
+
+  document.addEventListener("astro:page-load", initHeader);
 </script>

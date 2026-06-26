@@ -8,14 +8,25 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const { project } = Astro.props;
-// Consulta de tabla
-// Consultar solo los comentarios del post
-let comentarios = await db
-  .select()
-  .from(Comment)
-  .where(eq(Comment.postId, project.data.id));
+let comentarios: any[] = [];
+let authores: any[] = [];
 
-let authores = await db.select().from(Author);
+async function loadComments() {
+  try {
+    comentarios = await db
+      .select()
+      .from(Comment)
+      .where(eq(Comment.postId, project.data.id));
+
+    authores = await db.select().from(Author);
+  } catch (error) {
+    console.error("Project comments are unavailable", error);
+    comentarios = [];
+    authores = [];
+  }
+}
+
+await loadComments();
 
 // Insertar datos a partir de un form
 if (Astro.request.method === "POST") {
@@ -37,29 +48,29 @@ if (Astro.request.method === "POST") {
     country: country.toString(),
   };
 
-  const response = await db.insert(Author).values(authorTemp);
+  try {
+    const response = await db.insert(Author).values(authorTemp);
 
-  if (!response) {
-    return Astro.redirect("/404.astro");
-  } else {
+    if (!response) {
+      return Astro.redirect("/404.astro");
+    }
+
     await db.insert(Comment).values({
       authorId: idAuthor,
       postId: project.data.id,
       body: comment.toString(),
     });
+  } catch (error) {
+    console.error("Project comment could not be saved", error);
+    return Astro.redirect(Astro.url.pathname);
   }
 
   // Redireccionar a la misma pagina para evitar el reenvío del formulario
-  Astro.redirect("/project/" + project.data.id);
+  return Astro.redirect(Astro.url.pathname);
 }
 
 // Volver a consultar los comentarios y autores
-comentarios = await db
-  .select()
-  .from(Comment)
-  .where(eq(Comment.postId, project.data.id));
-
-authores = await db.select().from(Author);
+await loadComments();
 ---
 
 <EntryLayout entry={project.data}>

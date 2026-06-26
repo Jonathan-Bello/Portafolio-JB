@@ -12,7 +12,7 @@ techs:
   - TypeScript
   - Swiper
   - Remix Icon
-category: ["web", "ui"]
+category: ["web"]
 url: "https://maypro.mx/"
 author: "jonathan-bello"
 isRelevant: false
@@ -33,4 +33,3 @@ El reto fue equilibrar contenido visual, rendimiento y claridad comercial en una
 ## Resultado
 
 El sitio presenta la marca con estructura clara, secciones comerciales y navegación enfocada en conversión.
-

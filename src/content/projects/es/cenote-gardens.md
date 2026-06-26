@@ -14,7 +14,7 @@ techs:
   - Sass
   - Swiper
   - Netlify
-category: ["web", "ui"]
+category: ["web"]
 url: "https://dulcet-arithmetic-4f11b2.netlify.app/"
 author: "jonathan-bello"
 isRelevant: false
@@ -35,4 +35,3 @@ El proyecto combinó componentes de React y Vue dentro de Astro. También requir
 ## Resultado
 
 El sitio presenta la propuesta de forma visual y directa, con una estructura pensada para generar interés comercial.
-
