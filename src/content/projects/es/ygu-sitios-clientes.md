@@ -13,7 +13,7 @@ techs:
 category: ["web", "ui"]
 url: "https://jonathanbello.com/projects/ygu-sitios-clientes"
 author: "jonathan-bello"
-isRelevant: true
+isRelevant: false
 ---
 
 ## Contexto

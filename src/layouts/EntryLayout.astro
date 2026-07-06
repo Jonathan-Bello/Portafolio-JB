@@ -11,6 +11,7 @@ interface entry {
   cover: ImageMetadata;
   screenshots?: ImageMetadata[];
   publishDate: Date;
+  url?: string;
 }
 
 interface Props {
@@ -24,6 +25,14 @@ const lang = getLangFromUrl(Astro.url);
 const formattedDate = new Intl.DateTimeFormat(lang, {
   dateStyle: "long",
 }).format(entry.publishDate);
+
+const entryUrl = entry.url ? new URL(entry.url, Astro.url.origin) : undefined;
+const isSamePage =
+  entryUrl &&
+  entryUrl.hostname.includes("jonathanbello.com") &&
+  entryUrl.pathname.replace(/\/$/, "") === Astro.url.pathname.replace(/\/$/, "");
+const showEntryUrl = entryUrl && !isSamePage;
+const entryUrlLabel = lang === "es" ? "Ver sitio publicado" : "View live site";
 ---
 
 <BaseLayout title={entry.title} description={entry.description} type="article">
@@ -41,6 +50,25 @@ const formattedDate = new Intl.DateTimeFormat(lang, {
     <p class="max-w-3xl mx-auto mt-4 text-center text-neutral-700 dark:text-neutral-300">
       {entry.description}
     </p>
+
+    {
+      showEntryUrl && (
+        <div class="mt-6 flex justify-center">
+          <a
+            href={entryUrl.toString()}
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center justify-center rounded-lg border border-neutral-300
+            bg-neutral-50 px-5 py-2 font-text font-semibold text-neutral-900 transition-colors
+            hover:border-neutral-900 hover:bg-neutral-100 dark:border-neutral-700
+            dark:bg-neutral-900 dark:text-neutral-100 dark:hover:border-neutral-100
+            dark:hover:bg-neutral-800"
+          >
+            {entryUrlLabel}
+          </a>
+        </div>
+      )
+    }
   </section>
   <hr />
 
@@ -50,7 +78,6 @@ const formattedDate = new Intl.DateTimeFormat(lang, {
     {
       entry.screenshots && entry.screenshots.length > 0 && (
         <section>
-          <h2>Capturas del proyecto</h2>
           <div class="grid gap-6">
             {entry.screenshots.map((screenshot) => (
               <Image

@@ -2,10 +2,10 @@
 id: "cenote-gardens"
 title: "Cenote Gardens: landing inmobiliaria visual"
 description: "Landing para un proyecto residencial o inmobiliario, con contenido multimedia, secciones comerciales y carruseles de alto impacto."
-publishDate: 2026-06-24
-cover: "@assets/coversProjects/astro-sites/cenote-gardens-cover.png"
+publishDate: 2024-03-27
+cover: "@assets/coversProjects/sitios-web/cenote-gardens-cover.png"
 screenshots:
-  - "@assets/coversProjects/astro-sites/cenote-gardens-detail.png"
+  - "@assets/coversProjects/sitios-web/cenote-gardens-detail.png"
 techs:
   - Astro.js
   - React
@@ -20,17 +20,23 @@ author: "jonathan-bello"
 isRelevant: false
 ---
 
-## Contexto
-
 Cenote Gardens fue una landing enfocada en presentar una propuesta residencial con contenido visual, secciones comerciales y captación de clientes.
 
-## Mi rol
+## Desarrollo y reto técnico
 
 Construí la experiencia web, integré secciones visuales y preparé el despliegue en Netlify.
 
-## Reto técnico
-
 El proyecto combinó componentes de React y Vue dentro de Astro. También requirió cuidar rendimiento en una landing con mucha carga visual.
+
+## Tecnologías utilizadas
+
+1. Astro.js
+2. React
+3. Vue
+4. Tailwind CSS
+5. Sass
+6. Swiper
+7. Netlify
 
 ## Resultado
 

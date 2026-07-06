@@ -2,10 +2,10 @@
 id: "gynobs"
 title: "Gynobs: sitio institucional médico"
 description: "Sitio web para servicios ginecológicos y obstétricos, con enfoque en confianza, contacto y navegación sencilla para pacientes."
-publishDate: 2026-06-24
-cover: "@assets/coversProjects/astro-sites/gynobs-cover.png"
+publishDate: 2025-04-29
+cover: "@assets/coversProjects/sitios-web/gynobs-cover.png"
 screenshots:
-  - "@assets/coversProjects/astro-sites/gynobs-detail.png"
+  - "@assets/coversProjects/sitios-web/gynobs-detail.png"
 techs:
   - Astro.js
   - React
@@ -16,17 +16,19 @@ author: "jonathan-bello"
 isRelevant: false
 ---
 
-## Contexto
-
 Gynobs requería un sitio institucional para comunicar servicios médicos y facilitar contacto con pacientes.
 
-## Mi rol
+## Desarrollo y reto técnico
 
 Desarrollé el sitio y organicé la información para que la experiencia fuera clara, confiable y fácil de leer en dispositivos móviles.
 
-## Reto técnico
-
 El reto fue diseñar una estructura sobria para un tema médico, con llamados a la acción visibles y navegación simple.
+
+## Tecnologías utilizadas
+
+1. Astro.js
+2. React
+3. Tailwind CSS
 
 ## Resultado
 

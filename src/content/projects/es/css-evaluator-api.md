@@ -1,9 +1,9 @@
 ---
 id: "css-evaluator-api"
-title: "CSS Evaluator API"
+title: "HEMIS: CSS Evaluator API"
 description: "Backend para analizar código CSS, validar retos y mediar retroalimentación educativa dentro de un videojuego con IA."
 publishDate: 2026-01-14
-cover: "@assets/coversProjects/Chooseway.jpg"
+cover: "@assets/coversProjects/backend/hemis_backend_thumbnail.png"
 techs:
   - Node.js
   - Express.js

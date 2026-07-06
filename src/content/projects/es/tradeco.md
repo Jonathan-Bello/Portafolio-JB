@@ -2,10 +2,10 @@
 id: "tradeco"
 title: "Tradeco Costa Rica: catálogo de pisos SPC y LVT"
 description: "Sitio comercial con catálogo de productos, rutas individuales, carruseles, formularios, WhatsApp, mapa y configuración SEO."
-publishDate: 2026-06-24
-cover: "@assets/coversProjects/astro-sites/tradeco-cover.png"
+publishDate: 2024-02-09
+cover: "@assets/coversProjects/sitios-web/tradeco-cover.png"
 screenshots:
-  - "@assets/coversProjects/astro-sites/tradeco-detail.png"
+  - "@assets/coversProjects/sitios-web/tradeco-detail.png"
 techs:
   - Astro.js
   - React
@@ -20,17 +20,23 @@ author: "jonathan-bello"
 isRelevant: false
 ---
 
-## Contexto
-
 Tradeco Costa Rica requería un sitio comercial para presentar catálogo de pisos SPC y LVT, marcas y canales de contacto.
 
-## Mi rol
+## Desarrollo y reto técnico
 
 Desarrollé la estructura del sitio, catálogos, rutas de productos, formularios y canales de contacto.
 
-## Reto técnico
-
 El reto fue construir catálogos con rutas individuales, modales y carruseles, además de preparar sitemap y metadata para un sitio público.
+
+## Tecnologías utilizadas
+
+1. Astro.js
+2. React
+3. Tailwind CSS
+4. Sass
+5. Swiper
+6. Formspree
+7. Astro Sitemap
 
 ## Resultado
 

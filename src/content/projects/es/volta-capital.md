@@ -2,10 +2,10 @@
 id: "volta-capital"
 title: "Volta Capital: sitio corporativo bilingüe"
 description: "Sitio corporativo bilingüe para comunicar servicios, inversionistas, empresas relacionadas y contenido institucional."
-publishDate: 2026-06-24
-cover: "@assets/coversProjects/astro-sites/volta-capital-cover.png"
+publishDate: 2025-12-23
+cover: "@assets/coversProjects/sitios-web/volta-capital-cover.png"
 screenshots:
-  - "@assets/coversProjects/astro-sites/volta-capital-detail.png"
+  - "@assets/coversProjects/sitios-web/volta-capital-detail.png"
 techs:
   - Astro.js
   - React
@@ -19,17 +19,22 @@ author: "jonathan-bello"
 isRelevant: false
 ---
 
-## Contexto
-
 Volta Capital necesitaba un sitio corporativo bilingüe para presentar información institucional, servicios e inversionistas.
 
-## Mi rol
+## Desarrollo y reto técnico
 
 Desarrollé el sitio y organicé la arquitectura bilingüe con rutas localizadas, metadata y componentes reutilizables.
 
-## Reto técnico
-
 El reto fue estructurar contenido corporativo en español e inglés sin duplicar lógica y manteniendo navegación clara entre segmentos.
+
+## Tecnologías utilizadas
+
+1. Astro.js
+2. React
+3. Tailwind CSS
+4. TypeScript
+5. i18n
+6. Heroicons
 
 ## Resultado
 

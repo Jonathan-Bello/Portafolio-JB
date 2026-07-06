@@ -30,6 +30,32 @@ interface Props {
 }
 
 const { projects, activeCategory } = Astro.props;
+
+const sortParam = Astro.url.searchParams.get("sort");
+const activeSort = sortParam === "az" ? "az" : "date";
+const sortedProjects = [...projects].sort((a, b) => {
+  if (activeSort === "az") {
+    return a.data.title.localeCompare(b.data.title, lang);
+  }
+
+  return (
+    new Date(b.data.publishDate).getTime() -
+    new Date(a.data.publishDate).getTime()
+  );
+});
+
+const getSortHref = (sort: "date" | "az") => {
+  const searchParams = new URLSearchParams(Astro.url.searchParams);
+
+  if (sort === "date") {
+    searchParams.delete("sort");
+  } else {
+    searchParams.set("sort", sort);
+  }
+
+  const query = searchParams.toString();
+  return query ? `${Astro.url.pathname}?${query}` : Astro.url.pathname;
+};
 ---
 
 <ContentListingLayout
@@ -41,5 +67,43 @@ const { projects, activeCategory } = Astro.props;
   categories={navCategories}
   activeCategory={activeCategory}
 >
-  {projects.map((project) => <ProjectCard project={project} />)}
+  <div
+    class="md:col-span-2 lg:col-span-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3
+    rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-4 py-3"
+  >
+    <p class="font-title font-semibold text-neutral-950 dark:text-neutral-100">
+      {t("projects.sort.label")}
+    </p>
+    <div
+      class="inline-flex w-full sm:w-auto rounded-lg border border-neutral-200 dark:border-neutral-800 overflow-hidden"
+      aria-label={t("projects.sort.label")}
+    >
+      <a
+        href={getSortHref("date")}
+        aria-current={activeSort === "date" ? "page" : undefined}
+        class:list={[
+          "flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors",
+          activeSort === "date"
+            ? "bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950"
+            : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900",
+        ]}
+      >
+        {t("projects.sort.date")}
+      </a>
+      <a
+        href={getSortHref("az")}
+        aria-current={activeSort === "az" ? "page" : undefined}
+        class:list={[
+          "flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors border-l border-neutral-200 dark:border-neutral-800",
+          activeSort === "az"
+            ? "bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950"
+            : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900",
+        ]}
+      >
+        {t("projects.sort.az")}
+      </a>
+    </div>
+  </div>
+
+  {sortedProjects.map((project) => <ProjectCard project={project} />)}
 </ContentListingLayout>

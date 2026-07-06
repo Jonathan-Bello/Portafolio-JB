@@ -116,6 +116,11 @@ const en = {
       title: "Categories",
       all: "All",
     },
+    sort: {
+      label: "Sort projects",
+      date: "Date",
+      az: "A-Z",
+    },
   },
   project: {
     comments: {

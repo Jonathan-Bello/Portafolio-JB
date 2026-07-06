@@ -1,29 +1,46 @@
 ---
 id: "childfund-next-pagos"
-title: "Childfund México: sitio con pagos"
-description: "Proyecto web con Next.js, React e integración de pagos con Stripe, PayPal y Openpay desarrollado en contexto profesional."
-publishDate: 2026-02-03
-cover: "@assets/coversProjects/apoyatec.jpg"
+title: "ChildFund México: mantenimiento de sitio y pagos"
+description: "Mantenimiento técnico de un sitio institucional en Next.js, con trabajo sobre flujos de donación, APIs y pasarelas de pago."
+publishDate: 2023-10-19
+cover: "@assets/coversProjects/sitios-web/childfund-next-cover.png"
+screenshots:
+  - "@assets/coversProjects/sitios-web/childfund-next-detail.png"
 techs:
   - Next.js
   - React
   - Stripe
   - PayPal
-  - Openpay
+  - OpenPay
+  - reCAPTCHA
+  - Nodemailer
+  - Next SEO
 category: ["web", "backend"]
-url: "https://jonathanbello.com/projects/childfund-next-pagos"
+url: "https://www.childfundmexico.org.mx/"
 author: "jonathan-bello"
 isRelevant: false
 ---
 
-## Contexto
+ChildFund México es un sitio institucional grande para una ONG, con páginas de programas, proyectos, recursos, transparencia, blog, contacto y flujos de donación.
 
-Proyecto desarrollado en contexto profesional para Childfund México, con foco en experiencia web e integración de pagos.
+## Desarrollo y reto técnico
 
-## Tecnologías
+No creé este sitio desde cero; mi participación ha sido de mantenimiento y evolución técnica. El trabajo más importante está alrededor de rutas API, flujos de donación, formularios, validaciones y pasarelas de pago.
 
-El sitio trabaja con Next.js, React y pasarelas de pago como Stripe, PayPal y Openpay.
+El reto técnico es que los cambios no son solo visuales: los pagos con Stripe, PayPal y OpenPay deben conservar estabilidad, seguridad y claridad para el usuario. También hay validaciones con reCAPTCHA, envío de correos, estados de éxito/error y conexión con sistemas externos.
 
-## Valor profesional
+## Tecnologías utilizadas
 
-Este proyecto muestra experiencia en productos web con integraciones sensibles, flujos de conversión y trabajo dentro de un entorno profesional.
+1. Next.js 13
+2. React
+3. Stripe
+4. PayPal
+5. OpenPay
+6. reCAPTCHA
+7. Nodemailer
+8. Formik y Yup
+9. Next SEO
+
+## Resultado
+
+El proyecto representa experiencia de mantenimiento profesional en un sitio activo, con flujos críticos de conversión y donación. Es una entrada distinta a la landing de ChildFund Mundial hecha en Astro.

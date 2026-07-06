@@ -146,6 +146,11 @@ const es = {
       title: "Categorías",
       all: "Todas",
     },
+    sort: {
+      label: "Ordenar proyectos",
+      date: "Fecha",
+      az: "A-Z",
+    },
   },
   project: {
     title: "Proyectos",
