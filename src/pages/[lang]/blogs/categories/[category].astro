@@ -17,6 +17,16 @@ import {
   useTranslatedPath,
 } from "@i18n/utils";
 
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const categories = await getCollection("categories");
+
+  return categories.map((category) => ({
+    params: { lang: "en", category: category.data.id },
+  }));
+}
+
 const { category } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -31,7 +41,7 @@ const navCategories = categories.map((category) => ({
 }));
 
 if (!currentCategory || !category) {
-  return Astro.redirect("/404");
+  return Astro.redirect("/404/");
 }
 
 const filterPosts = await getCollection(
@@ -51,7 +61,7 @@ const categoryIcons = {
 
 <BaseLayout
   title={`Blog - ${currentCategory.data.name}`}
-  description="Articles by Jonathan Bello about web development, education, artificial intelligence, video games, and personal brand."
+  description={`Articles by Jonathan Bello in ${currentCategory.data.name}: web development, education, artificial intelligence, video games, and personal brand.`}
 >
   <ContentListingLayout
     title={t("blog.banner.title")}

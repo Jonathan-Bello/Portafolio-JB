@@ -1,11 +1,13 @@
 ---
 id: "oul"
-title: "OUL: sistema web de tramites fiscales"
-description: "Plataforma Next.js para registro y pago de tramites fiscales, formularios multipaso, Firebase, panel administrativo, pagos con Stripe y generacion documental."
+title: "OUL: sistema web de trámites fiscales"
+description: "Plataforma Next.js para digitalizar trámites legales y fiscales mediante formularios extensos, autenticación, Firebase, archivos y generación documental."
 publishDate: 2022-07-28
 cover: "@assets/coversProjects/sitios-web/oul-cover.png"
 screenshots:
   - "@assets/coversProjects/sitios-web/oul-detail.png"
+screenshotCaptions:
+  - "Formulario de OUL para iniciar un trámite legal desde la web."
 techs:
   - Next.js
   - React
@@ -15,7 +17,6 @@ techs:
   - Firebase Auth
   - Formik
   - Yup
-  - Stripe
   - SendGrid
   - React PDF
 category: ["web", "backend"]
@@ -24,21 +25,21 @@ author: "jonathan-bello"
 isRelevant: false
 ---
 
-OUL es uno de los proyectos mas importantes de mi etapa inicial como desarrollador. Lo trabaje durante mi estancia de licenciatura y fue la base de mi tesis final, donde documente el desarrollo de un sistema para registrar, pagar y dar seguimiento a tramites fiscales y legales desde una aplicacion web.
+OUL fue uno de los proyectos más importantes de mi etapa inicial como desarrollador. Llegué a él durante mi estancia técnica en YGU, cuando todavía estaba cerrando mi formación de licenciatura y buscaba una empresa donde hacer prácticas profesionales. Aunque mi entrada a YGU empezó por una vacante relacionada con diseño web, durante la entrevista revisaron mi perfil, mi portafolio y mi experiencia con React, y terminé entrando al área de desarrollo.
 
-La organizacion necesitaba migrar su sitio anterior, actualizar su presencia digital y agregar funcionalidad real para que los clientes pudieran solicitar tramites desde casa, proporcionar informacion sensible, adjuntar archivos y pagar en linea.
+El proyecto se convirtió en una pieza central de esa estancia porque ya no era una práctica aislada ni una página informativa sencilla. OUL necesitaba digitalizar procesos legales y fiscales para que una persona pudiera iniciar trámites desde casa, llenar información sensible, adjuntar archivos y recibir documentos generados a partir de esos datos.
 
-## Desarrollo y reto tecnico
+## Desarrollo y reto técnico
 
-Mi trabajo se centro en desarrollar e implementar el apartado de registro y pago de tramites fiscales, junto con un administrador que permitiera dar seguimiento a los clientes de OUL dentro de su nueva aplicacion web.
+Mi trabajo se centró en desarrollar formularios de trámites, integrarlos con Firebase y construir partes del flujo de autenticación y generación documental. Uno de los primeros retos fuertes fue el formulario de registro de marca, porque concentraba validaciones, archivos, datos personales y una estructura que después podía servir como referencia para otros trámites.
 
-El reto tecnico fue convertir procesos legales largos en flujos digitales controlados. Los formularios debian registrar el estado de cada tramite, diferenciar solicitudes incompletas, solicitudes terminadas pero no pagadas y solicitudes pagadas. Ademas, el sistema debia manejar datos sensibles, archivos, autenticacion, generacion documental, pagos y seguimiento administrativo.
+El reto técnico fue convertir procesos largos, normalmente manuales, en flujos digitales controlados. Los formularios debían enviar información a Firestore, guardar archivos en Firebase Storage y permitir la generación de documentos con formato, encabezado, pie de página y datos del cliente. También participé en el sistema de login y autenticación, una parte especialmente importante porque el proyecto manejaba información sensible.
 
-La implementacion se desarrollo con Next.js y React en el frontend. Firebase se uso para acelerar el desarrollo de autenticacion, base de datos y almacenamiento de archivos, una decision importante porque el equipo era pequeno y no era viable construir toda una infraestructura backend desde cero en ese momento. Stripe se integro como pasarela de pago y React PDF apoyo la generacion de documentos.
+Para mí fue el primer momento en el que sentí claramente que estaba trabajando en un sistema real. Ya conocía React, pero aquí tuve que entrar a Next.js, backend, base de datos, storage, autenticación y trabajo colaborativo dentro de un código existente. Una parte difícil fue integrar mi forma de trabajar, más ordenada y apoyada en componentes reutilizables, versionamiento, formato y buenas prácticas, con una base de proyecto que no siempre estaba estructurada de esa manera.
 
-Tambien se trabajo bajo una dinamica tipo Scrum, con epicas enfocadas primero en formularios de tramites y despues en el panel administrativo. El primer formulario fuerte fue registro de marca, que sirvio como base para otros tramites por su complejidad de datos, validaciones y carga de archivos.
+También fue un proyecto que me obligó a aprender bajo presión. Hubo momentos en los que el alcance se sentía grande para mi nivel de experiencia, así que tuve que resolver de noche, investigar, ajustar y apoyarme en lo que ya había aprendido sobre React, seguridad y estructura de aplicaciones. Ese esfuerzo hizo que lo recuerde con mucho aprecio: fue la primera vez que participé en algo de esta escala, con impacto operativo y responsabilidades técnicas reales.
 
-## Tecnologias utilizadas
+## Tecnologías utilizadas
 
 1. Next.js 12
 2. React
@@ -47,10 +48,9 @@ Tambien se trabajo bajo una dinamica tipo Scrum, con epicas enfocadas primero en
 5. Firebase Storage
 6. Firebase Auth
 7. Formik y Yup
-8. Stripe
-9. SendGrid
-10. React PDF
+8. SendGrid
+9. React PDF
 
 ## Resultado
 
-El resultado fue una plataforma operativa para centralizar solicitudes de tramites desde la web. Para mi portafolio, OUL representa experiencia temprana en producto web real: formularios complejos, pagos, autenticacion, panel administrativo, manejo de archivos y documentacion tecnica ligada a una tesis de licenciatura.
+El resultado fue una plataforma que permitía iniciar trámites legales desde la web y centralizar información, archivos y documentos asociados al proceso. Para mi portafolio, OUL representa el paso de proyectos pequeños a producto web real: formularios complejos, Firebase, autenticación, generación documental, trabajo en equipo y documentación técnica ligada a mi estancia y tesis de licenciatura.

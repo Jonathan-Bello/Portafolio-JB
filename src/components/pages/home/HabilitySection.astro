@@ -6,7 +6,11 @@ const t = useTranslations(lang);
 
 import HabilityCard from "@components/cards/HabilityCard.astro";
 
-import { ComputerDesktopIcon, ServerIcon, SwatchIcon } from "@heroicons/react/24/outline";
+import {
+  AcademicCapIcon,
+  ComputerDesktopIcon,
+  ServerIcon,
+} from "@heroicons/react/24/outline";
 ---
 
 <!-- Hability -->
@@ -35,7 +39,7 @@ import { ComputerDesktopIcon, ServerIcon, SwatchIcon } from "@heroicons/react/24
 
   <HabilityCard
     title={t("home.hability.card3.title")}
-    icon={SwatchIcon}
+    icon={AcademicCapIcon}
     description={t("home.hability.card3.description")}
   />
 </section>

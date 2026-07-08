@@ -1,13 +1,27 @@
 ---
 import EntryLayout from "@layouts/EntryLayout.astro";
-import { getEntry, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("blogs", ({ id }) => id.startsWith("en/"));
+
+  return blogs.map((blog) => {
+    const [lang, slug] = blog.id.split("/");
+
+    return {
+      params: { lang, slug },
+    };
+  });
+}
 
 const { lang, slug } = Astro.params;
 
 const blog = await getEntry("blogs", `${lang}/${slug}`);
 
 if (!blog) {
-  return Astro.redirect(lang === "en" ? "/en/blog" : "/blog");
+  return Astro.redirect(lang === "en" ? "/en/blog/" : "/blog/");
 }
 
 const { Content } = await render(blog);

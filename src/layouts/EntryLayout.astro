@@ -10,6 +10,7 @@ interface entry {
   description: string;
   cover: ImageMetadata;
   screenshots?: ImageMetadata[];
+  screenshotCaptions?: string[];
   publishDate: Date;
   url?: string;
 }
@@ -79,12 +80,22 @@ const entryUrlLabel = lang === "es" ? "Ver sitio publicado" : "View live site";
       entry.screenshots && entry.screenshots.length > 0 && (
         <section>
           <div class="grid gap-6">
-            {entry.screenshots.map((screenshot) => (
-              <Image
-                src={screenshot}
-                alt={`Captura de ${entry.title}`}
-                class="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800"
-              />
+            {entry.screenshots.map((screenshot, index) => (
+              <figure>
+                <Image
+                  src={screenshot}
+                  alt={
+                    entry.screenshotCaptions?.[index] ??
+                    `Captura de ${entry.title}`
+                  }
+                  class="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800"
+                />
+                {entry.screenshotCaptions?.[index] && (
+                  <figcaption class="mt-3 text-center text-sm text-neutral-600 dark:text-neutral-400">
+                    {entry.screenshotCaptions[index]}
+                  </figcaption>
+                )}
+              </figure>
             ))}
           </div>
         </section>

@@ -1,23 +1,38 @@
 ---
-import {
-  getLangFromUrl,
-  useTranslatedPath,
-} from "../i18n/utils";
+import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslatedPath } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 
-const url = new URL(Astro.url);
-const actualPath = url.pathname;
-
-// Si el actual path es por ejemplo /en/blog cambiar el path a /blog
-const actualPathWithoutLang = actualPath.replace(`/${lang}`, "");
+const actualPath = Astro.url.pathname;
+const actualPathWithoutLang =
+  lang === "en" ? actualPath.replace(/^\/en/, "") || "/" : actualPath;
 const targetLang = lang === "es" ? "en" : "es";
-const label = lang === "es" ? "Cambiar idioma a inglés" : "Switch language to Spanish";
+const label =
+  lang === "es" ? "Cambiar idioma a ingles" : "Switch language to Spanish";
+const pathSegments = actualPathWithoutLang.split("/").filter(Boolean);
+let targetPath = actualPathWithoutLang || "/";
+
+if (
+  (pathSegments[0] === "projects" || pathSegments[0] === "blogs") &&
+  pathSegments[1] &&
+  pathSegments[1] !== "category" &&
+  pathSegments[1] !== "categories"
+) {
+  const targetId = `${targetLang}/${pathSegments[1]}`;
+  const targetEntry =
+    pathSegments[0] === "projects"
+      ? await getCollection("projects", ({ id }) => id === targetId)
+      : await getCollection("blogs", ({ id }) => id === targetId);
+
+  targetPath =
+    targetEntry.length > 0 ? actualPathWithoutLang : `/${pathSegments[0]}/`;
+}
 ---
 
 <a
-  href={translatePath(actualPathWithoutLang, targetLang)}
+  href={translatePath(targetPath, targetLang)}
   aria-label={label}
   title={label}
   class="rounded-full flex items-center justify-center size-8 bg-neutral-100 dark:bg-neutral-400 hover:cursor-pointer"

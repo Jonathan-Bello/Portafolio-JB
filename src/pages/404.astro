@@ -1,0 +1,26 @@
+---
+export const prerender = true;
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/buttons/Button.astro";
+---
+
+<BaseLayout
+  title="Página no encontrada"
+  description="La página solicitada no existe en el portafolio profesional de Jonathan Bello."
+  noindex
+>
+  <section class="container px-4 py-24 text-center">
+    <p class="font-title text-lg font-semibold text-primary-700">404</p>
+    <h1 class="mt-3 font-title text-4xl font-bold text-neutral-950 dark:text-neutral-100">
+      Página no encontrada
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl text-neutral-700 dark:text-neutral-300">
+      Esta URL no está disponible. Puedes volver al portafolio o revisar los
+      proyectos publicados.
+    </p>
+    <div class="mt-8 flex justify-center">
+      <Button text="Ver proyectos" href="/projects/" variant="primary" />
+    </div>
+  </section>
+</BaseLayout>

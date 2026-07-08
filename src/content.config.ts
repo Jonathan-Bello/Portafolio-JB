@@ -12,6 +12,7 @@ const projectCollection = defineCollection({
       publishDate: z.coerce.date(),
       cover: image(),
       screenshots: image().array().optional(),
+      screenshotCaptions: z.string().array().optional(),
       techs: z.string().array(),
       category: z.array(reference("categoriesProjects")),
       url: z.url(),

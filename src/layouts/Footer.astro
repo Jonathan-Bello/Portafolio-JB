@@ -96,14 +96,14 @@ const socialLabel = (network: string) =>
     >
       <div class="flex flex-col items-start gap-2">
         <a
-          href="mailto:contacto@jonathanbello.com"
+          href={`mailto:${t("contact.infoContact.emailValue")}`}
           class="text-neutral-400 dark:text-neutral-200 font-text text-sm lg:text-lg hover:underline
         flex items-center gap-4"
         >
           <EnvelopeIcon
             className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
           />
-          contacto@jonathanbello.com
+          {t("contact.infoContact.emailValue")}
         </a>
 
         <a

@@ -233,14 +233,14 @@ const es = {
       send: "Enviar",
       sending: "Enviando...",
       success:
-        "Gracias. La integración de envío está en preparación; por ahora escríbeme directamente a contacto@jonathanbello.com.",
+        "Gracias. Tu mensaje fue enviado correctamente.",
       error:
-        "No se pudo procesar el formulario. Escríbeme directamente a contacto@jonathanbello.com.",
+        "No se pudo enviar el formulario. Escríbeme directamente a contacto@jonatan.com.",
     },
     infoContact: {
       title: "Información de contacto",
       emailTitle: "Email",
-      emailValue: "contacto@jonathanbello.com",
+      emailValue: "contacto@jonatan.com",
       locationTitle: "Ubicación",
       locationValue: "México",
     },

@@ -8,13 +8,23 @@ import {
   getLangFromUrl,
 } from "@i18n/utils";
 
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const categories = await getCollection("categoriesProjects");
+
+  return categories.map((category) => ({
+    params: { lang: "en", category: category.data.id },
+  }));
+}
+
 const lang = getLangFromUrl(Astro.url);
 
 const { category } = Astro.params;
 const categories = await getCollection("categoriesProjects");
 
 if (!categories.find((cat) => cat.data.id === category)) {
-  return Astro.redirect("/404");
+  return Astro.redirect("/404/");
 }
 
 const allProjects = await getCollection("projects", ({ id }) => {
@@ -26,6 +36,9 @@ const projects = allProjects.filter((project) =>
 );
 ---
 
-<BaseLayout title="Proyectos">
+<BaseLayout
+  title={`Projects ${category}`}
+  description={`Jonathan Bello projects in the ${category} category: web development, frontend, education, AI, and digital products.`}
+>
   <ProjectsPage projects={projects} activeCategory={category} />
 </BaseLayout>

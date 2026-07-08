@@ -1,13 +1,25 @@
 ---
 import ProjectPage from "@components/pages/ProjectPage.astro";
-import { getEntry, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ id }) =>
+    id.startsWith("es/"),
+  );
+
+  return projects.map((project) => ({
+    params: { slug: project.id.replace("es/", "") },
+  }));
+}
 
 const { slug } = Astro.params;
 
 const project = await getEntry("projects", `es/${slug}`);
 
 if (!project) {
-  return Astro.redirect("/404.astro");
+  return Astro.redirect("/404/");
 }
 
 const { Content, headings } = await render(project);

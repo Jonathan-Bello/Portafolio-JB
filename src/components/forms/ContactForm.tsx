@@ -43,6 +43,14 @@ export default function Form({ children, labels, lang }: Props) {
     <>
       <form onSubmit={submit} className="space-y-6">
         <input type="hidden" name="lang" value={lang} />
+        <input
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+        />
         <div>
           <label
             htmlFor="name"

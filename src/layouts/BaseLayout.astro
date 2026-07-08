@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { getLangFromUrl } from "../i18n/utils";
-import { SEO } from "astro-seo";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -23,23 +22,85 @@ const {
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
-const siteTitle = `${title} | Jonathan Bello`;
-const canonical = new URL(
-  Astro.url.pathname,
-  Astro.site ?? Astro.url.origin,
-).toString();
+const site = Astro.site ?? new URL("https://jonathanbello.com");
+const normalizedPath =
+  Astro.url.pathname === "/" || Astro.url.pathname.endsWith("/")
+    ? Astro.url.pathname
+    : `${Astro.url.pathname}/`;
+const siteTitle =
+  normalizedPath === "/"
+    ? "Jonathan Alexis Bello López | Desarrollador Web Fullstack Frontend"
+    : `${title} | Jonathan Bello`;
+const canonical = new URL(normalizedPath, site).toString();
+const absoluteImage = new URL(image, site).toString();
+const shouldNoindex = noindex || Astro.url.searchParams.size > 0;
+const staticHreflangPaths = new Set([
+  "/",
+  "/about/",
+  "/blog/",
+  "/contact/",
+  "/projects/",
+  "/en/",
+  "/en/about/",
+  "/en/blog/",
+  "/en/contact/",
+  "/en/projects/",
+]);
+const esPath = normalizedPath.startsWith("/en")
+  ? normalizedPath.replace(/^\/en/, "") || "/"
+  : normalizedPath;
+const enPath = normalizedPath.startsWith("/en")
+  ? normalizedPath
+  : `/en${normalizedPath === "/" ? "/" : normalizedPath}`;
+const alternateLinks = staticHreflangPaths.has(normalizedPath)
+  ? [
+      { lang: "es-MX", href: new URL(esPath, site).toString() },
+      { lang: "en", href: new URL(enPath, site).toString() },
+      { lang: "x-default", href: new URL(esPath, site).toString() },
+    ]
+  : [];
 
 const personSchema = {
-  "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://jonathanbello.com/#person",
   name: "Jonathan Alexis Bello López",
+  alternateName: [
+    "Jonathan Bello",
+    "Jonathan Bello López",
+    "Jonathan Alex Bello López",
+    "Jonathan X. Bello López",
+  ],
   url: "https://jonathanbello.com",
   jobTitle: "Fullstack Developer",
-  email: "mailto:contacto@jonathanbello.com",
+  email: "mailto:contacto@jonatan.com",
+  image: new URL("/lettermark-dark.svg", site).toString(),
   address: {
     "@type": "PostalAddress",
     addressCountry: "MX",
   },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Instituto Tecnológico Superior de Teziutlán",
+  },
+  affiliation: [
+    {
+      "@type": "Organization",
+      name: "EDteam",
+      url: "https://ed.team",
+    },
+    {
+      "@type": "Organization",
+      name: "YGU COMUNICAXION",
+    },
+    {
+      "@type": "Organization",
+      name: "AppDeux",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Instituto Tecnológico Superior de Teziutlán",
+    },
+  ],
   sameAs: [
     "https://www.instagram.com/jonathanbe110/",
     "https://x.com/Jonathan_Be110",
@@ -56,6 +117,23 @@ const personSchema = {
     "Educational Video Games",
   ],
 };
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": "https://jonathanbello.com/#website",
+  url: "https://jonathanbello.com",
+  name: "Jonathan Bello",
+  alternateName: "Jonathan Alexis Bello López",
+  inLanguage: ["es-MX", "en"],
+  publisher: {
+    "@id": "https://jonathanbello.com/#person",
+  },
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [personSchema, websiteSchema],
+};
 ---
 
 <!doctype html>
@@ -63,8 +141,35 @@ const personSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={shouldNoindex ? "noindex,nofollow" : "index,follow"}
+    />
     <link rel="canonical" href={canonical} />
+    {
+      alternateLinks.map((alternate) => (
+        <link
+          rel="alternate"
+          hreflang={alternate.lang}
+          href={alternate.href}
+        />
+      ))
+    }
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:locale" content={lang === "es" ? "es_MX" : "en_US"} />
+    <meta property="og:site_name" content="Jonathan Bello" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Jonathan_Be110" />
+    <meta name="twitter:creator" content="@Jonathan_Be110" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
     <script is:inline>
       function applyStoredTheme() {
         const savedTheme = localStorage.getItem("theme");
@@ -105,36 +210,9 @@ const personSchema = {
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>{siteTitle}</title>
-
-    <SEO
-      title={siteTitle}
-      description={description}
-      openGraph={{
-        basic: {
-          title: siteTitle,
-          type,
-          image,
-          url: canonical,
-        },
-        optional: {
-          description,
-          locale: lang === "es" ? "es_MX" : "en_US",
-          siteName: "Jonathan Bello",
-        },
-      }}
-      twitter={{
-        card: "summary_large_image",
-        site: "@Jonathan_Be110",
-        creator: "@Jonathan_Be110",
-        title: siteTitle,
-        description,
-        image,
-      }}
-    />
     <script
       type="application/ld+json"
-      set:html={JSON.stringify(personSchema)}
+      set:html={JSON.stringify(schema)}
     />
 
     <ClientRouter />

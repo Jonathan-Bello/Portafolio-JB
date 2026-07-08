@@ -202,14 +202,14 @@ const en = {
       send: "Send",
       sending: "Sending...",
       success:
-        "Thanks. Message delivery is being prepared; for now, email me directly at contacto@jonathanbello.com.",
+        "Thanks. Your message was sent successfully.",
       error:
-        "The form could not be processed. Email me directly at contacto@jonathanbello.com.",
+        "The form could not be sent. Email me directly at contacto@jonatan.com.",
     },
     infoContact: {
       title: "Contact information",
       emailTitle: "Email",
-      emailValue: "contacto@jonathanbello.com",
+      emailValue: "contacto@jonatan.com",
       locationTitle: "Location",
       locationValue: "Mexico",
     },
