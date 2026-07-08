@@ -155,10 +155,8 @@ const es = {
   project: {
     title: "Proyectos",
     comments: {
-      title: "Deja un comentario",
-      name: "Nombre",
-      comment: "Comentario",
-      send: "Enviar",
+      paused:
+        "Los comentarios están pausados temporalmente mientras se implementa moderación y protección antispam.",
     },
   },
   blog: {
@@ -188,7 +186,6 @@ const es = {
         framework: "Framework favorito",
         skill: "Habilidad única",
         arm: "Especialidad",
-
         languageValue: "JavaScript / Go",
         frameworkValue: "Astro.js",
         skillValue: "Educación + IA",
@@ -229,10 +226,16 @@ const es = {
     description:
       "Estoy disponible para oportunidades profesionales, colaboraciones y proyectos freelance donde pueda aportar frontend, desarrollo web, SEO técnico, educación o IA aplicada.",
     form: {
+      title: "Envíame un mensaje",
       name: "Nombre",
       email: "Correo electrónico",
       message: "Mensaje",
       send: "Enviar",
+      sending: "Enviando...",
+      success:
+        "Gracias. La integración de envío está en preparación; por ahora escríbeme directamente a contacto@jonathanbello.com.",
+      error:
+        "No se pudo procesar el formulario. Escríbeme directamente a contacto@jonathanbello.com.",
     },
     infoContact: {
       title: "Información de contacto",

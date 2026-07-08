@@ -4,8 +4,7 @@ interface Props {
   type?: "button" | "submit" | "reset";
   variant?: "primary" | "ghost";
   size?: "sm" | "md" | "lg";
-  href?: string; // Si existe, el botón se convierte en un enlace
-  onClick?: () => void;
+  href?: string;
 }
 
 const {
@@ -14,12 +13,11 @@ const {
   variant = "primary",
   size = "md",
   href,
-  onClick,
 } = Astro.props;
 
 const baseClass = `font-semibold font-text bg-primary-700 text-neutral-100
         rounded text-center inline-block hover:cursor-pointer
-        hover:bg-primary-800 transition-transform transform hover:scale-105 duration-200 ease-in-out"`;
+        hover:bg-primary-800 transition-transform transform hover:scale-105 duration-200 ease-in-out`;
 const variantClass = {
   primary: "bg-primary-700 text-neutral-100 hover:bg-primary-800",
   ghost: "bg-gray-500 text-white hover:bg-gray-600",
@@ -42,30 +40,9 @@ const sizeClass = {
       <button
         type={type}
         class={`${baseClass} ${variantClass} ${sizeClass} bg-primary-700 transition-all`}
-        data-click={onClick}
       >
         {text}
       </button>
     )
   }
 </astro-button>
-
-<script>
-  class AstroButton extends HTMLElement {
-    constructor() {
-      super();
-      // this.addEventListener("click", this.handleClick);
-
-      const onclick = this.dataset.click;
-      if (onclick) {
-        // transformar onclick en función
-        const func = new Function(onclick);
-
-        this.addEventListener("click", () => {
-          func();
-        });
-      }
-    }
-  }
-  customElements.define("astro-button", AstroButton);
-</script>

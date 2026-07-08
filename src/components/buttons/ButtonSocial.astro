@@ -5,16 +5,19 @@ import { Image } from "astro:assets";
 interface Props {
   href: string;
   icon: ImageMetadata;
+  label: string;
 }
 
-const { href, icon } = Astro.props as Props;
+const { href, icon, label } = Astro.props as Props;
 ---
 
 <a
   href={href}
+  aria-label={label}
+  title={label}
   class="inline-block bg-neutral-200 p-1 rounded-full"
   target="_blank"
   rel="noopener noreferrer"
 >
-  <Image src={icon} alt="Icono de GitHub" />
+  <Image src={icon} alt="" />
 </a>

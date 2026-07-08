@@ -8,8 +8,16 @@ import {
 import ContactForm from "@components/forms/ContactForm";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import Button from "@components/buttons/Button.astro";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const formLabels = {
+  name: t("contact.form.name"),
+  email: t("contact.form.email"),
+  message: t("contact.form.message"),
+  sending: t("contact.form.sending"),
+  fallbackError: t("contact.form.error"),
+};
 ---
 
 <section class={`container px-4 lg:px-0 py-16`}>
@@ -94,10 +102,15 @@ const t = useTranslations(lang);
         <h2
           class="text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6"
         >
-          Envíame un mensaje
+          {t("contact.form.title")}
         </h2>
-        <ContactForm client:load>
-          <Button type="submit" text={t("contact.form.send")} size="md" variant="primary" />
+        <ContactForm labels={formLabels} lang={lang} client:load>
+          <Button
+            type="submit"
+            text={t("contact.form.send")}
+            size="md"
+            variant="primary"
+          />
         </ContactForm>
       </div>
     </div>

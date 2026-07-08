@@ -25,6 +25,8 @@ import {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+const socialLabel = (network: string) =>
+  lang === "es" ? `Visitar ${network} de Jonathan Bello` : `Visit Jonathan Bello on ${network}`;
 ---
 
 <footer
@@ -57,22 +59,27 @@ const translatePath = useTranslatedPath(lang);
         <ButtonSocial
           href="https://github.com/Jonathan-Bello"
           icon={iconGithub}
+          label={socialLabel("GitHub")}
         />
         <ButtonSocial
           href="https://www.linkedin.com/in/jonathan-alexis-bello/"
           icon={iconLinkedin}
+          label={socialLabel("LinkedIn")}
         />
         <ButtonSocial
           href="https://www.instagram.com/jonathanbe110/"
           icon={iconInstagram}
+          label={socialLabel("Instagram")}
         />
         <ButtonSocial
           href="https://www.facebook.com/JonathanBe110"
           icon={iconFacebook}
+          label={socialLabel("Facebook")}
         />
         <ButtonSocial
           href="https://x.com/Jonathan_Be110"
           icon={iconTwitter}
+          label={socialLabel("X")}
         />
       </div>
 
@@ -107,7 +114,7 @@ const translatePath = useTranslatedPath(lang);
           <GlobeAmericasIcon
             className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
           />
-          Proyectos
+          {t("nav.projects")}
         </a>
 
         <a
@@ -118,7 +125,7 @@ const translatePath = useTranslatedPath(lang);
           <InboxIcon
             className="h-6 w-6 text-neutral-400 dark:text-neutral-200 inline-block"
           />
-          Mi blog
+          {t("nav.blog")}
         </a>
       </div>
     </div>

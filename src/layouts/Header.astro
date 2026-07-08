@@ -29,7 +29,14 @@ const translatePath = useTranslatedPath(lang);
   <div
     class="container flex items-center justify-between gap-4 p-4 lg:p-0 lg:py-4 md:px-0"
   >
-    <div class="lg:hidden">
+    <button
+      type="button"
+      class="lg:hidden"
+      id="menu-toggle"
+      aria-label={lang === "es" ? "Abrir menú principal" : "Open main menu"}
+      aria-controls="navigator-menu"
+      aria-expanded="false"
+    >
       <Bars3Icon
         id="menu-icon"
         className="text-neutral-900 dark:text-neutral-50 size-8 lg:hidden"
@@ -38,7 +45,7 @@ const translatePath = useTranslatedPath(lang);
         id="close-icon"
         className="text-neutral-900 dark:text-neutral-50 hidden size-8 lg:hidden"
       />
-    </div>
+    </button>
 
     <div class="flex w-full lg:w-auto">
       <Image
@@ -91,6 +98,8 @@ const translatePath = useTranslatedPath(lang);
 
       <button
         id="theme-toggle"
+        type="button"
+        aria-label={lang === "es" ? "Cambiar tema" : "Toggle theme"}
         class="theme-toggle
         rounded-full size-8 bg-neutral-100 dark:bg-neutral-400 hover:cursor-pointer flex items-center justify-center"
       >
@@ -118,30 +127,31 @@ const translatePath = useTranslatedPath(lang);
 
 <script>
   function initHeader() {
+    const menuToggle = document.querySelector("#menu-toggle");
     const barsIcon = document.querySelector("#menu-icon");
     const closeIcon = document.querySelector("#close-icon");
     const navigatorMenu = document.querySelector("#navigator-menu");
     const navigatorLinks = document.querySelector("#navigator-menu ul");
 
-    if (navigatorMenu === null || barsIcon === null || closeIcon === null) {
+    if (
+      navigatorMenu === null ||
+      menuToggle === null ||
+      barsIcon === null ||
+      closeIcon === null
+    ) {
       throw new Error("Element not found");
     }
 
-    if (barsIcon instanceof HTMLElement && !barsIcon.dataset.bound) {
-      barsIcon.dataset.bound = "true";
-      barsIcon.addEventListener("click", () => {
-        barsIcon.classList.toggle("hidden");
-        closeIcon.classList.toggle("hidden");
-        navigatorMenu.classList.toggle("top-16");
-      });
-    }
-
-    if (closeIcon instanceof HTMLElement && !closeIcon.dataset.bound) {
-      closeIcon.dataset.bound = "true";
-      closeIcon.addEventListener("click", () => {
+    if (menuToggle instanceof HTMLElement && !menuToggle.dataset.bound) {
+      menuToggle.dataset.bound = "true";
+      menuToggle.addEventListener("click", () => {
         closeIcon.classList.toggle("hidden");
         barsIcon.classList.toggle("hidden");
         navigatorMenu.classList.toggle("top-16");
+        menuToggle.setAttribute(
+          "aria-expanded",
+          navigatorMenu.classList.contains("top-16") ? "true" : "false",
+        );
       });
     }
 

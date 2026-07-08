@@ -1,41 +1,62 @@
 import { type ReactNode, type SyntheticEvent, useState } from "react";
 
-type Props = {
-  children?: ReactNode;
+type Labels = {
+  name: string;
+  email: string;
+  message: string;
+  sending: string;
+  fallbackError: string;
 };
 
-export default function Form({ children }: Props) {
+type Props = {
+  children?: ReactNode;
+  labels: Labels;
+  lang: "es" | "en";
+};
+
+export default function Form({ children, labels, lang }: Props) {
   const [responseMessage, setResponseMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function submit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const response = await fetch("/api/feedback", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await response.json();
-    if (data.message) {
-      setResponseMessage(data.message);
+    setIsSubmitting(true);
+    setResponseMessage("");
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const response = await fetch("/api/feedback", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+
+      setResponseMessage(data.message || labels.fallbackError);
+    } catch {
+      setResponseMessage(labels.fallbackError);
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   return (
     <>
       <form onSubmit={submit} className="space-y-6">
+        <input type="hidden" name="lang" value={lang} />
         <div>
           <label
             htmlFor="name"
             className="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
           >
-            Nombre
+            {labels.name}
           </label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            className="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200"
+            disabled={isSubmitting}
+            className="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 disabled:opacity-60"
           />
         </div>
 
@@ -44,14 +65,15 @@ export default function Form({ children }: Props) {
             htmlFor="email"
             className="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
           >
-            Correo electrónico
+            {labels.email}
           </label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            className="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200"
+            disabled={isSubmitting}
+            className="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 disabled:opacity-60"
           />
         </div>
 
@@ -60,20 +82,27 @@ export default function Form({ children }: Props) {
             htmlFor="message"
             className="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
           >
-            Mensaje
+            {labels.message}
           </label>
           <textarea
             id="message"
             name="message"
             rows={4}
             required
-            className="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 resize-y"
+            disabled={isSubmitting}
+            className="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 resize-y disabled:opacity-60"
           ></textarea>
         </div>
 
-        {/* Botón de enviar formulario */}
-        <div className="flex items-center justify-center">{children}</div>
-
+        <div className="flex items-center justify-center">
+          {isSubmitting ? (
+            <span className="text-sm font-semibold text-neutral-700 dark:text-neutral-200">
+              {labels.sending}
+            </span>
+          ) : (
+            children
+          )}
+        </div>
       </form>
 
       <p className="mt-4 text-center text-sm text-neutral-700 dark:text-neutral-200">

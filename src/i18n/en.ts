@@ -124,10 +124,8 @@ const en = {
   },
   project: {
     comments: {
-      title: "Leave a comment",
-      name: "Name",
-      comment: "Comment",
-      send: "Send",
+      paused:
+        "Comments are temporarily paused while moderation and spam protection are implemented.",
     },
   },
   blog: {
@@ -157,7 +155,6 @@ const en = {
         framework: "Favorite framework",
         skill: "Unique skill",
         arm: "Specialty",
-
         languageValue: "JavaScript / Go",
         frameworkValue: "Astro.js",
         skillValue: "Education + AI",
@@ -198,10 +195,16 @@ const en = {
     description:
       "I am available for professional opportunities, collaborations, and freelance projects where I can contribute frontend, web development, technical SEO, education, or applied AI.",
     form: {
+      title: "Send me a message",
       name: "Name",
       email: "Email",
       message: "Message",
       send: "Send",
+      sending: "Sending...",
+      success:
+        "Thanks. Message delivery is being prepared; for now, email me directly at contacto@jonathanbello.com.",
+      error:
+        "The form could not be processed. Email me directly at contacto@jonathanbello.com.",
     },
     infoContact: {
       title: "Contact information",
