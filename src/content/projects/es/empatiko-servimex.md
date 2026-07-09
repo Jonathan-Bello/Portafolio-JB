@@ -1,11 +1,13 @@
 ---
 id: "empatiko-servimex"
 title: "Empatiko: catalogo web y sitio comercial"
-description: "Sitio Astro para Empatiko con catalogo de productos, rutas internas, distribuidores, contacto y estructura de contenido para soluciones medicas."
+description: "Sitio Astro para Empatiko con catalogo de productos, rutas internas, soporte, distribuidores, contacto y estructura comercial para soluciones medicas."
 publishDate: 2025-07-10
 cover: "@assets/coversProjects/sitios-web/empatiko-servimex-cover.png"
 screenshots:
   - "@assets/coversProjects/sitios-web/empatiko-servimex-detail.png"
+screenshotCaptions:
+  - "Pagina de catalogo y productos de Empatiko."
 techs:
   - Astro
   - React
@@ -20,13 +22,17 @@ author: "jonathan-bello"
 isRelevant: false
 ---
 
-Empatiko es un sitio comercial mas amplio dentro del grupo Servimex. A diferencia de una landing sencilla, este proyecto organiza informacion de productos, distribuidores, soporte, contacto y paginas internas para explicar soluciones medicas con mayor detalle.
+Empatiko fue el cierre natural de una trilogia tecnica. Despues de construir Beacon y Nobilis, este sitio tomo lo aprendido en esas dos landings hermanas y lo llevo a una estructura mas grande: un catalogo comercial con productos, subcategorias, soporte, contacto, distribuidores y documentacion descargable.
+
+Aqui ya no se trataba solamente de presentar una marca. El reto era reunir piezas de un mismo ecosistema y hacer que convivieran con una misma voz visual. Beacon habia marcado una primera base, Nobilis habia confirmado que esa base podia reutilizarse con criterio, y Empatiko exigio llevar esa consistencia a una escala mayor.
 
 ## Desarrollo y reto tecnico
 
-Mi trabajo consistio en maquetar el sitio con Astro, React y Tailwind CSS, creando una estructura navegable para productos y secciones comerciales. El proyecto incluye rutas internas como contacto, distribuidores, nosotros, soporte y paginas dinamicas de productos.
+Construí el sitio completo con Astro, React y Tailwind CSS, manteniendo la linea visual de las paginas hermanas, pero ampliando el sistema para soportar mas rutas, mas contenido y mas decisiones de navegacion.
 
-El reto tecnico principal fue ordenar un catalogo con varias categorias y mantener una navegacion clara. Para eso se trabajaron colecciones de contenido, componentes reutilizables, menu de productos, tarjetas y paginas de detalle. Tambien se incorporaron canales de contacto y agenda para que el sitio pudiera funcionar como herramienta comercial, no solo como presentacion institucional.
+La parte mas compleja fue el menu desplegable de productos. No era un menu simple de enlaces: necesitaba mostrar imagenes, categorias, subcategorias y accesos hacia productos especificos. Ese detalle obligo a pensar la navegacion como una pequeña pieza editorial dentro del sitio, donde cada grupo de productos tenia que ser visible sin volver pesada la experiencia.
+
+Tambien desarrollé la seccion de soporte, donde se organizaban fichas tecnicas, documentos y archivos PDF propios de la empresa. Ese apartado le daba al sitio un valor mas operativo: no solo era una pagina para conocer la marca, sino tambien un punto de consulta para material comercial y tecnico.
 
 ## Tecnologias utilizadas
 
@@ -40,4 +46,6 @@ El reto tecnico principal fue ordenar un catalogo con varias categorias y manten
 
 ## Resultado
 
-El resultado fue un sitio con estructura de catalogo y multiples rutas comerciales. Para el portafolio, Empatiko muestra trabajo de maquetacion con mayor complejidad de informacion, organizacion de contenido y componentes pensados para escalar una oferta de productos.
+Empatiko fue el proyecto mas amplio de la saga Servimex. Se desarrollo con tiempos apretados y con la necesidad de presentar primero piezas mas pequeñas para despues consolidar el sitio principal.
+
+Aunque actualmente el proyecto ya no se mantiene como parte activa del mismo acuerdo comercial, queda como registro de una etapa donde aprendi a convertir una familia de paginas en un ecosistema web coherente, reutilizable y suficientemente flexible para crecer.

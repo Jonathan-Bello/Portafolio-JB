@@ -21,8 +21,8 @@ const lang = getLangFromUrl(Astro.url);
 // );
 
 // Obtener proyectos de un idioma directamente
-const currentProjects = await getCollection("projects", ({ id }) => {
-  return id.startsWith(lang);
+const currentProjects = await getCollection("projects", ({ id, data }) => {
+  return id.startsWith(lang) && data.isVisible !== false;
 });
 ---
 

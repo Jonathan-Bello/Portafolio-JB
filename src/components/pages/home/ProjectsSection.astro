@@ -13,7 +13,8 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const currentProjects = await getCollection("projects", ({ id, data }) => {
-  return id.startsWith(lang) && data.isRelevant == true;
+  const isFeaturedHome = data.isFeaturedHome ?? data.isRelevant;
+  return id.startsWith(lang) && data.isVisible !== false && isFeaturedHome;
 });
 ---
 

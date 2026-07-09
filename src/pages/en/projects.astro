@@ -17,7 +17,7 @@ const t = useTranslations(lang);
 
 const allProjects = await getCollection("projects");
 const currentProjects = allProjects.filter((project) =>
-  project.id.startsWith(`${lang}/`)
+  project.id.startsWith(`${lang}/`) && project.data.isVisible !== false
 );
 ---
 

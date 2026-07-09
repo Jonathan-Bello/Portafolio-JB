@@ -31,31 +31,12 @@ interface Props {
 
 const { projects, activeCategory } = Astro.props;
 
-const sortParam = Astro.url.searchParams.get("sort");
-const activeSort = sortParam === "az" ? "az" : "date";
 const sortedProjects = [...projects].sort((a, b) => {
-  if (activeSort === "az") {
-    return a.data.title.localeCompare(b.data.title, lang);
-  }
-
   return (
     new Date(b.data.publishDate).getTime() -
     new Date(a.data.publishDate).getTime()
   );
 });
-
-const getSortHref = (sort: "date" | "az") => {
-  const searchParams = new URLSearchParams(Astro.url.searchParams);
-
-  if (sort === "date") {
-    searchParams.delete("sort");
-  } else {
-    searchParams.set("sort", sort);
-  }
-
-  const query = searchParams.toString();
-  return query ? `${Astro.url.pathname}?${query}` : Astro.url.pathname;
-};
 ---
 
 <ContentListingLayout
@@ -75,35 +56,103 @@ const getSortHref = (sort: "date" | "az") => {
       {t("projects.sort.label")}
     </p>
     <div
+      data-project-sort-controls
       class="inline-flex w-full sm:w-auto rounded-lg border border-neutral-200 dark:border-neutral-800 overflow-hidden"
       aria-label={t("projects.sort.label")}
     >
-      <a
-        href={getSortHref("date")}
-        aria-current={activeSort === "date" ? "page" : undefined}
-        class:list={[
-          "flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors",
-          activeSort === "date"
-            ? "bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950"
-            : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900",
-        ]}
+      <button
+        type="button"
+        data-project-sort="date"
+        aria-pressed="true"
+        class="flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors
+        bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950"
       >
         {t("projects.sort.date")}
-      </a>
-      <a
-        href={getSortHref("az")}
-        aria-current={activeSort === "az" ? "page" : undefined}
-        class:list={[
-          "flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors border-l border-neutral-200 dark:border-neutral-800",
-          activeSort === "az"
-            ? "bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950"
-            : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900",
-        ]}
+      </button>
+      <button
+        type="button"
+        data-project-sort="az"
+        aria-pressed="false"
+        class="flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors
+        border-l border-neutral-200 text-neutral-700 hover:bg-neutral-100
+        dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900"
       >
         {t("projects.sort.az")}
-      </a>
+      </button>
     </div>
   </div>
 
-  {sortedProjects.map((project) => <ProjectCard project={project} />)}
+  <div
+    data-project-grid
+    class="contents"
+  >
+    {sortedProjects.map((project) => <ProjectCard project={project} />)}
+  </div>
 </ContentListingLayout>
+
+<script>
+  function initProjectSort() {
+    const controls = document.querySelector("[data-project-sort-controls]");
+    const grid = document.querySelector("[data-project-grid]");
+
+    if (!(controls instanceof HTMLElement) || !(grid instanceof HTMLElement)) {
+      return;
+    }
+
+    const buttons = Array.from(
+      controls.querySelectorAll("[data-project-sort]"),
+    ).filter((button): button is HTMLButtonElement => button instanceof HTMLButtonElement);
+
+    const cards = Array.from(
+      grid.querySelectorAll("[data-project-card]"),
+    ).filter((card): card is HTMLElement => card instanceof HTMLElement);
+
+    const setActiveButton = (activeSort: string) => {
+      buttons.forEach((button) => {
+        const isActive = button.dataset.projectSort === activeSort;
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+        button.classList.toggle("bg-neutral-950", isActive);
+        button.classList.toggle("text-white", isActive);
+        button.classList.toggle("dark:bg-neutral-100", isActive);
+        button.classList.toggle("dark:text-neutral-950", isActive);
+        button.classList.toggle("text-neutral-700", !isActive);
+        button.classList.toggle("dark:text-neutral-300", !isActive);
+      });
+    };
+
+    const sortCards = (sort: string) => {
+      const sortedCards = [...cards].sort((a, b) => {
+        if (sort === "az") {
+          return (a.dataset.projectTitle ?? "").localeCompare(
+            b.dataset.projectTitle ?? "",
+            document.documentElement.lang || "es",
+          );
+        }
+
+        return (
+          Date.parse(b.dataset.projectDate ?? "") -
+          Date.parse(a.dataset.projectDate ?? "")
+        );
+      });
+
+      sortedCards.forEach((card) => grid.appendChild(card));
+      setActiveButton(sort);
+    };
+
+    buttons.forEach((button) => {
+      if (button.dataset.bound === "true") return;
+      button.dataset.bound = "true";
+      button.addEventListener("click", () => {
+        sortCards(button.dataset.projectSort ?? "date");
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProjectSort);
+  } else {
+    initProjectSort();
+  }
+
+  document.addEventListener("astro:page-load", initProjectSort);
+</script>

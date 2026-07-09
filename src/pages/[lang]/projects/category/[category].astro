@@ -27,8 +27,8 @@ if (!categories.find((cat) => cat.data.id === category)) {
   return Astro.redirect("/404/");
 }
 
-const allProjects = await getCollection("projects", ({ id }) => {
-  return id.startsWith(lang);
+const allProjects = await getCollection("projects", ({ id, data }) => {
+  return id.startsWith(lang) && data.isVisible !== false;
 });
 
 const projects = allProjects.filter((project) =>

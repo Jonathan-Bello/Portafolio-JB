@@ -9,16 +9,18 @@ export async function getStaticPaths() {
     id.startsWith("es/"),
   );
 
-  return projects.map((project) => ({
-    params: { slug: project.id.replace("es/", "") },
-  }));
+  return projects
+    .filter((project) => project.data.isVisible !== false)
+    .map((project) => ({
+      params: { slug: project.id.replace("es/", "") },
+    }));
 }
 
 const { slug } = Astro.params;
 
 const project = await getEntry("projects", `es/${slug}`);
 
-if (!project) {
+if (!project || project.data.isVisible === false) {
   return Astro.redirect("/404/");
 }
 

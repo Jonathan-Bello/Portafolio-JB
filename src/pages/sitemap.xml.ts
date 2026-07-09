@@ -43,7 +43,9 @@ export const GET: APIRoute = async () => {
     urls.add(formatUrl(`/en/blogs/categories/${category.data.id}/`));
   }
 
-  for (const project of projects) {
+  for (const project of projects.filter(
+    (project) => project.data.isVisible !== false,
+  )) {
     const [lang, slug] = project.id.split("/");
     const basePath = lang === "en" ? "/en/projects" : "/projects";
     urls.add(formatUrl(`${basePath}/${slug}/`));

@@ -13,19 +13,27 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// Obtener el último proyecto
 const projects = await getCollection("projects", ({ id }) => {
   return id.startsWith(lang);
 });
 
 const selectedProject =
-  projects.find((project) => project.id === `${lang}/gdd-css`) ??
-  projects.sort((a, b) => {
-  return (
-    new Date(b.data.publishDate).getTime() -
-    new Date(a.data.publishDate).getTime()
-  );
-})[0];
+  projects.find(
+    (project) =>
+      project.data.isVisible !== false && project.data.isFeaturedBanner === true,
+  ) ??
+  projects.find(
+    (project) =>
+      project.data.isVisible !== false && project.id === `${lang}/gdd-css`,
+  ) ??
+  projects
+    .filter((project) => project.data.isVisible !== false)
+    .sort((a, b) => {
+      return (
+        new Date(b.data.publishDate).getTime() -
+        new Date(a.data.publishDate).getTime()
+      );
+    })[0];
 
 const projectIdCleaned = selectedProject?.id.replace(`${lang}/`, "");
 ---
@@ -54,7 +62,6 @@ const projectIdCleaned = selectedProject?.id.replace(`${lang}/`, "");
       class="flex flex-col gap-6 sm:gap-9 lg:gap-16
     items-center lg:items-start lg:justify-start z-10"
     >
-      <!-- Titulo -->
       <h1 class="font-title leading-tight w-full">
         <span
           class="inline-block font-text text-start text-lg sm:text-xl lg:text-2xl
@@ -91,23 +98,15 @@ const projectIdCleaned = selectedProject?.id.replace(`${lang}/`, "");
         {
           selectedProject && (
             <div class="relative inline-block perspective-distant z-10">
-              {/* Anillo del suelo */}
               <span class="animate-ping-ring" />
               <a
                 href={translatePath(`/projects/${projectIdCleaned}`)}
-                class={`inline-block
-
-                  transform transform-3d backface-hidden perspective-distant
-                  animate-float-swing-3d drop-glow`}
+                class="inline-block transform transform-3d backface-hidden perspective-distant animate-float-swing-3d drop-glow"
               >
-                {/* Imagen del proyecto */}
                 <Image
                   src={selectedProject.data.cover}
                   alt={`Banner del proyecto ${selectedProject.data.title}`}
-                  class={`
-                  w-full max-w-2xl max-h-[400px] aspect-video
-                  object-cover rounded-2xl shadow-lg
-                `}
+                  class="w-full max-w-2xl max-h-[400px] aspect-video object-cover rounded-2xl shadow-lg"
                 />
               </a>
             </div>

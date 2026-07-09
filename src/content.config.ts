@@ -18,6 +18,9 @@ const projectCollection = defineCollection({
       url: z.url(),
       author: reference("authors"),
       isRelevant: z.boolean(),
+      isVisible: z.boolean().default(true),
+      isFeaturedHome: z.boolean().optional(),
+      isFeaturedBanner: z.boolean().optional(),
     }),
 });
 

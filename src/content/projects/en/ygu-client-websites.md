@@ -14,6 +14,7 @@ category: ["web", "ui"]
 url: "https://jonathanbello.com/en/projects/ygu-client-websites"
 author: "jonathan-bello"
 isRelevant: true
+isVisible: false
 ---
 
 ## Context

@@ -9,20 +9,22 @@ export async function getStaticPaths() {
     id.startsWith("en/"),
   );
 
-  return projects.map((project) => {
-    const [lang, slug] = project.id.split("/");
+  return projects
+    .filter((project) => project.data.isVisible !== false)
+    .map((project) => {
+      const [lang, slug] = project.id.split("/");
 
-    return {
-      params: { lang, slug },
-    };
-  });
+      return {
+        params: { lang, slug },
+      };
+    });
 }
 
 const { lang, slug } = Astro.params;
 
 const project = await getEntry("projects", `${lang}/${slug}`);
 
-if (!project) {
+if (!project || project.data.isVisible === false) {
   return Astro.redirect("/projects/");
 }
 

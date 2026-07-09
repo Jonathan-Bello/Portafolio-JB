@@ -27,7 +27,11 @@ if (
       : await getCollection("blogs", ({ id }) => id === targetId);
 
   targetPath =
-    targetEntry.length > 0 ? actualPathWithoutLang : `/${pathSegments[0]}/`;
+    targetEntry.length > 0
+      ? actualPathWithoutLang
+      : pathSegments[0] === "blogs"
+        ? "/blog/"
+        : "/projects/";
 }
 ---
 

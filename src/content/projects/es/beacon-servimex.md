@@ -1,11 +1,13 @@
 ---
 id: "beacon-servimex"
-title: "Beacon: sitio comercial para soluciones medicas"
-description: "Sitio web en Astro para presentar la marca Beacon, su propuesta comercial, productos, contacto y agenda de presentacion."
+title: "Beacon: sitio comercial para soluciones médicas"
+description: "Landing Astro para la primera marca del ecosistema Servimex, enfocada en monitores médicos, fichas técnicas, formulario en modal y agenda comercial."
 publishDate: 2025-05-13
 cover: "@assets/coversProjects/sitios-web/beacon-servimex-cover.png"
 screenshots:
   - "@assets/coversProjects/sitios-web/beacon-servimex-detail.png"
+screenshotCaptions:
+  - "Landing de Beacon, primera pieza del ecosistema Servimex para productos médicos."
 techs:
   - Astro
   - React
@@ -19,15 +21,19 @@ author: "jonathan-bello"
 isRelevant: false
 ---
 
-Beacon es una de las paginas comerciales que desarrolle para el ecosistema de marcas de Servimex. La entrada se documenta por separado porque cada sitio tiene identidad, estructura comercial y necesidades propias, aunque forme parte del mismo grupo empresarial.
+Beacon fue el primer sitio que desarrollé dentro de la saga de Servimex. La empresa llegó con la necesidad de crear sitios para varias marcas médicas, cada una con identidad y objetivo comercial propio. Beacon fue la primera pieza: una landing enfocada principalmente en monitores de grado médico.
 
-## Desarrollo y reto tecnico
+Fue un proyecto importante porque abrió la ruta para los otros sitios del grupo. Primero había que resolver una landing clara, comercial y funcional; después vendrían proyectos más amplios como Empatiko.
 
-Mi trabajo se centro en maquetar una experiencia clara para explicar la marca, organizar productos, reforzar llamadas a la accion y facilitar el contacto comercial. El sitio combina una landing principal con secciones de productos, presentacion de propuesta de valor, formulario de contacto y enlace directo para agendar presentaciones.
+## Desarrollo y reto técnico
 
-El reto tecnico estuvo en construir una base visual reutilizable con Astro, React y Tailwind CSS, manteniendo el sitio rapido y facil de ajustar. Tambien se integraron puntos de conversion mediante Formspree y HubSpot Meetings, lo que permite que la pagina no se quede solo como folleto digital, sino como una herramienta de captacion para el equipo comercial.
+Construí el sitio completo con Astro, React y Tailwind CSS. La landing incluía hero, secciones de producto, llamadas a la acción, contacto, aviso de privacidad, agenda comercial y una estructura visual pensada para presentar instrumental médico sin volver la experiencia pesada.
 
-## Tecnologias utilizadas
+El reto más importante estuvo en el modal de producto. Tenía que integrar información técnica, ficha descargable y formulario dentro de una misma experiencia sin que el usuario se perdiera. También fue necesario cuidar la lógica del modal, su reinicio, y la convivencia entre presentación comercial y captura de contacto.
+
+Formspree y HubSpot Meetings ayudaron a que el sitio no fuera solo un folleto digital, sino una herramienta de conversión para el equipo comercial. Beacon marcó el inicio de una pequeña familia de sitios médicos dentro de Servimex.
+
+## Tecnologías utilizadas
 
 1. Astro
 2. React
@@ -38,4 +44,4 @@ El reto tecnico estuvo en construir una base visual reutilizable con Astro, Reac
 
 ## Resultado
 
-El resultado fue un sitio comercial enfocado en comunicar la oferta de Beacon y dirigir al usuario hacia contacto o agenda de presentacion. Es un buen ejemplo de maquetacion web profesional con identidad de marca, estructura de conversion y despliegue en dominio personalizado.
+El resultado fue una landing comercial clara para presentar Beacon y dirigir al usuario hacia contacto o agenda. Para mi portafolio, Beacon representa el inicio de una etapa donde el reto no era solo maquetar bonito, sino construir piezas comerciales consistentes para un ecosistema de marcas médicas.
