@@ -3,7 +3,7 @@ id: "css-evaluator-api"
 title: "Hemis: CSS Evaluator API"
 description: "Backend en Node.js y Express para conectar el videojuego, la interfaz web y el asistente de IA Hemis dentro de Citadel of the Solar Souls."
 publishDate: 2026-01-14
-cover: "@assets/coversProjects/backend/hemis_backend_thumbnail.png"
+cover: "@assets/coversProjects/backend/hemis-css-evaluator-api-cover.png"
 techs:
   - Node.js
   - Express.js
@@ -11,7 +11,7 @@ techs:
   - Wallace CSS
   - IA
 category: ["backend", "ai", "education"]
-url: "https://jonathanbello.com/projects/css-evaluator-api"
+url: "https://www.jonathanbello.com/projects/css-evaluator-api/"
 author: "jonathan-bello"
 isRelevant: true
 ---

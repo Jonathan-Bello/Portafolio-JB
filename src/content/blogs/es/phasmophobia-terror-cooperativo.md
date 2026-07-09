@@ -10,7 +10,7 @@ techs:
   - Experiencia de usuario
   - Terror
 category: "videojuegos"
-url: "https://jonathanbello.com/blogs/phasmophobia-terror-cooperativo"
+url: "https://www.jonathanbello.com/blogs/phasmophobia-terror-cooperativo/"
 author: "jonathan-bello"
 ---
 

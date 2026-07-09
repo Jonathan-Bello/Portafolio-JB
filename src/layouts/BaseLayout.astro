@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
-const site = Astro.site ?? new URL("https://jonathanbello.com");
+const site = Astro.site ?? new URL("https://www.jonathanbello.com");
 const normalizedPath =
   Astro.url.pathname === "/" || Astro.url.pathname.endsWith("/")
     ? Astro.url.pathname
@@ -62,7 +62,7 @@ const alternateLinks = staticHreflangPaths.has(normalizedPath)
 
 const personSchema = {
   "@type": "Person",
-  "@id": "https://jonathanbello.com/#person",
+  "@id": "https://www.jonathanbello.com/#person",
   name: "Jonathan Alexis Bello López",
   alternateName: [
     "Jonathan Bello",
@@ -70,7 +70,7 @@ const personSchema = {
     "Jonathan Alex Bello López",
     "Jonathan X. Bello López",
   ],
-  url: "https://jonathanbello.com",
+  url: "https://www.jonathanbello.com",
   jobTitle: "Fullstack Developer",
   email: "mailto:contacto@jonatan.com",
   image: new URL("/lettermark-dark.svg", site).toString(),
@@ -104,7 +104,7 @@ const personSchema = {
   sameAs: [
     "https://www.instagram.com/jonathanbe110/",
     "https://x.com/Jonathan_Be110",
-    "https://www.facebook.com/JonathanBe110",
+    "https://www.facebook.com/JonathanBe110/",
     "https://www.linkedin.com/in/jonathan-alexis-bello/",
     "https://github.com/Jonathan-Bello",
   ],
@@ -120,13 +120,13 @@ const personSchema = {
 
 const websiteSchema = {
   "@type": "WebSite",
-  "@id": "https://jonathanbello.com/#website",
-  url: "https://jonathanbello.com",
+  "@id": "https://www.jonathanbello.com/#website",
+  url: "https://www.jonathanbello.com",
   name: "Jonathan Bello",
   alternateName: "Jonathan Alexis Bello López",
   inLanguage: ["es-MX", "en"],
   publisher: {
-    "@id": "https://jonathanbello.com/#person",
+    "@id": "https://www.jonathanbello.com/#person",
   },
 };
 

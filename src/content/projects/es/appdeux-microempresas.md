@@ -3,14 +3,14 @@ id: "appdeux-microempresas"
 title: "AppDeux: perfiles tecnologicos para negocios locales"
 description: "Emprendimiento propio para apoyar a negocios locales con perfiles tecnologicos, paginas web y soluciones digitales sencillas."
 publishDate: 2025-08-01
-cover: "@assets/coversProjects/JBello.jpg"
+cover: "@assets/coversProjects/sitios-web/portafolio-jonathan-bello-cover.jpg"
 techs:
   - Astro.js
   - Tailwind CSS
   - Figma
   - SEO
 category: ["web", "ui"]
-url: "https://jonathanbello.com/projects/appdeux-microempresas"
+url: "https://www.jonathanbello.com/projects/appdeux-microempresas/"
 author: "jonathan-bello"
 isRelevant: false
 isVisible: false

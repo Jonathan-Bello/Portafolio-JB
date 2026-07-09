@@ -3,7 +3,7 @@ id: "ygu-client-websites-en"
 title: "Client websites direction at YGU"
 description: "Management, development, maintenance, and technical SEO for more than 25 websites for startups, tourism projects, and NGOs."
 publishDate: 2026-06-02
-cover: "@assets/coversProjects/apoyatec.jpg"
+cover: "@assets/coversProjects/sitios-web/portafolio-jonathan-bello-cover.jpg"
 techs:
   - Astro.js
   - Gatsby
@@ -11,7 +11,7 @@ techs:
   - WordPress
   - Technical SEO
 category: ["web", "ui"]
-url: "https://jonathanbello.com/en/projects/ygu-client-websites"
+url: "https://www.jonathanbello.com/en/projects/ygu-client-websites/"
 author: "jonathan-bello"
 isRelevant: true
 isVisible: false

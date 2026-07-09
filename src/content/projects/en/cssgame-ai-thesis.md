@@ -3,7 +3,7 @@ id: "cssgame-ai-thesis-en"
 title: "Educational CSS video game with AI"
 description: "A 2D metroidvania-style prototype for learning CSS through challenges, a code editor, AI-assisted feedback, and student evaluation."
 publishDate: 2026-05-30
-cover: "@assets/coversProjects/Chooseway.jpg"
+cover: "@assets/coversProjects/videojuegos/citadel_of_solar_souls_cover.png"
 techs:
   - Godot
   - CSS
@@ -11,7 +11,7 @@ techs:
   - Express.js
   - Artificial Intelligence
 category: ["games", "education", "ai", "web"]
-url: "https://jonathanbello.com/en/projects/cssgame-ai-thesis"
+url: "https://www.jonathanbello.com/en/projects/cssgame-ai-thesis/"
 author: "jonathan-bello"
 isRelevant: true
 ---

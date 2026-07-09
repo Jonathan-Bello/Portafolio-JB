@@ -3,7 +3,7 @@ id: "taller-portafolio-astro-edteam"
 title: "Tu primer portafolio web profesional con Astro"
 description: "Taller practico de EDteam donde lleve Astro a un nivel intermedio, construyendo un portafolio profesional con rutas, contenido, SEO e internacionalizacion."
 publishDate: 2026-06-02
-cover: "@assets/coversProjects/PosterAstro.webp"
+cover: "@assets/coversProjects/cursos/taller-portafolio-astro-edteam-cover.png"
 techs:
   - Astro.js
   - Frontend

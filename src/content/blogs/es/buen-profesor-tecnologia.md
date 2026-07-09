@@ -10,7 +10,7 @@ techs:
   - Docencia
   - Frontend
 category: "educacion"
-url: "https://jonathanbello.com/blogs/buen-profesor-tecnologia"
+url: "https://www.jonathanbello.com/blogs/buen-profesor-tecnologia/"
 author: "jonathan-bello"
 ---
 

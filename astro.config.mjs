@@ -19,5 +19,5 @@ export default defineConfig({
   },
   integrations: [react(), db(), sitemap()],
   adapter: vercel(),
-  site: "https://jonathanbello.com",
+  site: "https://www.jonathanbello.com",
 });

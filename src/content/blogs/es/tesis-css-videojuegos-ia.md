@@ -10,7 +10,7 @@ techs:
   - Inteligencia Artificial
   - Educación
 category: "ia"
-url: "https://jonathanbello.com/blogs/tesis-css-videojuegos-ia"
+url: "https://www.jonathanbello.com/blogs/tesis-css-videojuegos-ia/"
 author: "jonathan-bello"
 ---
 

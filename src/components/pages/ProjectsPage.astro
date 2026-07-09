@@ -64,8 +64,8 @@ const sortedProjects = [...projects].sort((a, b) => {
         type="button"
         data-project-sort="date"
         aria-pressed="true"
-        class="flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors
-        bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950"
+        class="flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors hover:cursor-pointer
+        bg-neutral-950 text-white hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200"
       >
         {t("projects.sort.date")}
       </button>
@@ -73,7 +73,7 @@ const sortedProjects = [...projects].sort((a, b) => {
         type="button"
         data-project-sort="az"
         aria-pressed="false"
-        class="flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors
+        class="flex-1 sm:flex-none px-4 py-2 text-center text-sm font-semibold transition-colors hover:cursor-pointer
         border-l border-neutral-200 text-neutral-700 hover:bg-neutral-100
         dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900"
       >
@@ -82,10 +82,7 @@ const sortedProjects = [...projects].sort((a, b) => {
     </div>
   </div>
 
-  <div
-    data-project-grid
-    class="contents"
-  >
+  <div data-project-grid class="contents">
     {sortedProjects.map((project) => <ProjectCard project={project} />)}
   </div>
 </ContentListingLayout>
@@ -101,7 +98,10 @@ const sortedProjects = [...projects].sort((a, b) => {
 
     const buttons = Array.from(
       controls.querySelectorAll("[data-project-sort]"),
-    ).filter((button): button is HTMLButtonElement => button instanceof HTMLButtonElement);
+    ).filter(
+      (button): button is HTMLButtonElement =>
+        button instanceof HTMLButtonElement,
+    );
 
     const cards = Array.from(
       grid.querySelectorAll("[data-project-card]"),
@@ -117,6 +117,10 @@ const sortedProjects = [...projects].sort((a, b) => {
         button.classList.toggle("dark:text-neutral-950", isActive);
         button.classList.toggle("text-neutral-700", !isActive);
         button.classList.toggle("dark:text-neutral-300", !isActive);
+        button.classList.toggle("hover:bg-neutral-800", isActive);
+        button.classList.toggle("dark:hover:bg-neutral-200", isActive);
+        button.classList.toggle("hover:bg-neutral-100", !isActive);
+        button.classList.toggle("dark:hover:bg-neutral-900", !isActive);
       });
     };
 

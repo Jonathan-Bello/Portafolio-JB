@@ -3,7 +3,7 @@ id: "cursos-astro-edteam"
 title: "Astro desde cero en EDteam"
 description: "Curso introductorio de Astro impartido en EDteam, nacido de una postulacion inesperada y de la necesidad de convertir experiencia real en una ruta clara de aprendizaje."
 publishDate: 2026-06-01
-cover: "@assets/coversProjects/PosterAstro.webp"
+cover: "@assets/coversProjects/cursos/astro-desde-cero-edteam-cover.webp"
 techs:
   - Astro.js
   - Frontend

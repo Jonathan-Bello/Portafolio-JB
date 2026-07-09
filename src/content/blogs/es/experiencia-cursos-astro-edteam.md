@@ -10,7 +10,7 @@ techs:
   - Frontend
   - EDteam
 category: "educacion"
-url: "https://jonathanbello.com/blogs/experiencia-cursos-astro-edteam"
+url: "https://www.jonathanbello.com/blogs/experiencia-cursos-astro-edteam/"
 author: "jonathan-bello"
 ---
 

@@ -10,7 +10,7 @@ techs:
   - Educación
   - Desarrollo web
 category: "vida"
-url: "https://jonathanbello.com/blogs/maestria-sistemas-computacionales"
+url: "https://www.jonathanbello.com/blogs/maestria-sistemas-computacionales/"
 author: "jonathan-bello"
 ---
 

@@ -3,7 +3,7 @@ id: "portafolio-web"
 title: "Portafolio profesional Jonathan Bello"
 description: "Sitio personal diseñado en Figma y construido con Astro para funcionar como bitácora profesional, archivo de proyectos, blog, SEO y marca personal."
 publishDate: 2025-03-25
-cover: "@assets/coversProjects/JBello.jpg"
+cover: "@assets/coversProjects/sitios-web/portafolio-jonathan-bello-cover.jpg"
 techs:
   - Astro.js
   - Tailwind CSS

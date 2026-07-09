@@ -3,7 +3,7 @@ id: "cssgame-tesis-ia"
 title: "Citadel of the Solar Souls: videojuego educativo de CSS con IA"
 description: "Prototipo 2D tipo metroidvania para aprender CSS mediante retos, editor de codigo, municion basada en propiedades visuales, asistente de IA y evaluacion aplicada a estudiantes."
 publishDate: 2026-05-30
-cover: "@assets/coversProjects/Chooseway.jpg"
+cover: "@assets/coversProjects/videojuegos/citadel_of_solar_souls_cover.png"
 techs:
   - Godot
   - CSS
@@ -12,7 +12,7 @@ techs:
   - Wallace CSS
   - Inteligencia Artificial
 category: ["games", "education", "ai", "web"]
-url: "https://jonathanbello.com/projects/cssgame-tesis-ia"
+url: "https://www.jonathanbello.com/projects/cssgame-tesis-ia/"
 author: "jonathan-bello"
 isRelevant: true
 ---
