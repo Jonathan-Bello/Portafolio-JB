@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title,
-  description = "Jonathan Alexis Bello LÃ³pez - Fullstack Developer con enfoque Frontend, 4 aÃ±os de experiencia, liderazgo tÃ©cnico, educaciÃ³n e inteligencia artificial aplicada.",
+  description = `Jonathan Alexis Bello L${String.fromCharCode(243)}pez - Fullstack Developer con enfoque Frontend, 4 a${String.fromCharCode(241)}os de experiencia, liderazgo t${String.fromCharCode(233)}cnico, educaci${String.fromCharCode(243)}n e inteligencia artificial aplicada.`,
   image = "/lettermark-dark.svg",
   type = "website",
   noindex = false,
@@ -29,11 +29,19 @@ const normalizedPath =
     : `${Astro.url.pathname}/`;
 const siteTitle =
   normalizedPath === "/"
-    ? "Jonathan Alexis Bello LÃ³pez | Desarrollador Web Fullstack Frontend"
-    : `${title} | Jonathan Bello`;
+    ? `Jonathan Alexis Bello L${String.fromCharCode(243)}pez | Desarrollador Web Fullstack Frontend`
+    : `${title}${lang === "en" ? " | Jonathan Bello EN" : " | Jonathan Bello"}`;
 const canonical = new URL(normalizedPath, site).toString();
 const absoluteImage = new URL(image, site).toString();
 const shouldNoindex = noindex || Astro.url.searchParams.size > 0;
+const trimAtWord = (value: string, maxLength: number) => {
+  const normalized = value.replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxLength) return normalized;
+  const shortened = normalized.slice(0, maxLength - 3).replace(/\s+\S*$/, "").trim();
+  return `${shortened}...`;
+};
+const metaDescription = trimAtWord(description, 155);
+const boundedSiteTitle = trimAtWord(siteTitle, 55);
 const staticHreflangPaths = new Set([
   "/",
   "/about/",
@@ -63,12 +71,12 @@ const alternateLinks = staticHreflangPaths.has(normalizedPath)
 const personSchema = {
   "@type": "Person",
   "@id": "https://jonathanbello.com/#person",
-  name: "Jonathan Alexis Bello LÃ³pez",
+  name: `Jonathan Alexis Bello L${String.fromCharCode(243)}pez`,
   alternateName: [
     "Jonathan Bello",
-    "Jonathan Bello LÃ³pez",
-    "Jonathan Alex Bello LÃ³pez",
-    "Jonathan X. Bello LÃ³pez",
+    `Jonathan Bello L${String.fromCharCode(243)}pez`,
+    `Jonathan Alex Bello L${String.fromCharCode(243)}pez`,
+    `Jonathan X. Bello L${String.fromCharCode(243)}pez`,
   ],
   url: "https://jonathanbello.com",
   jobTitle: "Fullstack Developer",
@@ -80,7 +88,7 @@ const personSchema = {
   },
   alumniOf: {
     "@type": "CollegeOrUniversity",
-    name: "Instituto TecnolÃ³gico Superior de TeziutlÃ¡n",
+    name: `Instituto Tecnol${String.fromCharCode(243)}gico Superior de Teziutl${String.fromCharCode(225)}n`,
   },
   affiliation: [
     {
@@ -98,7 +106,7 @@ const personSchema = {
     },
     {
       "@type": "CollegeOrUniversity",
-      name: "Instituto TecnolÃ³gico Superior de TeziutlÃ¡n",
+      name: `Instituto Tecnol${String.fromCharCode(243)}gico Superior de Teziutl${String.fromCharCode(225)}n`,
     },
   ],
   sameAs: [
@@ -123,7 +131,7 @@ const websiteSchema = {
   "@id": "https://jonathanbello.com/#website",
   url: "https://jonathanbello.com",
   name: "Jonathan Bello",
-  alternateName: "Jonathan Alexis Bello LÃ³pez",
+  alternateName: `Jonathan Alexis Bello L${String.fromCharCode(243)}pez`,
   inLanguage: ["es-MX", "en"],
   publisher: {
     "@id": "https://jonathanbello.com/#person",
@@ -141,13 +149,14 @@ const schema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{siteTitle}</title>
-    <meta name="description" content={description} />
+    <title>{boundedSiteTitle}</title>
+    <meta name="description" content={metaDescription} />
     <meta
       name="robots"
       content={shouldNoindex ? "noindex,nofollow" : "index,follow"}
     />
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     {
       alternateLinks.map((alternate) => (
         <link
@@ -157,8 +166,8 @@ const schema = {
         />
       ))
     }
-    <meta property="og:title" content={siteTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={boundedSiteTitle} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={absoluteImage} />
@@ -167,8 +176,8 @@ const schema = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Jonathan_Be110" />
     <meta name="twitter:creator" content="@Jonathan_Be110" />
-    <meta name="twitter:title" content={siteTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={boundedSiteTitle} />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={absoluteImage} />
     <script is:inline>
       function applyStoredTheme() {

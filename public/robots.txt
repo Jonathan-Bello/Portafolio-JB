@@ -6,4 +6,4 @@ Allow: /
 Disallow: /api/
 Disallow: /_server-islands/
 
-Sitemap: https://jonathanbello.com/sitemap.xml
+Sitemap: https://jonathanbello.com/sitemap-index.xml

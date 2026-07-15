@@ -22,8 +22,9 @@ const lang = getLangFromUrl(Astro.url);
 
 const { category } = Astro.params;
 const categories = await getCollection("categoriesProjects");
+const currentCategory = categories.find((cat) => cat.data.id === category);
 
-if (!categories.find((cat) => cat.data.id === category)) {
+if (!currentCategory) {
   return Astro.redirect("/404/");
 }
 
@@ -37,8 +38,12 @@ const projects = allProjects.filter((project) =>
 ---
 
 <BaseLayout
-  title={`Projects ${category}`}
+  title={`Projects: ${currentCategory.data.nameEn}`}
   description={`Jonathan Bello projects in the ${category} category: web development, frontend, education, AI, and digital products.`}
 >
-  <ProjectsPage projects={projects} activeCategory={category} />
+  <ProjectsPage
+    projects={projects}
+    activeCategory={category}
+    pageTitle={`Projects: ${currentCategory.data.nameEn}`}
+  />
 </BaseLayout>

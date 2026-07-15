@@ -27,9 +27,10 @@ const navCategories = categories.map((category) => ({
 interface Props {
   projects: CollectionEntry<"projects">[];
   activeCategory?: string;
+  pageTitle?: string;
 }
 
-const { projects, activeCategory } = Astro.props;
+const { projects, activeCategory, pageTitle } = Astro.props;
 
 const sortedProjects = [...projects].sort((a, b) => {
   return (
@@ -40,7 +41,7 @@ const sortedProjects = [...projects].sort((a, b) => {
 ---
 
 <ContentListingLayout
-  title={t("projects.banner.title")}
+  title={pageTitle ?? t("projects.banner.title")}
   description={t("projects.banner.description")}
   categoryTitle={t("projects.categories.title")}
   categoryAllLabel={t("projects.categories.all")}
