@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 export const prerender = true;
 
-const site = "https://www.jonathanbello.com";
+const site = "https://jonathanbello.com";
 
 function formatUrl(path: string) {
   const normalizedPath =
