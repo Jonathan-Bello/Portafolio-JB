@@ -21,14 +21,8 @@ const { title, percentage } = Astro.props;
   >
     <!-- Barra base con fill y bounce -->
     <div
-      class="h-full bg-primary-600 dark:bg-primary-400 animate-fill-bounce"
-      style={`--bar-width: ${percentage}%;`}
-    >
-    </div>
-    <!-- Capa shimmer encima -->
-    <div
-      class="absolute inset-0 bg-shimmer animate-shimmer"
-      style={`--bar-width: ${percentage}%;`}
+      class="h-full bg-primary-600 dark:bg-primary-400"
+      style={`width: ${percentage}%;`}
     >
     </div>
   </div>
