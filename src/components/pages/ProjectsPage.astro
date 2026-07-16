@@ -31,6 +31,7 @@ interface Props {
 }
 
 const { projects, activeCategory, pageTitle } = Astro.props;
+const pageSize = 12;
 
 const sortedProjects = [...projects].sort((a, b) => {
   return (
@@ -38,6 +39,8 @@ const sortedProjects = [...projects].sort((a, b) => {
     new Date(a.data.publishDate).getTime()
   );
 });
+const initialProjects = sortedProjects.slice(0, pageSize);
+const hasMoreProjects = sortedProjects.length > pageSize;
 ---
 
 <ContentListingLayout
@@ -84,8 +87,22 @@ const sortedProjects = [...projects].sort((a, b) => {
   </div>
 
   <div data-project-grid class="contents">
-    {sortedProjects.map((project) => <ProjectCard project={project} />)}
+    {initialProjects.map((project) => <ProjectCard project={project} />)}
   </div>
+  {hasMoreProjects && (
+    <div class="md:col-span-2 lg:col-span-3 flex justify-center pt-4">
+      <button
+        type="button"
+        data-project-load-more
+        data-project-offset={initialProjects.length}
+        data-project-category={activeCategory ?? ""}
+        class="rounded-lg border border-neutral-900 bg-neutral-900 px-5 py-3 hover:cursor-pointer
+        font-semibold text-white transition hover:bg-neutral-700 disabled:cursor-wait disabled:opacity-60 dark:border-neutral-100 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-300"
+      >
+        {lang === "es" ? `Mostrar m${String.fromCharCode(225)}s proyectos` : "Show more projects"}
+      </button>
+    </div>
+  )}
 </ContentListingLayout>
 
 <script>
@@ -95,6 +112,44 @@ const sortedProjects = [...projects].sort((a, b) => {
 
     if (!(controls instanceof HTMLElement) || !(grid instanceof HTMLElement)) {
       return;
+    }
+
+    const loadMore = document.querySelector("[data-project-load-more]");
+    if (loadMore instanceof HTMLButtonElement && loadMore.dataset.bound !== "true") {
+      loadMore.dataset.bound = "true";
+      loadMore.addEventListener("click", async () => {
+        loadMore.disabled = true;
+        try {
+          const { actions } = await import("astro:actions");
+          const result = await actions.loadMoreProjects({
+            lang: document.documentElement.lang === "en" ? "en" : "es",
+            offset: Number(loadMore.dataset.projectOffset ?? "0"),
+            category: loadMore.dataset.projectCategory || undefined,
+            limit: 12,
+          });
+          if (result.error) throw result.error;
+          const prefix = document.documentElement.lang === "en" ? "/en" : "";
+          result.data.projects.forEach((project) => {
+            const card = document.createElement("article");
+            card.dataset.projectCard = "true";
+            card.dataset.projectTitle = project.title;
+            card.dataset.projectDate = project.publishDate;
+            card.className = "inline-block bg-neutral-50 dark:bg-neutral-900 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105";
+            const categories = project.categories
+              .map((item) => `<a href="${prefix}/projects/category/${item.id}/" class="rounded-lg border border-neutral-200 px-3 py-1 text-sm text-neutral-700 dark:border-neutral-800 dark:text-neutral-300">${item.name}</a>`)
+              .join("");
+            card.innerHTML = `<div class="flex flex-col"><a href="${prefix}/projects/${project.slug}/"><img src="${project.cover}" alt="${project.title}" loading="lazy" decoding="async" class="w-full h-48 object-cover rounded-t-lg"><div class="p-4"><h3 class="font-title text-lg font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-1 overflow-hidden">${project.title}</h3><p class="text-neutral-700 dark:text-neutral-200 mt-2 line-clamp-3">${project.description}</p></div></a><div class="p-4 flex items-start justify-start gap-2 flex-wrap">${categories}</div></div>`;
+            grid.appendChild(card);
+          });
+          const nextOffset = Number(loadMore.dataset.projectOffset ?? "0") + result.data.projects.length;
+          loadMore.dataset.projectOffset = String(nextOffset);
+          if (!result.data.hasMore) loadMore.remove();
+          else loadMore.disabled = false;
+        } catch (error) {
+          console.error("No se pudieron cargar más proyectos", error);
+          loadMore.disabled = false;
+        }
+      });
     }
 
     const buttons = Array.from(
