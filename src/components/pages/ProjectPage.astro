@@ -8,7 +8,10 @@ const t = useTranslations(lang);
 const { project } = Astro.props;
 ---
 
-<EntryLayout entry={project.data}>
+<EntryLayout
+  entry={project.data}
+  transitionName={`project-cover-${project.id.replace(`${lang}/`, "")}`}
+>
   <slot />
 
   <section

@@ -23,6 +23,6 @@ if (!blog) {
 const { Content } = await render(blog);
 ---
 
-<EntryLayout entry={blog.data}>
+<EntryLayout entry={blog.data} transitionName={`blog-cover-${slug}`}>
   <Content />
 </EntryLayout>

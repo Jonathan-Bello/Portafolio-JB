@@ -138,7 +138,7 @@ const hasMoreProjects = sortedProjects.length > pageSize;
             const categories = project.categories
               .map((item) => `<a href="${prefix}/projects/category/${item.id}/" class="rounded-lg border border-neutral-200 px-3 py-1 text-sm text-neutral-700 dark:border-neutral-800 dark:text-neutral-300">${item.name}</a>`)
               .join("");
-            card.innerHTML = `<div class="flex flex-col"><a href="${prefix}/projects/${project.slug}/"><img src="${project.cover}" alt="${project.title}" loading="lazy" decoding="async" class="w-full h-48 object-cover rounded-t-lg"><div class="p-4"><h3 class="font-title text-lg font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-1 overflow-hidden">${project.title}</h3><p class="text-neutral-700 dark:text-neutral-200 mt-2 line-clamp-3">${project.description}</p></div></a><div class="p-4 flex items-start justify-start gap-2 flex-wrap">${categories}</div></div>`;
+            card.innerHTML = `<div class="flex flex-col"><a href="${prefix}/projects/${project.slug}/"><img src="${project.cover}" alt="${project.title}" loading="lazy" decoding="async" style="view-transition-name: project-cover-${project.slug}" class="w-full h-48 object-cover rounded-t-lg"><div class="p-4"><h3 class="font-title text-lg font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-1 overflow-hidden">${project.title}</h3><p class="text-neutral-700 dark:text-neutral-200 mt-2 line-clamp-3">${project.description}</p></div></a><div class="p-4 flex items-start justify-start gap-2 flex-wrap">${categories}</div></div>`;
             grid.appendChild(card);
           });
           const nextOffset = Number(loadMore.dataset.projectOffset ?? "0") + result.data.projects.length;

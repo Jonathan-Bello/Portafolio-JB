@@ -40,6 +40,7 @@ const projectIdCleaned = project.id.replace(`${lang}/`, "");
       <Image
         src={project.data.cover}
         alt={project.data.title}
+        transition:name={`project-cover-${projectIdCleaned}`}
         loading="lazy"
         decoding="async"
         class="w-full h-48 object-cover rounded-t-lg"

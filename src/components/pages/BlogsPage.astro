@@ -71,6 +71,7 @@ const categoryIcons = {
             <Image
               src={blog.data.cover}
               alt={blog.data.title}
+              transition:name={`blog-cover-${blogSlug}`}
               class="w-full h-48 object-cover rounded-t-lg"
             />
             <div class="p-4 flex-1">
