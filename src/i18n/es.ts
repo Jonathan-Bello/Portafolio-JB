@@ -127,6 +127,7 @@ const es = {
         },
       ],
       titleStack: "Stack principal",
+      quoteFallback: "Cargando...",
     },
     techs: {
       title: "Tecnologías",
@@ -150,6 +151,10 @@ const es = {
       label: "Ordenar proyectos",
       date: "Fecha",
       az: "A-Z",
+    },
+    empty: {
+      title: "AÃºn no hay proyectos en esta categorÃ­a",
+      description: "Explora otra categorÃ­a o vuelve a ver todos los proyectos.",
     },
   },
   project: {

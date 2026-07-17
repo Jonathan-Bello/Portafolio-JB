@@ -5,9 +5,8 @@ import {
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 
-import ContactForm from "@components/forms/ContactForm";
+import ContactForm from "@components/forms/ContactForm.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import Button from "@components/buttons/Button.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,6 +14,7 @@ const formLabels = {
   name: t("contact.form.name"),
   email: t("contact.form.email"),
   message: t("contact.form.message"),
+  send: t("contact.form.send"),
   sending: t("contact.form.sending"),
   fallbackError: t("contact.form.error"),
 };
@@ -104,14 +104,7 @@ const formLabels = {
         >
           {t("contact.form.title")}
         </h2>
-        <ContactForm labels={formLabels} lang={lang} client:load>
-          <Button
-            type="submit"
-            text={t("contact.form.send")}
-            size="md"
-            variant="primary"
-          />
-        </ContactForm>
+        <ContactForm labels={formLabels} lang={lang} />
       </div>
     </div>
   </div>

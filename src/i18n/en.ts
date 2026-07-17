@@ -97,6 +97,7 @@ const en = {
         { title: "Values", description: "Clarity, commitment, leadership, continuous learning, scientific thinking, and creativity" },
       ],
       titleStack: "Main stack",
+      quoteFallback: "Good ideas become results when they are built with consistency.",
     },
     techs: {
       title: "Technologies",
@@ -120,6 +121,10 @@ const en = {
       label: "Sort projects",
       date: "Date",
       az: "A-Z",
+    },
+    empty: {
+      title: "There are no projects in this category yet",
+      description: "Explore another category or return to all projects.",
     },
   },
   project: {

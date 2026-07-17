@@ -1,0 +1,137 @@
+---
+interface Props {
+  labels: {
+    name: string;
+    email: string;
+    message: string;
+    send: string;
+    sending: string;
+    fallbackError: string;
+  };
+  lang: "es" | "en";
+}
+
+const { labels, lang } = Astro.props;
+---
+
+<form
+  action="/api/feedback"
+  method="POST"
+  class="space-y-6"
+  data-contact-form
+  data-sending-label={labels.sending}
+  data-send-label={labels.send}
+  data-fallback-error={labels.fallbackError}
+>
+  <input type="hidden" name="lang" value={lang} />
+  <input
+    type="text"
+    name="company"
+    tabindex="-1"
+    autocomplete="off"
+    class="hidden"
+    aria-hidden="true"
+  />
+  <div>
+    <label
+      for="name"
+      class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
+    >
+      {labels.name}
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 disabled:opacity-60"
+    />
+  </div>
+
+  <div>
+    <label
+      for="email"
+      class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
+    >
+      {labels.email}
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 disabled:opacity-60"
+    />
+  </div>
+
+  <div>
+    <label
+      for="message"
+      class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1"
+    >
+      {labels.message}
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      class="w-full px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 transition duration-200 resize-y disabled:opacity-60"
+    ></textarea>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <button
+      type="submit"
+      data-contact-submit
+      class="font-semibold font-text rounded text-center inline-block hover:cursor-pointer bg-primary-700 text-neutral-100 py-3 px-5 text-base hover:bg-primary-800 transition-transform transform hover:scale-105 duration-200 ease-in-out disabled:cursor-wait disabled:opacity-60 disabled:transform-none"
+    >
+      {labels.send}
+    </button>
+  </div>
+
+  <p
+    data-contact-status
+    class="min-h-5 text-center text-sm text-neutral-700 dark:text-neutral-200"
+    role="status"
+    aria-live="polite"
+  ></p>
+</form>
+
+<script>
+  function initContactForms() {
+    document.querySelectorAll<HTMLFormElement>("[data-contact-form]").forEach((form) => {
+      if (form.dataset.bound === "true") return;
+      form.dataset.bound = "true";
+
+      const submitButton = form.querySelector<HTMLButtonElement>("[data-contact-submit]");
+      const status = form.querySelector<HTMLElement>("[data-contact-status]");
+      if (!submitButton || !status) return;
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        submitButton.disabled = true;
+        submitButton.textContent = form.dataset.sendingLabel ?? "Sending...";
+        status.textContent = "";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+          });
+          const data = await response.json();
+          status.textContent = data.message ?? form.dataset.fallbackError ?? "Unable to send the form.";
+          if (response.ok) form.reset();
+        } catch {
+          status.textContent = form.dataset.fallbackError ?? "Unable to send the form.";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = form.dataset.sendLabel ?? "Send";
+        }
+      });
+    });
+  }
+
+  initContactForms();
+  document.addEventListener("astro:page-load", initContactForms);
+</script>
