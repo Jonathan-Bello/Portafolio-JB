@@ -37,7 +37,10 @@ const shouldNoindex = noindex || Astro.url.searchParams.size > 0;
 const trimAtWord = (value: string, maxLength: number) => {
   const normalized = value.replace(/\s+/g, " ").trim();
   if (normalized.length <= maxLength) return normalized;
-  const shortened = normalized.slice(0, maxLength - 3).replace(/\s+\S*$/, "").trim();
+  const shortened = normalized
+    .slice(0, maxLength - 3)
+    .replace(/\s+\S*$/, "")
+    .trim();
   return `${shortened}...`;
 };
 const metaDescription = trimAtWord(description, 155);
@@ -134,7 +137,7 @@ const websiteSchema = {
   alternateName: `Jonathan Alexis Bello L${String.fromCharCode(243)}pez`,
   inLanguage: ["es-MX", "en"],
   publisher: {
-    "@id": "https://jonathanbello.com/#person",
+    "@id": "https://jonathanbello.com/about",
   },
 };
 
@@ -159,11 +162,7 @@ const schema = {
     <link rel="sitemap" href="/sitemap-index.xml" />
     {
       alternateLinks.map((alternate) => (
-        <link
-          rel="alternate"
-          hreflang={alternate.lang}
-          href={alternate.href}
-        />
+        <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />
       ))
     }
     <meta property="og:title" content={boundedSiteTitle} />
@@ -182,7 +181,10 @@ const schema = {
     <script is:inline>
       function applyStoredTheme() {
         const savedTheme = localStorage.getItem("theme");
-        document.documentElement.classList.toggle("dark", savedTheme === "dark");
+        document.documentElement.classList.toggle(
+          "dark",
+          savedTheme === "dark",
+        );
       }
 
       try {
@@ -200,6 +202,7 @@ const schema = {
         document.documentElement.classList.remove("dark");
       }
     </script>
+    <!-- favicon -->
     <link
       rel="icon"
       type="image/svg+xml"
@@ -212,7 +215,12 @@ const schema = {
       href="/lettermark-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!--  -->
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -220,10 +228,7 @@ const schema = {
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=optional"
       rel="stylesheet"
     />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(schema)}
-    />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
     <ClientRouter />
   </head>
